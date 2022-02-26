@@ -1,4 +1,4 @@
-# Capstone
+# Capstone <br>
 # Name
 ### Project
 - [캡스톤 프로젝트 계획서](./.github/report.pdf)
