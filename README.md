@@ -15,8 +15,8 @@
   - Backend(Node.js), Database(Mysql)
 
 
-## 🔧 Infra 
+## 🔧 Infra Stack
 - Frontend: `ejs view engine`
-- Backend: `Node.js` `Express`
+- Backend: <img src="https://img.shields.io/badge/nodeJs-339933?style=plastic&logo=nodejs&logoColor=white"> `Express`
 - Database: `Mysql` `AWS RDS`
 - Server: 'EC2'
