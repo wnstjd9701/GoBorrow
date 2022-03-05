@@ -11,7 +11,7 @@
   - Backend(Node.js), Database(Mysql), Frontend(ejs view engine)
 - 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
   - Backend(Node.js), Database(Mysql)
-- 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
+- 최지윤 [@J1Yun](https://github.com/J1Yun)
   - Backend(Node.js), Database(Mysql)
 
 ## 🔧 Infra Stack
