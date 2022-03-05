@@ -14,7 +14,6 @@
 - 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
   - Backend(Node.js), Database(Mysql)
 
-
 ## 🔧 Infra Stack
 - Frontend: `ejs view engine`
 - Backend: <img src="https://img.shields.io/badge/nodeJs-339933?style=plastic&logo=nodejs&logoColor=white"> `Express`
