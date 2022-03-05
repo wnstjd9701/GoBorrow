@@ -9,7 +9,7 @@
   - Backend(Node.js), Database(Mysql)
 - 이성준 [@castlejun-2](https://github.com/castlejun-2)
   - Backend(Node.js), Database(Mysql), Frontend(ejs view engine)
- - 최지윤 [@J1Yun](https://github.com/J1Yun)
+- 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
   - Backend(Node.js), Database(Mysql)
 - 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
   - Backend(Node.js), Database(Mysql)
