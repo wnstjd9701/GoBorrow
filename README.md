@@ -1,5 +1,5 @@
 # Capstone <br>
-# Name
+# 꿔바로우 - Go borrow
 ### Project
 - [캡스톤 프로젝트 계획서](./.github/report.pdf)
 
