@@ -21,7 +21,7 @@
 
 ## 🔧 Infra Stack
 
-- Frontend: <img src="https://img.shields.io/badge/ejs-yellow?style=plastic&logo=ejs&logoColor=white">
+- Frontend: <img src="https://img.shields.io/badge/ejs-yellow?style=plastic&logo=ejs&logoColor=white">, <img src="https://img.shields.io/badge/react-61DAFB?style=plastic&logo=react&logoColor=black">
 
 - Backend: <img src="https://img.shields.io/badge/node.js-339933?style=plastic&logo=node.js&logoColor=white"> , <img src="https://img.shields.io/badge/express-339933?style=plastic&logo=Express&logoColor=black">, <img src="https://img.shields.io/badge/Nginx-339933?style=plastic&logo=NGINX&logoColor=white">, <img src="https://img.shields.io/badge/Apache-339933?style=plastic&logo=apache&logoColor=white">
 
