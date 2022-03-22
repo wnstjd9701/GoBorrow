@@ -19,6 +19,8 @@
 - 최지윤 [@J1Yun](https://github.com/J1Yun)
   - Backend(Node.js), Database(Mysql)
 
+<br>
+
 ## 🔧 Infra Stack
 
 - Frontend: <img src="https://img.shields.io/badge/ejs-yellow?style=plastic&logo=ejs&logoColor=white">, <img src="https://img.shields.io/badge/react-61DAFB?style=plastic&logo=react&logoColor=black">
@@ -28,3 +30,36 @@
 - Database: <img src="https://img.shields.io/badge/mysql-4479A1?style=plastic&logo=mysql&logoColor=white">, <img src="https://img.shields.io/badge/AWS RDS-FF8C00?style=plastic&logo=amazonAWS&logoColor=black">
 
 - Server: <img src="https://img.shields.io/badge/EC2-FF8C00?style=plastic&logo=amazonAWS&logoColor=black">
+
+<br>
+
+## 📂 Folder Structure
+
+```javascript
+📂 server
+    📂 config
+    ├── 📄 baseResponseStatus.js
+    ├── 📄 database.js
+    ├── 📄 express.js
+    ├── 📄 jwtMiddleware.js
+    ├── 📄 response.js
+    📂 src
+    └── 📂 app
+        ├── 📂 User
+        |    ├── 📄 userController.js
+        |    ├── 📄 userDao.js
+        |    ├── 📄 userProvider.js
+        |    ├── 📄 userRoute.js
+        |    └── 📄 userService.js
+        ├── 📂 Product
+        |    ├── 📄 productController.js
+        |    ├── 📄 productDao.js
+        |    ├── 📄 productProvider.js
+        |    ├── 📄 productRoute.js
+        |    └── 📄 productService.js
+    📄 .gitignore
+    📄 app.js
+    📄 server.js
+    📄 package.json
+    📄 README.md
+```
