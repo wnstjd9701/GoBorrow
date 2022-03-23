@@ -4,20 +4,21 @@
 
 - [캡스톤 프로젝트 계획서](./.github/report.pdf)
 
+- [캡스톤 1차 발표](./.github/1_ppt)
+
 ## 👨‍👩‍👧‍👦 Members
 
-## 렌즈(Lend Please)
-
+**렌즈(Lend Please)**
 <br>
 
 - 윤준성 [@wnstjd9701](https://github.com/wnstjd9701)
   - Backend(Node.js), Database(Mysql)
 - 이성준 [@castlejun-2](https://github.com/castlejun-2)
-  - Backend(Node.js), Database(Mysql), Frontend(ejs view engine)
+  - Backend(Node.js), Database(Mysql), Frontend(React)
 - 최한윤 [@chlgksdbs](https://github.com/chlgksdbs)
   - Backend(Node.js), Database(Mysql)
 - 최지윤 [@J1Yun](https://github.com/J1Yun)
-  - Backend(Node.js), Database(Mysql)
+  - Backend(Node.js), Database(Mysql), Frontend(React)
 
 <br>
 
