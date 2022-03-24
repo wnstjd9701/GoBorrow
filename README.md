@@ -1,4 +1,4 @@
-# Go borrow
+# <img src="https://user-images.githubusercontent.com/72984407/159912372-e92f18a0-8867-4ba8-9c95-352084d74855.png" width="30" height="30"/> Go borrow
 
 ### Project
 
@@ -8,8 +8,7 @@
 
 ## 👨‍👩‍👧‍👦 Members
 
-**렌즈(Lend Please)**
-<br>
+## <img src="https://user-images.githubusercontent.com/72984407/159912785-9ab36479-a795-493f-b2c3-2fb638c76f7b.png" width="30" height="30"/> &nbsp; 렌즈(Lend Please)
 
 - 윤준성 [@wnstjd9701](https://github.com/wnstjd9701)
   - Backend(Node.js), Database(Mysql)
