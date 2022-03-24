@@ -8,7 +8,7 @@
 
 ## 👨‍👩‍👧‍👦 Members
 
-## <img src="https://user-images.githubusercontent.com/72984407/159912785-9ab36479-a795-493f-b2c3-2fb638c76f7b.png" width="30" height="30"/> &nbsp; 렌즈(Lend Please)
+### <img src="https://user-images.githubusercontent.com/72984407/159912785-9ab36479-a795-493f-b2c3-2fb638c76f7b.png" width="30" height="30"/> &nbsp; 렌즈(Lend Please)
 
 - 윤준성 [@wnstjd9701](https://github.com/wnstjd9701)
   - Backend(Node.js), Database(Mysql)
