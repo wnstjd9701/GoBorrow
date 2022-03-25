@@ -36,6 +36,40 @@
 ## 📂 Folder Structure
 
 ```javascript
+📂 client
+    📂 public
+    ├── 📄 index.html
+    ├── 📄 manifest.json
+    ├── 📄 robots.txt
+    📂 src
+    └── 📂 _actions
+    |    ├── 📄 action_type.js
+    |    ├── 📄 user_action.js
+    └── 📂 _reducers
+    |    ├── 📄 index.js
+    |    ├── 📄 user_reducer.js
+    └── 📂 components
+         └── 📂 views
+              └── 📂 Footer
+              |    ├── 📄 Footer.js
+              └── 📂 Header
+              |    ├── 📄 Header.js
+              └── 📂 LandingPage
+              |    ├── 📄 LandingPage.js
+              └── 📂 LoginPage
+              |    ├── 📄 LoginLandingPage.js
+              |    ├── 📄 LoginPage.js
+              |    ├── 📄 RegisterPage.js
+    📄 App.css
+    📄 App.js
+    📄 index.css
+    📄 index.js
+    📄 logo.svg
+    📄 reportWebVitals.js
+    📄 .gitignore
+    📄 package-lock.json
+    📄 package.json
+
 📂 server
     📂 config
     ├── 📄 baseResponseStatus.js
@@ -61,6 +95,7 @@
     📄 app.js
     📄 server.js
     📄 package.json
+    📄 package-lock.json
     📄 README.md
 ```
 
