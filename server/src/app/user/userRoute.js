@@ -4,5 +4,5 @@ const router = Router();
 import userController from './userController.js';
 
 router.post('/signUp', userController.postUser);
-router.post('/test', userController.test);
+router.get('/test', userController.test);
 export default router;

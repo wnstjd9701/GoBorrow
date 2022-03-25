@@ -27,7 +27,7 @@ class userController {
   };
 
   test = async function (req, res) {
-    return res.json('test success');
+    return res.send('test success');
   };
 }
 
