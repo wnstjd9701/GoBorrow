@@ -1,8 +1,10 @@
 import { Router } from 'express';
-const router = Router();
+const app = Router();
 
 import userController from './userController.js';
+//import { token, authentication } from '../../../config/jwtMiddleware.js';
 
-router.post('/signUp', userController.postUser);
-router.get('/test', userController.test);
-export default router;
+app.post('/signUp', userController.postUser); // 회원가입 API
+app.post('/login', userController.login); // 로그인 API
+app.get('/login', userController.authenticateAccessToken);
+export default app;

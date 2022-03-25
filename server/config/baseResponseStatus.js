@@ -11,5 +11,6 @@ export const SIGNUP_NAME_EMPTY = { isSuccess: false, code: 2005, message: '이�
 export const SIGNUP_REDUNDANT_EMAIL = { isSuccess: false, code: 2006, message: '존재하는 닉네임(Id)입니다.' };
 export const UPDATE_ERROR_TYPE = { isSuccess: false, code: 2007, message: '잘못된 형식 입니다.' };
 export const ID_ALREADY_EXISTS = { isSuccess: false, code: 2008, message: '이미 존재하는 아이디 입니다.' };
+export const ID_EMPTY = { isSuccess: false, code: 2009, message: '아이디를 입력하세요' };
 export const SERVER_CONNECT_ERROR = { isSuccess: false, code: 3000, message: '서버 접속 에러입니다.' };
 export const LOGIN_ERROR = { isSuccess: false, code: 3000, message: '이용하려면 로그인 하세요' };

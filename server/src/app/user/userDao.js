@@ -1,4 +1,4 @@
-export async function checkUserId(connection, id) {
+export async function selectUserId(connection, id) {
   const getUserId = `
     SELECT id FROM User WHERE id = ?
     `;
@@ -6,4 +6,10 @@ export async function checkUserId(connection, id) {
   return userIdResult;
 }
 
-export async function createUserAccount(connection, id) {}
+export async function createUserAccount(connection, params) {
+  const insertUserInfo = `
+  INSERT INTO User(distinction, id, password, name, address) VALUES (?, ?, ?, ?, ?)
+  `;
+  const [userIdResult] = await connection.query(insertUserInfo, params);
+  return userIdResult;
+}

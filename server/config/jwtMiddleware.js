@@ -1,31 +1,37 @@
-const jwt = require('jsonwebtoken');
-const { response } = require('./baseResponseStatus');
-const baseResponse = require('./baseResponseStatus');
-require('dotenv').config();
-const jwtMiddleware = (req, res, next) => {
-  // read the token from header or url
-  const token = req.headers['x-access-token'] || req.query.token;
-  // token does not exist
-  if (!token) {
-    return res.send(errResponse(baseResponse.TOKEN_EMPTY));
-  }
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+import { TOKEN_EMPTY, TOKEN_VERIFICATION_FAILURE, TOKEN_VERIFICATION_SUCCESS } from './baseResponseStatus.js';
+dotenv.config();
 
-  // create a promise that decodes the token
-  const p = new Promise((resolve, reject) => {
-    jwt.verify(token, process.env.JWT_SECRET, (err, verifiedToken) => {
-      if (err) reject(err);
-      resolve(verifiedToken);
-    });
-  });
-
-  // if it has failed to verify, it will return an error message
-  const onError = (error) => {
-    return res.send(errResponse(baseResponse.TOKEN_VERIFICATION_FAILURE));
+class jwtMiddleware {
+  token = () => {
+    return {
+      access(id) {
+        return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
+          expiresIn: '15m',
+        });
+      },
+      refresh(id) {
+        return jwt.sign({ id }, process.env.REFRESH_TOKEN_SECRET, {
+          expiresIn: '180 days',
+        });
+      },
+    };
   };
-  // process the promise
-  p.then((verifiedToken) => {
-    //비밀 번호 바뀌었을 때 검증 부분 추가 할 곳
-    req.verifiedToken = verifiedToken;
-    next();
-  }).catch(onError);
-};
+
+  authentication = (req, res, next) => {
+    let authHeader = req.headers['authorization'];
+    const token = authHeader && req.headers.authorization.split('Bearer ')[1];
+    if (!token) return res.send(baseResponse.TOKEN_EMPTY);
+
+    jwt
+      .verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return res.send(baseResponse.TOKEN_VERIFICATION_FAILURE);
+
+        req.user = user;
+        next();
+      })
+      .catch(err);
+  };
+}
+export default new jwtMiddleware();
