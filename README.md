@@ -63,3 +63,25 @@
     📄 package.json
     📄 README.md
 ```
+
+## 💻 How to Run ?
+
+Frontend & Backend
+
+```
+$ npm run dev
+```
+
+Frontend
+
+```
+$ cd client
+$ npm start
+```
+
+Backend
+
+```
+$ cd server
+$ nodemon app.js
+```
