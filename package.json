@@ -2,14 +2,18 @@
   "name": "GoBorrow",
   "version": "1.0.0",
   "description": "Capstone Design Project",
-  "main": "server.js",
+  "main": "app.js",
   "repository": "https://github.com/wnstjd9701/GoBorrow.git",
   "author": "wnstjd9701 <wnstjd9701@naver.com>",
   "license": "MIT",
   "scripts": {
-    "server": "cd server && nodemon server",
-    "frontend": "cd frontend && yarn start",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn frontend\""
+    "start": "babel-node server/app.js",
+    "server": "nodemon --exec babel-node server/app.js --delay 2",
+    "dev": "concurrently \"npm run server\" \"npm run start --prefix client\""
+  },
+  "type": "module",
+  "compilerOptions": {
+    "target": "es6"
   },
   "dependencies": {
     "concurrently": "^7.0.0",
@@ -17,6 +21,12 @@
     "express": "^4.17.3",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11"
   }
 }

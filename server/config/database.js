@@ -1,7 +1,8 @@
-const mysql = require('mysql2/promise'); // async await
-require('dotenv').config();
+import { createPool } from 'mysql2/promise'; // async await
+import dotenv from 'dotenv';
+dotenv.config();
 
-const pool = mysql.createPool({
+export const pool = createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   port: process.env.DB_PORT,
@@ -9,7 +10,3 @@ const pool = mysql.createPool({
   database: process.env.DB_DATABASE,
   multipleStatements: true,
 });
-
-module.exports = {
-  pool: pool,
-};
