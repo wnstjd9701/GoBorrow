@@ -8,6 +8,10 @@ import {
   ID_EMPTY,
   TOKEN_VERIFICATION_FAILURE,
   SUCCESS,
+  ADDRESS_EMPTY,
+  PHONENUMBER_EMPTY,
+  Id_LENGTH_ERROR,
+  PASSWORD_LENGTH_ERROR,
 } from '../../../config/baseResponseStatus.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -20,15 +24,15 @@ class userController {
    * [POST] /app/users/signUp
    */
   postUser = async function (req, res) {
-    const { distinction, id, password, verifiedPassword, name, address } = req.body;
-
+    const { id, password, name, phoneNumber, address, info, distinction } = req.body;
     if (!id) return res.send(NICKNAME_EMPTY); // code 2000
+    if (id.length > 20) return res.send(Id_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
-    if (!verifiedPassword) return res.send(SIGNUP_VERIFIEDPASSWORD_EMPTY); // code 2004
+    if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
     if (!name) return res.send(SIGNUP_NAME_EMPTY); // code 2005
-    if (password != verifiedPassword) return res.send(PASSWORD_WRONG); // code 2003
-
-    const signUpResponse = await createUser(distinction, id, password, name, address);
+    if (!address) return res.send(ADDRESS_EMPTY); // code 2010
+    if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
+    const signUpResponse = await createUser(id, password, name, phoneNumber, address, info, distinction);
     return res.send(signUpResponse);
   };
 
