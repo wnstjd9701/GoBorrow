@@ -20,3 +20,6 @@ export const LOGIN_ERROR = { isSuccess: false, code: 3000, message: '이용하�
 export const PHONENUMBER_EMPTY = { isSuccess: false, code: 2011, message: '핸드폰 번호를 입력하세요. ' };
 export const ID_LENGTH_ERROR = { isSuccess: false, code: 2012, message: '아이디 길이를 확인하세요. ' };
 export const PASSWORD_LENGTH_ERROR = { isSuccess: false, code: 2013, message: '비밀번호 길이를 확인하세요. ' };
+export const ACCESS_TOKEN_VERIFICATION_FAILURE = { isSuccess: false, code: 3001, message: 'AccessToken의 권한이 없습니다. ' };
+export const TOKEN_EXPIRED = { isSuccess: false, code: 3002, message: 'JWT 토큰 만료' };
+export const TOKEN_IS_VALID = { isSuccess: false, code: 3003, message: 'AccessToken이 만료되지 않았습니다. ' };

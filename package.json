@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Capstone Design Project",
   "main": "app.js",
+  "type": "module",
   "repository": "https://github.com/wnstjd9701/GoBorrow.git",
   "author": "wnstjd9701 <wnstjd9701@naver.com>",
   "license": "MIT",

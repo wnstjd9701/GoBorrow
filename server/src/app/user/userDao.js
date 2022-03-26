@@ -5,7 +5,13 @@ export async function selectUserId(connection, id) {
   const [userIdResult] = await connection.query(getUserId, id);
   return userIdResult;
 }
-
+export async function getUserInfo(connection, params) {
+  const getUserInformation = `
+  SELECT id, distinction FROM User WHERE id = ? and password = ?
+  `;
+  const [userInfoResult] = await connection.query(getUserInformation, params);
+  return userInfoResult;
+}
 export async function createUserAccount(connection, params) {
   const insertUserInfo = `
   INSERT INTO User (id, password, userName, phoneNumber, address, info, distinction) VALUES (?, ?, ?, ?, ?, ?, ?)
