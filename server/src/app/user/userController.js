@@ -49,5 +49,9 @@ class userController {
     const loginResult = await userLogin(id, password, distinction);
     return res.send(loginResult);
   };
+  logout = async function (req, res) {
+    res.cookies('access_token', '', { maxAge: 1 });
+    res.redirect('/');
+  };
 }
 export default new userController();
