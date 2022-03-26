@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const TeamMember = [
     {
       name: '천재개발자 최지윤',
@@ -40,7 +40,7 @@ export default function LandingPage() {
         }}
       >
         Member
-        <div style={{ width: '300px', margin: '0 auto', textAlign: 'center', 'background-color': 'black', color: 'white' }}>
+        <div style={{ width: '300px', margin: '0 auto', textAlign: 'center', backgroundColor: 'black', color: 'white' }}>
           {TeamMember.map(element => (
             <div style={{ padding: '5px', border: '1px solid white', fontSize: '15px' }}>
               {element.name} <span style={{ fontSize: '12px' }}>({element.github})</span>

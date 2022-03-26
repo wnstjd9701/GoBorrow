@@ -44,7 +44,7 @@ export default function LoginLandingPage() {
           <Login />
         </div>
       </div>
-      <Link to="/users/register">
+      <Link to="/app/users/register">
         <button style={{ background: 'black', width: '100px', marginTop: '10px' }} type="submit" className="btn_login" id="log.register">
           <span style={{ color: 'white' }} className="btn_text">
             회원가입

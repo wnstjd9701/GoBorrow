@@ -27,19 +27,28 @@ export default function RegisterPage() {
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    if (Password !== PasswordConfirm) {
+    if (!Nickname) {
+      return alert('아이디를 입력해주세요.');
+    } else if (!Password) {
+      return alert('비밀번호를 입력해주세요.');
+    } else if (!PasswordConfirm) {
+      return alert('비밀번호 확인을 입력해주세요.');
+    } else if (!Address) {
+      return alert('주소를 입력해주세요.');
+    } else if (Password !== PasswordConfirm) {
       return alert('비밀번호와 비밀번호 확인은 같아야합니다.');
     }
+
     const body = {
       nickname: Nickname,
       password: Password,
-      passwordConfirm: PasswordConfirm,
+      address: Address,
     };
 
     dispatch(registerUser(body)).then(response => {
       if (response.payload.success) {
         alert(response.payload.message);
-        navigate('/users/login');
+        navigate('/app/users/login');
       } else {
         alert(response.payload.message);
       }
