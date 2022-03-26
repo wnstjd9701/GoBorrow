@@ -13,3 +13,10 @@ export async function createUserAccount(connection, params) {
   const [userIdResult] = await connection.query(insertUserInfo, params);
   return userIdResult;
 }
+export async function checkPasswordByUserId(connection, params) {
+  const getUserPassword = `
+          SELECT exists (SELECT id FROM User WHERE id=? and password=? and isDeleted=0) as exist;
+          `;
+  const [userPasswordRows] = await connection.query(getUserPassword, params);
+  return userPasswordRows;
+}
