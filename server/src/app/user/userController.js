@@ -21,6 +21,7 @@ class userController {
    */
   postUser = async function (req, res) {
     const { distinction, id, password, verifiedPassword, name, address } = req.body;
+
     if (!id) return res.send(NICKNAME_EMPTY); // code 2000
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
     if (!verifiedPassword) return res.send(SIGNUP_VERIFIEDPASSWORD_EMPTY); // code 2004
@@ -40,23 +41,10 @@ class userController {
     const { distinction, id, password } = req.body;
     if (!id) return res.send(ID_EMPTY); // code 2009
     if (!password) return res.send(PASSWORD_EMPTY); // code 2003
+    // 여기서 if 처리 ?
 
     const signUpResponse = userLogin(distinction, id, password);
-  };
-
-  /**
-   * Login Middleware
-   */
-  authenticateAccessToken = (req, res) => {
-    let authHeader = req.headers['authorization'];
-    const token = authHeader && req.headers.authorization.split('Bearer ')[1];
-    if (!token) return res.send(baseResponse.TOKEN_EMPTY);
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-      console.log(err.name);
-      if (err) return res.json({ ErrorMesasage: err.name });
-
-      req.user = user;
-    });
+    return res.send(signUpResponse);
   };
 }
 export default new userController();
