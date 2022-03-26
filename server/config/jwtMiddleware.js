@@ -24,14 +24,12 @@ class jwtMiddleware {
     const token = authHeader && req.headers.authorization.split('Bearer ')[1];
     if (!token) return res.send(baseResponse.TOKEN_EMPTY);
 
-    jwt
-      .verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) return res.send(baseResponse.TOKEN_VERIFICATION_FAILURE);
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if (err) return res.send(baseResponse.TOKEN_VERIFICATION_FAILURE);
 
-        req.user = user;
-        next();
-      })
-      .catch(err);
+      req.user = user;
+      next();
+    });
   };
 }
 export default new jwtMiddleware();
