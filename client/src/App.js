@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Navigate, BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginLandingPage from './components/views/LoginPage/LoginLandingPage';
 import RegisterPage from './components/views/LoginPage/RegisterPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/app">
       <div>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
