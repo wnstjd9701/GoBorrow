@@ -51,7 +51,7 @@ class userController {
     return res.send(loginResult);
   };
   logout = async function (req, res) {
-    res.cookies('access_token', '', { maxAge: 1 });
+    res.cookie('accessToken', '', { maxAge: 1 });
     res.redirect('/app');
   };
 }
