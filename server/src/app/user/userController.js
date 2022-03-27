@@ -40,6 +40,7 @@ class userController {
    * [POST] /app/users/login
    */
   login = async function (req, res) {
+    // distinction 1: 기업, 2: 사용자
     const { id, password, distinction } = req.body;
     if (!id) return res.send(ID_EMPTY); // code 2009
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
