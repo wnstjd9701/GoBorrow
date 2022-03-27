@@ -40,6 +40,12 @@ code {
   box-sizing: border-box;
 }
 
+.register_wrap {
+  width: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .menu_wrap {
   display: table;
   table-layout: fixed;

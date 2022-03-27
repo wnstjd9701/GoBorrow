@@ -18,13 +18,12 @@ export default function LoginPage() {
   const onSubmitHandler = e => {
     e.preventDefault();
     const body = {
-      nickname: Nickname,
-      Password: Password,
+      id: Nickname,
+      password: Password,
     };
 
     dispatch(loginUser(body)).then(response => {
-      console.log(response.payload);
-      if (response.payload.success) {
+      if (response.payload.isSuccess) {
         navigate('/');
       } else {
         alert(response.payload.message);

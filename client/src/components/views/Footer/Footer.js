@@ -5,11 +5,12 @@ export default function Footer() {
     textAlign: 'center',
     fontSize: '12px',
     marginTop: '10px',
+    marginBottom: '10px',
     fontWeight: '550',
   };
   return (
     <footer style={footer_style}>
-      <span>©RPS.</span>
+      <span>©Dankook University`s GoBorrow Team.</span>
     </footer>
   );
 }
