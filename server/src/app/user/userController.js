@@ -13,7 +13,8 @@ import {
   ID_LENGTH_ERROR,
   PASSWORD_LENGTH_ERROR,
 } from '../../../config/baseResponseStatus.js';
-import Cookie from 'js-cookie';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class userController {
   /**
