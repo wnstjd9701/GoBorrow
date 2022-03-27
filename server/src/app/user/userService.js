@@ -39,7 +39,7 @@ export async function userLogin(id, password, distinction) {
     console.log(checkResult.length);
     if (checkResult.length >= 1) {
       // DB에서 비교후에 id가 존재할 경우
-      const accessToken = jwt.sign({ id: id, userDistinction: distinction }, process.env.JWT_SECRET, { expiresIn: '15m' });
+      const accessToken = jwt.sign({ id: id, userDistinction: distinction }, process.env.JWT_SECRET, { expiresIn: '60m' });
       const refreshToken = jwt.sign({ id: id, userDistinction: distinction }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
         message: SUCCESS,
