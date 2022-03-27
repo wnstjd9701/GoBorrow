@@ -25,7 +25,7 @@ class userController {
     if (!id) return res.send(NICKNAME_EMPTY); // code 2000
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
-    if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
+    if (password.length < 6 || password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
     if (!name) return res.send(SIGNUP_NAME_EMPTY); // code 2005
     if (!address) return res.send(ADDRESS_EMPTY); // code 2010
     if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
@@ -40,6 +40,7 @@ class userController {
    * [POST] /app/users/login
    */
   login = async function (req, res) {
+    // distinction 1: 기업, 2: 사용자
     const { id, password, distinction } = req.body;
     if (!id) return res.send(ID_EMPTY); // code 2009
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
@@ -50,7 +51,7 @@ class userController {
     return res.send(loginResult);
   };
   logout = async function (req, res) {
-    res.cookies('access_token', '', { maxAge: 1 });
+    res.cookie('accessToken', '', { maxAge: 1 });
     res.redirect('/app');
   };
 }

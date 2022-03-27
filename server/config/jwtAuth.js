@@ -40,9 +40,17 @@ class jwtAuthorization {
       if (err) return res.send(TOKEN_VERIFICATION_FAILURE);
       // refreshToken을 검증한 data.id 와 매개변수로 받은 accessToken을 decoded한 정보가 같을 경우
       if (data.id === userId.id && data.distinction === userId.distinction) {
-        return true;
+        return {
+          isSuccess: true,
+          id: userId.id,
+          distinction: userId.distincation,
+        };
       } else {
-        return false;
+        return {
+          isSuccess: false,
+          name: err.name,
+          message: err.message,
+        };
       }
     });
   };
