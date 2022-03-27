@@ -10,7 +10,7 @@ export async function loginUser(dataToSubmit) {
 }
 
 export async function registerUser(dataToSubmit) {
-  const request = await axios.post('/app/users/signUp', dataToSubmit).then(response => response.data);
+  const request = await axios.post('/app/users', dataToSubmit).then(response => response.data);
   return {
     type: REGISTER_USER,
     payload: request,

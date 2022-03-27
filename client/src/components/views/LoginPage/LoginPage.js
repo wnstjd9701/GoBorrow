@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 export default function LoginPage() {
   let navigate = useNavigate();
@@ -23,7 +24,9 @@ export default function LoginPage() {
     };
 
     dispatch(loginUser(body)).then(response => {
-      if (response.payload.isSuccess) {
+      if (response.payload.message.isSuccess) {
+        localStorage.setItem('accessToken', response.payload.accessToken);
+        localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
         navigate('/');
       } else {
         alert(response.payload.message);

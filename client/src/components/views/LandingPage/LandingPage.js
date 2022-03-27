@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import authAxios from '../../../lib/refreshToken';
 
 export default function LandingPage(props) {
   const TeamMember = [
@@ -21,7 +22,7 @@ export default function LandingPage(props) {
     },
   ];
   useEffect(() => {
-    axios.post('/api/user/test').then(res => {
+    authAxios.post('/app/users/test').then(res => {
       console.log(res.data);
     });
   }, []);
