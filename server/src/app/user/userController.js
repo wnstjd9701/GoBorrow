@@ -25,7 +25,7 @@ class userController {
     if (!id) return res.send(NICKNAME_EMPTY); // code 2000
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
-    if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
+    if (password.length < 6 || password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
     if (!name) return res.send(SIGNUP_NAME_EMPTY); // code 2005
     if (!address) return res.send(ADDRESS_EMPTY); // code 2010
     if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
