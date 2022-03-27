@@ -23,6 +23,7 @@ export default function LoginPage() {
     };
 
     dispatch(loginUser(body)).then(response => {
+      console.log(response.payload);
       if (response.payload.success) {
         navigate('/');
       } else {

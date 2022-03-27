@@ -88,6 +88,7 @@ export default function RegisterPage() {
                       title="비밀번호"
                       className="input_text"
                       maxLength="16"
+                      minLength="6"
                     />
                   </div>
                   <div className="input_row" id="pwConfirm_line">
@@ -101,6 +102,7 @@ export default function RegisterPage() {
                       title="비밀번호 확인"
                       className="input_text"
                       maxLength="16"
+                      minLength="6"
                     />
                   </div>
                   <div className="input_row" id="address_line">
