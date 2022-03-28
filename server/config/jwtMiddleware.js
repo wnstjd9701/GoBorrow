@@ -28,8 +28,8 @@ export const authentication = (req, res, next) => {
     if (err)
       return res.send({
         isSuccess: false,
-        errorName: err.name,
-        errMessage: err.message,
+        name: err.name,
+        message: err.message,
       });
 
     req.id = user.id;
@@ -41,7 +41,72 @@ export const authentication = (req, res, next) => {
 /**
  *  API No. 3
  *  API Name : 토큰 재발급 API
- * [POST] /auth/token
+ * [GET] /auth/accesstoken
+ */
+export const reissuanceAccessToken = async (req, res) => {
+  //const accessToken = req.headers.authorization.split('Bearer ')[1];
+  const refreshToken = req.headers.refreshtoken;
+  // refreshToken이 존재하지 않을 경우
+  if (refreshToken === undefined || refreshToken === '') {
+    return res.send({
+      isSuccess: false,
+      code: 5001,
+      name: 'RefreshToken',
+      message: 'RefreshToken doesn`t exist',
+    });
+  }
+  const refreshResult = await jwt.verify(refreshToken, process.env.JWT_SECRET, (err, data) => {
+    if (err)
+      return {
+        isSuccess: false,
+        code: 5002,
+        name: err.name,
+        message: err.message,
+      };
+
+    return {
+      isSuccess: true,
+      code: 5003,
+      name: 'verify',
+      message: 'Veryfy Success',
+      id: data.id,
+      distinction: data.distinction,
+    };
+  });
+  // refreshToken이 만료되었을 경우
+  if (refreshResult.isSuccess === false && refreshResult.message === 'jwt expired') {
+    return res.send({
+      isSuccess: false,
+      code: 5004,
+      name: 'JWT 만료',
+      message: '다시 로그인 하세요. ',
+    });
+  }
+  const payload = {
+    id: refreshResult.id,
+    distinction: refreshResult.distinction,
+  };
+  // refreshToken이 유효할 경우 accessToken 재발급
+  if (refreshResult.isSuccess === true) {
+    const newAccessToken = await jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+    return res.send({
+      isSuccess: true,
+      code: 5000,
+      name: 'Reissuance',
+      message: 'Reissuance NewAccessToken',
+      accessToken: newAccessToken,
+    });
+  }
+  // 그 외의 경우 ex) token값이 잘못된 경우
+  return res.send(refreshResult);
+};
+
+/**
+ *  API No.
+ *  API Name : 토큰 재발급 API
+ * [GET] /auth/reissuancetoken
  */
 export const reissuanceToken = (req, res) => {
   // access token 과 refresh token의 존재 유무 확인
@@ -108,6 +173,6 @@ export const reissuanceToken = (req, res) => {
     }
   } else {
     // access token 또는 refresh token이 헤더에 없는 경우
-    res.send(TOKEN_EMPTY);
+    return res.send(TOKEN_EMPTY);
   }
 };

@@ -56,15 +56,13 @@ class userController {
     });
     return res.send(loginResult);
   };
-  /**
-   *  API No. 3
-   *  API Name : 사용자 로그아웃 API
-   * [POST] /app/users/logout
-   */
-  logout = async function (req, res) {
-    res.clearCookie('accessToken'); // accesstoken 삭제
-    res.clearCookie('refreshToken'); // refreshtoken 삭제
-    res.redirect('/app');
+
+  test = async function (req, res) {
+    const userId = req.id;
+    const userDistinction = req.distinction;
+    console.log('req.id: ' + userId);
+    console.log('req.distinction ' + userDistinction);
+    return res.send(SUCCESS);
   };
 }
 export default new userController();
