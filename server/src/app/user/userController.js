@@ -57,5 +57,9 @@ class userController {
     });
     return res.send(loginResult);
   };
+
+  test = async function (req, res) {
+    return req.headers;
+  };
 }
 export default new userController();

@@ -23,7 +23,6 @@ export const authentication = (req, res, next) => {
   let authHeader = req.headers['authorization'];
   const token = authHeader && req.headers.authorization.split('Bearer ')[1];
   if (!token) return res.send(TOKEN_EMPTY);
-
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err)
       return res.send({
@@ -45,7 +44,7 @@ export const authentication = (req, res, next) => {
  */
 export const reissuanceAccessToken = async (req, res) => {
   //const accessToken = req.headers.authorization.split('Bearer ')[1];
-  const refreshToken = req.headers.refreshtoken;
+  const refreshToken = req.cookies.refreshToken;
   // refreshToken이 존재하지 않을 경우
   if (refreshToken === undefined || refreshToken === '') {
     return res.send({

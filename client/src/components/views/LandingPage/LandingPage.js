@@ -21,9 +21,7 @@ export default function LandingPage(props) {
     },
   ];
   useEffect(() => {
-    authAxios.post('/app/users/test').then(res => {
-      // console.log('hi');
-    });
+    // authAxios.post('/app/users/test').then(res => {});
   }, []);
   return (
     <>
@@ -41,8 +39,8 @@ export default function LandingPage(props) {
       >
         Member
         <div style={{ width: '300px', margin: '0 auto', textAlign: 'center', backgroundColor: 'black', color: 'white' }}>
-          {TeamMember.map(element => (
-            <div style={{ padding: '5px', border: '1px solid white', fontSize: '15px' }}>
+          {TeamMember.map((element, index) => (
+            <div key={index} style={{ padding: '5px', border: '1px solid white', fontSize: '15px' }}>
               {element.name} <span style={{ fontSize: '12px' }}>({element.github})</span>
             </div>
           ))}
