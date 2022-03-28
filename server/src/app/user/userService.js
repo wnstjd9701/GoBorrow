@@ -31,7 +31,7 @@ export async function userLogin(id, password, distinction) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdCheck = await idCheck(id);
-    if (userIdCheck.length < 1) return LOGIN_FAILURE; // code 1002 아이디가 존재 하지 않을 경우
+    if (userIdCheck.length < 1) return { message: LOGIN_FAILURE }; // code 1002 아이디가 존재 하지 않을 경우
 
     const hashedPassword = createHash('sha512').update(password).digest('hex');
     const params = [id, hashedPassword];
@@ -47,7 +47,9 @@ export async function userLogin(id, password, distinction) {
         refreshToken: refreshToken,
       };
     } else {
-      return PASSWORD_WRONG;
+      return {
+        message: PASSWORD_WRONG,
+      };
     }
   } catch (err) {
     console.log(err);
