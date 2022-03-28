@@ -13,6 +13,9 @@ router.post('/test', function (req, res) {
   console.log(req.headers.accesstoken); //accessToken 값
   return res.send(req.cookies);
 }); // 로그아웃 API
+router.get('/test', () => {
+  console.log('test branch');
+});
 
 // app.get('/login', userController.authenticateAccessToken);
 export default router;
