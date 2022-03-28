@@ -14,5 +14,4 @@ router.post('/test', function (req, res) {
   return res.send(req.cookies);
 }); // 로그아웃 API
 
-// app.get('/login', userController.authenticateAccessToken);
 export default router;
