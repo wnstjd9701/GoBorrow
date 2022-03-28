@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import authAxios from '../../../lib/refreshToken';
 
 export default function LandingPage(props) {
@@ -23,7 +22,7 @@ export default function LandingPage(props) {
   ];
   useEffect(() => {
     authAxios.post('/app/users/test').then(res => {
-      console.log(res.data);
+      // console.log('hi');
     });
   }, []);
   return (

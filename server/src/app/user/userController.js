@@ -44,7 +44,7 @@ class userController {
   login = async function (req, res) {
     // distinction 1: 기업, 2: 사용자
     const { id, password, distinction } = req.body;
-
+    console.log(req.cookies.access_token);
     if (!id) return res.send(ID_EMPTY); // code 2009
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2003
@@ -53,16 +53,9 @@ class userController {
     const loginResult = await userLogin(id, password, distinction);
     res.cookie('refreshToken', loginResult.refreshToken, {
       httpOnly: true,
+      maxAge: 3000000,
     });
     return res.send(loginResult);
-  };
-
-  test = async function (req, res) {
-    const userId = req.id;
-    const userDistinction = req.distinction;
-    console.log('req.id: ' + userId);
-    console.log('req.distinction ' + userDistinction);
-    return res.send(SUCCESS);
   };
 }
 export default new userController();
