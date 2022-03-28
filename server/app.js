@@ -3,6 +3,7 @@ import methodOverride from 'method-override';
 import logger from 'morgan';
 import routes from './config/route.js';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 const port = process.env.SERVER_PORT || 5000;
 
@@ -23,6 +24,7 @@ class App {
     this.app.use(urlencoded({ extended: false }));
 
     this.app.use(methodOverride());
+    this.app.use(cookieParser());
   }
   getRouting() {
     this.app.use('/', routes);

@@ -6,7 +6,5 @@ import { authentication, reissuanceToken } from '../../../config/jwtMiddleware.j
 
 router.post('/', userController.postUser); // 회원가입 API
 router.post('/login', userController.login); // 로그인 API
-router.post('/logout', userController.logout); // 로그아웃 API
-
-// app.get('/login', userController.authenticateAccessToken);
+router.get('/test', authentication, userController.test); // Middleware test
 export default router;

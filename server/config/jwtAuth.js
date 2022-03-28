@@ -11,19 +11,70 @@ class jwtAuthorization {
     };
 
     return jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: '15m',
+      expiresIn: '60m',
     });
   };
+
   verify = (accessToken) => {
     // access token 검증
-    let decoded = null;
-    try {
-      decoded = jwt.verify(accessToken, process.env.JWT_SECRET);
+    const tokenData = jwt.verify(accessToken, process.env.JWT_SECRET, (err, data) => {
+      if (err)
+        return {
+          isSuccess: false,
+          code: 5002,
+          token: 'AccessToken',
+          name: err.name,
+          message: err.message,
+        };
       return {
         isSuccess: true,
-        id: decoded.id,
-        distinction: decoded.distinction,
+        id: data.id,
+        distinction: data.distinction,
       };
+    });
+    return tokenData;
+  };
+
+  refresh = (user) => {
+    const payload = {
+      id: user.id,
+      distinction: user.distinction,
+    };
+
+    return jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: '14 days',
+    });
+  };
+
+  refreshVerify = (refreshToken, userId) => {
+    try {
+      const tokenData = jwt.verify(refreshToken, process.env.JWT_SECRET, (err, data) => {
+        if (err)
+          return {
+            isSuccess: false,
+            code: 5003,
+            token: 'RefreshToken',
+            name: err.name,
+            message: err.message,
+          };
+
+        if (data.id === userId.id && data.distinction === userId.distinction) {
+          return {
+            isSuccess: true,
+            id: data.id,
+            distinction: data.distinction,
+          };
+        }
+        return {
+          isSuccess: false,
+          code: 5004,
+          message: 'RefreshToken Decoded 값 불일치',
+          id: data.id,
+          distinction: data.distinction,
+        };
+      });
+
+      return tokenData;
     } catch (err) {
       return {
         isSuccess: false,
@@ -31,28 +82,6 @@ class jwtAuthorization {
         message: err.message,
       };
     }
-  };
-  refresh = (user) => {
-    return jwt.sign({ id: user.id, distinction: user.distinction }, process.env.JWT_SECRET, { expiresIn: '14 days' });
-  };
-  refreshVerify = (refreshToken, userId) => {
-    jwt.verify(refreshToken, process.env.JWT_SECRET, (err, data) => {
-      if (err) return res.send(TOKEN_VERIFICATION_FAILURE);
-      // refreshToken을 검증한 data.id 와 매개변수로 받은 accessToken을 decoded한 정보가 같을 경우
-      if (data.id === userId.id && data.distinction === userId.distinction) {
-        return {
-          isSuccess: true,
-          id: userId.id,
-          distinction: userId.distincation,
-        };
-      } else {
-        return {
-          isSuccess: false,
-          name: err.name,
-          message: err.message,
-        };
-      }
-    });
   };
 }
 export default new jwtAuthorization();
