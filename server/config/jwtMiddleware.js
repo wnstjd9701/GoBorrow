@@ -78,7 +78,7 @@ export const reissuanceAccessToken = async (req, res) => {
       isSuccess: false,
       code: 5004,
       name: 'JWT 만료',
-      message: '다시 로그인 하세요. ',
+      message: '세션이 만료되었습니다. 다시 로그인 해주세요!',
     });
   }
   const payload = {

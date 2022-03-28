@@ -19,7 +19,7 @@ accessClient.interceptors.request.use(async function (config) {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
     } else {
-      alert('세션이 만료되었습니다. 다시 로그인해주세요.');
+      alert(data.message);
       window.location.href = '/app/users/login';
     }
   }
