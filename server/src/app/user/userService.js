@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import { createHash } from 'crypto';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config('../../../.env');
 // Create, Update, Delete
 
 export async function createUser(id, password, name, phoneNumber, address, info, distinction) {
@@ -31,7 +31,7 @@ export async function userLogin(id, password, distinction) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdCheck = await idCheck(id);
-    if (userIdCheck.length < 1) return { message: LOGIN_FAILURE }; // code 1002 아이디가 존재 하지 않을 경우
+    if (userIdCheck.length < 1) return LOGIN_FAILURE; // code 1002 아이디가 존재 하지 않을 경우
 
     const hashedPassword = createHash('sha512').update(password).digest('hex');
     const params = [id, hashedPassword];
@@ -40,16 +40,14 @@ export async function userLogin(id, password, distinction) {
     if (checkResult.length >= 1) {
       // DB에서 비교후에 id가 존재할 경우
       const accessToken = jwt.sign({ id: id, distinction: distinction }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      const refreshToken = jwt.sign({ id: id, distinction: distinction }, process.env.JWT_SECRET, { expiresIn: '1m' });
+      const refreshToken = jwt.sign({ id: id, distinction: distinction }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
         message: SUCCESS,
         accessToken: accessToken,
         refreshToken: refreshToken,
       };
     } else {
-      return {
-        message: PASSWORD_WRONG,
-      };
+      return PASSWORD_WRONG;
     }
   } catch (err) {
     console.log(err);
