@@ -14,7 +14,7 @@ export default function Header() {
         className="App-logo"
         style={header_style}
         src="https://ufwo.s3.ap-northeast-2.amazonaws.com/%EC%83%98%ED%94%8C%EB%A1%9C%EA%B3%A0.png"
-        href="https://ufwo.s3.ap-northeast-2.amazonaws.com/%EC%83%98%ED%94%8C%EB%A1%9C%EA%B3%A064.png"
+        href="https://ufwo.s3.ap-northeast-2.amazonaws.com/%EC%83%98%ED%94%8C%EB%A1%9C%EA%B3%A0.png"
       ></img>
     </header>
   );
