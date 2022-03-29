@@ -50,16 +50,22 @@
     |    ├── 📄 user_reducer.js
     └── 📂 components
          └── 📂 views
-              └── 📂 Footer
-              |    ├── 📄 Footer.js
-              └── 📂 Header
-              |    ├── 📄 Header.js
-              └── 📂 LandingPage
-              |    ├── 📄 LandingPage.js
-              └── 📂 LoginPage
-              |    ├── 📄 LoginLandingPage.js
-              |    ├── 📄 LoginPage.js
-              |    ├── 📄 RegisterPage.js
+         |    ├── 📂 Footer
+         |    |    ├── 📄 Footer.js
+         |    ├── 📂 Header
+         |    |    ├── 📄 Header.js
+         |    └── 📂 LandingPage
+         |    |    ├── 📄 LandingPage.js
+         |    ├── 📂 LoginPage
+         |    |    ├── 📄 LoginLandingPage.js
+         |    |    ├── 📄 LoginPage.js
+         |    |    ├── 📄 RegisterPage.js
+         |    ├── 📂 RegisterPage
+         |    |    ├── 📄 OrgRegisterPage.js
+         |    |    ├── 📄 RegisterLandingPage.js
+         |    |    ├── 📄 UserRegisterPage.js
+         └── 📂 lib
+         |    ├── 📄 refreshToken.js
     📄 App.css
     📄 App.js
     📄 index.css
@@ -75,22 +81,25 @@
     ├── 📄 baseResponseStatus.js
     ├── 📄 database.js
     ├── 📄 express.js
+    ├── 📄 jwtAuth.js
     ├── 📄 jwtMiddleware.js
     ├── 📄 response.js
     📂 src
     └── 📂 app
-        ├── 📂 User
-        |    ├── 📄 userController.js
-        |    ├── 📄 userDao.js
-        |    ├── 📄 userProvider.js
-        |    ├── 📄 userRoute.js
-        |    └── 📄 userService.js
-        ├── 📂 Product
-        |    ├── 📄 productController.js
-        |    ├── 📄 productDao.js
-        |    ├── 📄 productProvider.js
-        |    ├── 📄 productRoute.js
-        |    └── 📄 productService.js
+    |   ├── 📂 User
+    |   |    ├── 📄 userController.js
+    |   |    ├── 📄 userDao.js
+    |   |    ├── 📄 userProvider.js
+    |   |    ├── 📄 userRoute.js
+    |   |    └── 📄 userService.js
+    |   ├── 📂 Product
+    |   |    ├── 📄 productController.js
+    |   |    ├── 📄 productDao.js
+    |   |    ├── 📄 productProvider.js
+    |   |    ├── 📄 productRoute.js
+    |   |    └── 📄 productService.js
+    └── 📂 auth
+    |    ├── 📄 authRoute.js
     📄 .gitignore
     📄 app.js
     📄 server.js
