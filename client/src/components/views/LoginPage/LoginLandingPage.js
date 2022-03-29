@@ -5,6 +5,7 @@ import Login from './LoginPage.js';
 import { Link } from 'react-router-dom';
 
 export default function LoginLandingPage() {
+  const [distinc, setDistinc] = useState(1);
   const getOnPage = e => {
     if (e.currentTarget.id === 'register') {
       const login = document.getElementById('loginid');
@@ -12,12 +13,14 @@ export default function LoginLandingPage() {
       login.setAttribute('aria-selected', 'false');
       e.currentTarget.className = 'menu_register on';
       e.currentTarget.setAttribute('aria-selected', 'true');
+      setDistinc(2);
     } else {
       const register = document.getElementById('register');
       register.className = 'menu_register';
       register.setAttribute('aria-selected', 'false');
       e.currentTarget.className = 'menu_id on';
       e.currentTarget.setAttribute('aria-selected', 'true');
+      setDistinc(1);
     }
   };
   return (
@@ -41,7 +44,7 @@ export default function LoginLandingPage() {
               </a>
             </li>
           </ul>
-          <Login />
+          <Login name={distinc} />
         </div>
       </div>
       <Link to="/users/register">

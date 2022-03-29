@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Contributor from './Contributor.js';
 
 export default function Footer() {
   const footer_style = {
@@ -10,7 +12,9 @@ export default function Footer() {
   };
   return (
     <footer style={footer_style}>
-      <span>©Dankook University`s GoBorrow Team.</span>
+      <span>
+        ©Dankook University`s <Link to="/contributors">GoBorrow</Link> Team.
+      </span>
     </footer>
   );
 }

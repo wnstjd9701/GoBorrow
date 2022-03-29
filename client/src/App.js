@@ -3,6 +3,7 @@ import { Navigate, BrowserRouter as Router, Routes, Route, Link } from 'react-ro
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginLandingPage from './components/views/LoginPage/LoginLandingPage';
 import RegisterLandingPage from './components/views/RegisterPage/RegisterLandingPage';
+import Contributor from './components/views/Footer/Contributor';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/users/login" element={<LoginLandingPage />} />
           <Route exact path="/users/register" element={<RegisterLandingPage />} />
+          <Route exact path="/contributors" element={<Contributor />} />
         </Routes>
       </div>
     </Router>
