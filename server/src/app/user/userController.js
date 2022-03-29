@@ -23,16 +23,41 @@ class userController {
    * [POST] /app/users
    */
   postUser = async function (req, res) {
-    const { id, password, name, phoneNumber, address, info, distinction } = req.body;
+    // id: Nickname,
+    //   password: Password,
+    //   address: Address,
+    //   detailAddress: DetailAddress,
+    //   name: Name,
+    //   ceoName: CEOName,
+    //   phoneNumber: PhoneNumber,
+    //   distinction: props.name,
+    //   info: Info,
+    if (req.id === 1) {
+      // 사용자 로그인
+      // 사용자 테이블에 정보 입력
+      const { id, password, address, name, phoneNumber, distinction, info } = req.body;
+      if (!id) return res.send(NICKNAME_EMPTY); // code 2000
+      if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
+      if (!password) return res.send(PASSWORD_EMPTY); // code 2001
+      if (password.length < 6 || password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
+      if (!name) return res.send(SIGNUP_NAME_EMPTY); // code 2005
+      if (!address) return res.send(ADDRESS_EMPTY); // code 2010
+      if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
+
+      const signUpResponse = await createUser(id, password, name, phoneNumber, address, info, distinction);
+      return res.send(signUpResponse);
+    }
+    // 그 이외의 경우 기업
+    const { id, password, address, detailAddress, name, ceoName, phoneNumber, distinction, info } = req.body;
     if (!id) return res.send(NICKNAME_EMPTY); // code 2000
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
     if (password.length < 6 || password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
-    if (!name) return res.send(SIGNUP_NAME_EMPTY); // code 2005
+    if (!ceoName) return res.send(SIGNUP_NAME_EMPTY); // code 2005
     if (!address) return res.send(ADDRESS_EMPTY); // code 2010
     if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
 
-    const signUpResponse = await createUser(id, password, name, phoneNumber, address, info, distinction);
+    //const signUpResponse = await createOrganizationUser(id, password, name, phoneNumber, address, info, distinction);
     return res.send(signUpResponse);
   };
 
