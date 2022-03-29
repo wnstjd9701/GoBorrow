@@ -48,7 +48,7 @@ class userController {
     if (!id) return res.send(ID_EMPTY); // code 2009
     if (id.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2003
-    if (password.length > 6 || password.length < 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
+    if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
 
     const loginResult = await userLogin(id, password, distinction);
     res.cookie('refreshToken', loginResult.refreshToken, {
