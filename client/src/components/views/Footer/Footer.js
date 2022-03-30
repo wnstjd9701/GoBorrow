@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Contributor from './Contributor.js';
 
 export default function Footer() {
   const footer_style = {

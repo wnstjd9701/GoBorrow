@@ -12,7 +12,7 @@ const accessClient = axios.create({
 accessClient.interceptors.request.use(async function (config) {
   let accessToken = localStorage.getItem('accessToken');
   const expireAt = localStorage.getItem('expiresAt');
-  if (moment(expireAt).diff(moment()) < 0) {
+  if (!accessToken || moment(expireAt).diff(moment()) < 0) {
     const { data } = await axios.get('/auth/token');
     if (data.isSuccess) {
       accessToken = data.accessToken;

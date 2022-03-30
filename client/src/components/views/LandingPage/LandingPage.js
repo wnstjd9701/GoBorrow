@@ -21,7 +21,7 @@ export default function LandingPage(props) {
     },
   ];
   useEffect(() => {
-    // authAxios.post('/app/users/test').then(res => {});
+    authAxios.post('/app/users/test').then(res => {});
   }, []);
   return (
     <>
