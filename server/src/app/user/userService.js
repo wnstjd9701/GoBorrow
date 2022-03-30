@@ -1,5 +1,5 @@
-import { createUserAccount, checkPasswordByUserId, getUserInfo } from './userDao.js';
-import { idCheck } from './userProvider.js';
+import { createUserAccount, createOrganizationUserAccount, getUserInfo } from './userDao.js';
+import { userIdCheck, orgIdCheck } from './userProvider.js';
 import { pool } from '../../../config/database.js';
 import { ID_ALREADY_EXISTS, SUCCESS, FAIL, LOGIN_FAILURE, PASSWORD_WRONG } from '../../../config/baseResponseStatus.js';
 import jwt from 'jsonwebtoken';
@@ -9,15 +9,16 @@ import dotenv from 'dotenv';
 dotenv.config('../../../.env');
 // Create, Update, Delete
 
-export async function createUser(id, password, name, phoneNumber, address, info, distinction) {
+export async function createUser(userId, password, userName, phoneNumber, address, type, info) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
-    const userIdCheck = await idCheck(id);
-    if (userIdCheck.length > 0) return ID_ALREADY_EXISTS; // id가 이미 존재할 경우
+    const userIdResult = await userIdCheck(userId);
+    if (userIdResult.length > 0) return ID_ALREADY_EXISTS; // id가 이미 존재할 경우
 
     const hashedPassword = createHash('sha512').update(password).digest('hex');
-    const params = [id, hashedPassword, name, phoneNumber, address, info, distinction];
-    const signUpResult = await createUserAccount(connection, params);
+    const params = [userId, hashedPassword, userName, phoneNumber, address, type, info];
+    const createUserIdResult = await createUserAccount(connection, params);
+    console.log(`추가된 일반 사용자 : ${userId}`);
     connection.release();
     return SUCCESS;
   } catch (err) {
@@ -27,7 +28,35 @@ export async function createUser(id, password, name, phoneNumber, address, info,
   }
 }
 
-export async function userLogin(id, password, distinction) {
+export async function createOrganizationUser(
+  organizationId,
+  password,
+  address,
+  detailAddress,
+  organizationName,
+  managerName,
+  phoneNumber,
+  type,
+  info,
+) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    const organizationIdCheck = await orgIdCheck(organizationId);
+    if (organizationIdCheck.length > 0) return ID_ALREADY_EXISTS; // id 가 이미 존재할 경우
+
+    const hashedPassword = createHash('sha512').update(password).digest('hex');
+    const params = [organizationId, password, address, detailAddress, organizationName, managerName, phoneNumber, type, info];
+    const organizationUserIdResult = await createOrganizationUserAccount(connection, params);
+    console.log(`추가된 기관 사용자 : ${organizationId}`);
+    return SUCCESS;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    connection.release();
+  }
+}
+
+export async function userLogin(id, password, type) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdCheck = await idCheck(id);
@@ -39,8 +68,8 @@ export async function userLogin(id, password, distinction) {
 
     if (checkResult.length >= 1) {
       // DB에서 비교후에 id가 존재할 경우
-      const accessToken = jwt.sign({ id: id, distinction: distinction }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      const refreshToken = jwt.sign({ id: id, distinction: distinction }, process.env.JWT_SECRET, { expiresIn: '14 days' });
+      const accessToken = jwt.sign({ id: id, type: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      const refreshToken = jwt.sign({ id: id, type: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
         message: SUCCESS,
         accessToken: accessToken,

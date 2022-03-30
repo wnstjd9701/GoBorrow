@@ -4,7 +4,6 @@ import {
   TOKEN_EMPTY,
   TOKEN_VERIFICATION_FAILURE,
   TOKEN_VERIFICATION_SUCCESS,
-  ACCESS_TOKEN_VERIFICATION_FAILURE,
   TOKEN_EXPIRED,
   TOKEN_IS_VALID,
 } from './baseResponseStatus.js';
@@ -32,7 +31,7 @@ export const authentication = (req, res, next) => {
       });
 
     req.id = user.id;
-    req.distinction = user.distinction;
+    req.userType = user.userType;
     next();
   });
 };
@@ -69,7 +68,7 @@ export const reissuanceAccessToken = async (req, res) => {
       name: 'verify',
       message: 'Veryfy Success',
       id: data.id,
-      distinction: data.distinction,
+      userType: data.userType,
     };
   });
   // refreshToken이 만료되었을 경우
@@ -83,7 +82,7 @@ export const reissuanceAccessToken = async (req, res) => {
   }
   const payload = {
     id: refreshResult.id,
-    distinction: refreshResult.distinction,
+    userType: refreshResult.userType,
   };
   // refreshToken이 유효할 경우 accessToken 재발급
   if (refreshResult.isSuccess === true) {
@@ -101,7 +100,12 @@ export const reissuanceAccessToken = async (req, res) => {
   // 그 외의 경우 ex) token값이 잘못된 경우
   return res.send(refreshResult);
 };
-
+//
+//
+//
+//
+//
+//
 /**
  *  API No.
  *  API Name : 토큰 재발급 API
