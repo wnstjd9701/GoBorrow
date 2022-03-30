@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer style={footer_style}>
       <span>
-        ©Dankook University`s <Link to="/contributors">GoBorrow Team</Link>.
+        ©Dankook University`s <Link to="/contributors">Team GoBorrow</Link>.
       </span>
     </footer>
   );
