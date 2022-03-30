@@ -11,7 +11,7 @@ export async function userIdCheck(userId) {
     connection.release();
   }
 }
-export async function orgIdCheck(organizationId) {
+export async function organizationIdCheck(organizationId) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const organizationIdRow = await selectOrganizationId(connection, organizationId);

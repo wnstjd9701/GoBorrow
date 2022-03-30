@@ -1,4 +1,4 @@
-import { createUser, createOrganizationUser, userLogin } from './userService.js';
+import { createUser, createOrganizationUser, userLogin, organizationUserLogin } from './userService.js';
 import {
   NICKNAME_EMPTY,
   PASSWORD_EMPTY,
@@ -32,7 +32,7 @@ class userController {
     const parsedType = parseInt(req.body.distinction); // 회원 구분
     console.log(parsedType);
     console.log(req.body.distinction);
-
+    // type 1. 사용자, 2.조직/기관
     if (parsedType === 1) {
       // 사용자 회원가입
       // 사용자 테이블에 정보 입력
@@ -94,16 +94,36 @@ class userController {
    *  API Name : 사용자 로그인 API
    * [POST] /app/users/login
    */
-  // type 1: 기업, 2: 사용자
+  // type 1: 사용자, 2: 조직/기관
   login = async function (req, res) {
-    const { userId, password, type } = req.body;
+    const type = parseInt(req.body.distinction); // req.body.type
+    if (type === 1) {
+      // 사용자 로그인
+      const userId = req.body.id;
+      const password = req.body.password;
 
-    if (!userId) return res.send(userId_EMPTY); // code 2009
-    if (userId.length > 20) return res.send(userId_LENGTH_ERROR); // code 2012
+      if (!userId) return res.send(NICKNAME_EMPTY); // code 2009
+      if (userId.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
+      if (!password) return res.send(PASSWORD_EMPTY); // code 2003
+      if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
+
+      const loginResult = await userLogin(userId, password, type);
+      res.cookie('refreshToken', loginResult.refreshToken, {
+        httpOnly: true,
+        maxAge: 3000000,
+      });
+      return res.send(loginResult);
+    }
+    // 조직/기관 로그인
+    const organizationId = req.body.id;
+    const password = req.body.password;
+
+    if (!organizationId) return res.send(NICKNAME_EMPTY); // code 2009
+    if (userId.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2003
     if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
 
-    const loginResult = await userLogin(userId, password, type);
+    const loginResult = await organizationUserLogin(organizationId, password, type);
     res.cookie('refreshToken', loginResult.refreshToken, {
       httpOnly: true,
       maxAge: 3000000,

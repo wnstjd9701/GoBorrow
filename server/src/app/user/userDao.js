@@ -23,19 +23,28 @@ export async function getUserInfo(connection, params) {
   return userInfoResult;
 }
 
+export async function getOrganizationUserInfo(connection, params) {
+  const getOrganizationInformation = `
+  SELECT   
+  `;
+  const [organizationInfoResult] = await connection.query(getOrganizationInformation, params);
+  return organizationInfoResult;
+}
+
 export async function createUserAccount(connection, params) {
   const insertUserInfo = `
-  INSERT INTO User (id, password, address, userName, phoneNumber, distinction, info) VALUES (?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO User (id, password, userName, phoneNumber, address, distinction, info)
+  VALUES (?, ?, ?, ?, ?, ?, ?);
   `;
-  const [userIdResult] = await connection.query(insertUserInfo, params);
+  const userIdResult = await connection.query(insertUserInfo, params);
   return userIdResult;
 }
 
 export async function createOrganizationUserAccount(connection, params) {
   const insertOrganizationUserInfo = `
-  INSERT INTO Organization(id, password, address, detailAddress, name, ceoName, phoneNumber, distinction, info)
+  INSERT INTO Organization (id, password, address, detailAddress, organizationName, managerName, phoneNumber, type, info)
   VALUES (?,?,?,?,?,?,?,?,?)`;
-  const [organizationIdResult] = await connection.query(insertOrganizationUserInfo, params);
+  const organizationIdResult = await connection.query(insertOrganizationUserInfo, params);
   return organizationIdResult;
 }
 

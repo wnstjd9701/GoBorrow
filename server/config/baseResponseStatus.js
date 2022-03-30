@@ -1,8 +1,10 @@
 // 로그인 & 회원가입 에러
 export const SUCCESS = { isSuccess: true, code: 1000, message: '성공' };
 export const FAIL = { isSuccess: false, code: 1001, message: '실패' };
+
 export const LOGIN_FAILURE = { isSuccess: false, code: 1002, message: '아이디가 존재하지 않습니다.' };
 export const LOGIN_ERROR = { isSuccess: false, code: 1003, message: '이용하려면 로그인 하세요' };
+
 export const NICKNAME_EMPTY = { isSuccess: false, code: 2000, message: '닉네임(Id)을 입력하세요.' };
 export const PASSWORD_EMPTY = { isSuccess: false, code: 2001, message: '비밀번호를 입력하세요.' };
 export const SIGNIN_NICKNAME_WRONG = { isSuccess: false, code: 2002, message: '존재하지 않는 닉네임입니다.' };
@@ -18,7 +20,8 @@ export const PHONENUMBER_EMPTY = { isSuccess: false, code: 2011, message: '핸�
 export const ID_LENGTH_ERROR = { isSuccess: false, code: 2012, message: '아이디 길이를 확인하세요. ' };
 export const PASSWORD_LENGTH_ERROR = { isSuccess: false, code: 2013, message: '비밀번호 길이를 확인하세요. ' };
 export const SIGN_UP_CEO_NAME = { isSuccess: false, code: 2014, message: '담당자 이름을 입력하세요. ' };
-
+export const SIGNUP_SUCCESS = { isSuccess: true, code: 2015, message: '회원가입에 성공하였습니다. ' };
+export const SIGNUP_FAIL = { isSuccess: false, code: 2016, message: '회원가입에 실패하였습니다. ' };
 // 서버 접속 에러
 export const SERVER_CONNECT_ERROR = { isSuccess: false, code: 4000, message: '서버 접속 에러입니다.' };
 
