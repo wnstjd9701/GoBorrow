@@ -20,9 +20,7 @@ export default function LandingPage(props) {
       github: 'castlejun-2',
     },
   ];
-  useEffect(() => {
-    authAxios.post('/app/users/test').then(res => {});
-  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: '30px', marginBottom: '20px' }}>Lends Project</div>
