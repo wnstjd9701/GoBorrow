@@ -31,10 +31,10 @@ function createData(name, position, email, github, contact) {
 }
 
 const rows = [
-  createData('이성준', 'backend,frontend', 'sung0651@gmail.com', 'castlejun-2', '010-5530-0651'),
-  createData('윤준성', 'backend', 'wnstjd9701@naver.com', 'wnstjd9701', '010-2657-0707'),
-  createData('최지윤', 'backend,frontend', 'cjy5025@naver.com', 'J1yun', '010-7208-5025'),
-  createData('최한윤', 'backend', 'chlgksdbs98@naver.com', 'chlgksdbs', '010-6205-7949'),
+  createData('이성준', 'Backend, Frontend', 'sung0651@gmail.com', 'castlejun-2', '010-5530-0651'),
+  createData('윤준성', 'Backend', 'wnstjd9701@naver.com', 'wnstjd9701', '010-2657-0707'),
+  createData('최지윤', 'Backend, Frontend', 'cjy5025@naver.com', 'J1yun', '010-7208-5025'),
+  createData('최한윤', 'Backend', 'chlgksdbs98@naver.com', 'chlgksdbs', '010-6205-7949'),
 ];
 
 const useStyles = makeStyles({
