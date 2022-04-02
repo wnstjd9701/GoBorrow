@@ -4,7 +4,7 @@ import { loginUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const [Nickname, setEmail] = useState('');
@@ -21,6 +21,7 @@ export default function LoginPage() {
     const body = {
       id: Nickname,
       password: Password,
+      distinction: props.name,
     };
 
     dispatch(loginUser(body)).then(response => {

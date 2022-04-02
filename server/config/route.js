@@ -5,6 +5,5 @@ const router = Router();
 
 router.use('/app/users', userRoute);
 router.use('/auth', authRoute);
-// router.use('/app/product', require('./product'));
 
 export default router;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const footer_style = {
@@ -10,7 +11,9 @@ export default function Footer() {
   };
   return (
     <footer style={footer_style}>
-      <span>©Dankook University`s GoBorrow Team.</span>
+      <span>
+        ©Dankook University`s <Link to="/contributors">Team GoBorrow</Link>.
+      </span>
     </footer>
   );
 }

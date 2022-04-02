@@ -4,7 +4,6 @@ import {
   TOKEN_EMPTY,
   TOKEN_VERIFICATION_FAILURE,
   TOKEN_VERIFICATION_SUCCESS,
-  ACCESS_TOKEN_VERIFICATION_FAILURE,
   TOKEN_EXPIRED,
   TOKEN_IS_VALID,
 } from './baseResponseStatus.js';
@@ -23,7 +22,6 @@ export const authentication = (req, res, next) => {
   let authHeader = req.headers['authorization'];
   const token = authHeader && req.headers.authorization.split('Bearer ')[1];
   if (!token) return res.send(TOKEN_EMPTY);
-
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err)
       return res.send({
@@ -33,7 +31,7 @@ export const authentication = (req, res, next) => {
       });
 
     req.id = user.id;
-    req.distinction = user.distinction;
+    req.userType = user.userType;
     next();
   });
 };
@@ -45,7 +43,7 @@ export const authentication = (req, res, next) => {
  */
 export const reissuanceAccessToken = async (req, res) => {
   //const accessToken = req.headers.authorization.split('Bearer ')[1];
-  const refreshToken = req.headers.refreshtoken;
+  const refreshToken = req.cookies.refreshToken;
   // refreshToken이 존재하지 않을 경우
   if (refreshToken === undefined || refreshToken === '') {
     return res.send({
@@ -70,7 +68,7 @@ export const reissuanceAccessToken = async (req, res) => {
       name: 'verify',
       message: 'Veryfy Success',
       id: data.id,
-      distinction: data.distinction,
+      userType: data.userType,
     };
   });
   // refreshToken이 만료되었을 경우
@@ -79,12 +77,12 @@ export const reissuanceAccessToken = async (req, res) => {
       isSuccess: false,
       code: 5004,
       name: 'JWT 만료',
-      message: '다시 로그인 하세요. ',
+      message: '세션이 만료되었습니다. 다시 로그인 해주세요!',
     });
   }
   const payload = {
     id: refreshResult.id,
-    distinction: refreshResult.distinction,
+    userType: refreshResult.userType,
   };
   // refreshToken이 유효할 경우 accessToken 재발급
   if (refreshResult.isSuccess === true) {
@@ -102,7 +100,12 @@ export const reissuanceAccessToken = async (req, res) => {
   // 그 외의 경우 ex) token값이 잘못된 경우
   return res.send(refreshResult);
 };
-
+//
+//
+//
+//
+//
+//
 /**
  *  API No.
  *  API Name : 토큰 재발급 API
