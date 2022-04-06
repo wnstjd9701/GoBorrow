@@ -41,7 +41,7 @@ class userController {
       const userName = req.body.name;
       const phoneNumber = req.body.phoneNumber;
       const address = req.body.address;
-      const type = req.body.distinction; // req.body.type
+      const type = req.body.type;
       const info = req.body.info;
 
       if (!userId) return res.send(NICKNAME_EMPTY); // code 2000
@@ -63,7 +63,7 @@ class userController {
     const organizationName = req.body.name;
     const managerName = req.body.ceoName; // req.body.managerName
     const phoneNumber = req.body.phoneNumber;
-    const type = req.body.distinction; // req.body.type
+    const type = req.body.type;
     const info = req.body.info;
 
     if (!organizationId) return res.send(NICKNAME_EMPTY); // code 2000

@@ -96,8 +96,8 @@ export async function organizationUserLogin(organizationId, password, type) {
     const checkResult = await getOrganizationUserInfo(connection, params);
 
     if (checkResult.length >= 1) {
-      const accessToken = jwt.sign({ id: organizationId, type: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      const refreshToken = jwt.sign({ id: organizationId, type: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
+      const accessToken = jwt.sign({ id: organizationId, userType: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      const refreshToken = jwt.sign({ id: organizationId, userType: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
         message: SUCCESS,
         accessToken: accessToken,
