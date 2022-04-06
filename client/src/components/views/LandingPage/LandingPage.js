@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Header from '../Header/MainHeader';
 import authAxios from '../../../lib/refreshToken';
 
 export default function LandingPage(props) {
@@ -23,6 +24,7 @@ export default function LandingPage(props) {
   useEffect(() => {}, []);
   return (
     <>
+      <Header />
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: '30px', marginBottom: '20px' }}>Lends Project</div>
       <div
         style={{
