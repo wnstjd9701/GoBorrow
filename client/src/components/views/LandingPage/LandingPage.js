@@ -1,51 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/MainHeader';
 import authAxios from '../../../lib/refreshToken';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export default function LandingPage(props) {
-  const TeamMember = [
+  const [name, setName] = useState(null);
+  const [keyword, setKeyword] = useState(null);
+  const onKeywordHandler = e => {
+    console.log(e);
+    setKeyword(e.currentTarget.value);
+    console.log(keyword);
+  };
+  const testItem = [
     {
-      name: '천재개발자 최지윤',
-      github: 'J1Yun',
+      cname: '단국대학교',
+      place: '경기도',
     },
     {
-      name: '악마의재능 윤준성',
-      github: 'wnstjd9701',
-    },
-    {
-      name: '경력직신입 최한윤',
-      github: 'chlgksdbs',
-    },
-    {
-      name: '나 이성준',
-      github: 'castlejun-2',
+      cname: '서울대학교',
+      place: '서울',
     },
   ];
-  useEffect(() => {}, []);
+  useEffect(
+    () =>
+      async function () {
+        const { profile } = await authAxios.get('/users/profile');
+        console.log('h');
+        if (profile.isSuccess) {
+          setName(profile.name);
+        }
+      },
+    [],
+  );
   return (
     <>
       <Header />
-      <div style={{ textAlign: 'center', fontWeight: 700, fontSize: '30px', marginBottom: '20px' }}>Lends Project</div>
-      <div
-        style={{
-          textAlign: 'center',
-          width: '500px',
-          border: '3px solid red',
-          margin: '0 auto',
-          fontWeight: 700,
-          fontSize: '30px',
-          marginBottom: '20px',
-        }}
-      >
-        Member
-        <div style={{ width: '300px', margin: '0 auto', textAlign: 'center', backgroundColor: 'black', color: 'white' }}>
-          {TeamMember.map((element, index) => (
-            <div key={index} style={{ padding: '5px', border: '1px solid white', fontSize: '15px' }}>
-              {element.name} <span style={{ fontSize: '12px' }}>({element.github})</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div style={{ textAlign: 'center', fontWeight: 700, fontSize: '20px', margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
+      <Stack style={{ margin: '0 auto' }} spacing={2} sx={{ width: 300 }}>
+        <Autocomplete
+          id="free-solo-demo"
+          freeSolo
+          options={testItem.map(option => option.cname)}
+          renderInput={params => <TextField {...params} label="freeSolo" />}
+        />
+      </Stack>
     </>
   );
 }

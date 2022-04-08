@@ -41,7 +41,7 @@ class userController {
       const userName = req.body.name;
       const phoneNumber = req.body.phoneNumber;
       const address = req.body.address;
-      const type = req.body.type;
+      const type = parsedType;
       const info = req.body.info;
 
       if (!userId) return res.send(NICKNAME_EMPTY); // code 2000
@@ -130,5 +130,6 @@ class userController {
     });
     return res.send(loginResult);
   };
+  getProfile = async function (req, res) {};
 }
 export default new userController();

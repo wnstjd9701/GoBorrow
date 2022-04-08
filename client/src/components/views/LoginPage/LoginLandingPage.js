@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../Footer/Footer.js';
 import Header from '../Header/Header.js';
 import Login from './LoginPage.js';
-import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function LoginLandingPage() {
+  let navigate = useNavigate();
   const [distinc, setDistinc] = useState(1);
   const getOnPage = e => {
     if (e.currentTarget.id === 'register') {
@@ -23,6 +25,13 @@ export default function LoginLandingPage() {
       setDistinc(1);
     }
   };
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    const expireAt = localStorage.getItem('expiresAt');
+    if (accessToken && moment(expireAt).diff(moment()) > 0) {
+      navigate('/');
+    }
+  }, [navigate]); //맨처음 로딩 될 때 자동 로그인이 되어 있는지 확인
   return (
     <>
       <Header />
