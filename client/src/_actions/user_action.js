@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from './action_type.js';
+import { LOGIN_USER, REGISTER_USER, LOGOUT_USER, SEARCH_ORG } from './action_type.js';
 
 export async function loginUser(dataToSubmit) {
   const request = await axios.post('/app/users/login', dataToSubmit).then(response => response.data);
@@ -32,4 +32,12 @@ export async function LogoutUser() {
       payload: { success: false },
     };
   }
+}
+
+export async function searchKeyword(dataToSubmit) {
+  const request = await axios.get('/app/organization', dataToSubmit).then(response => response.data);
+  return {
+    type: SEARCH_ORG,
+    payload: request,
+  };
 }

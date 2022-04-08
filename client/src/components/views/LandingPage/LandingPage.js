@@ -1,17 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../Header/MainHeader';
 import authAxios from '../../../lib/refreshToken';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import { useDispatch } from 'react-redux';
+import { searchKeyword } from '../../../_actions/user_action';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function LandingPage(props) {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
   const [name, setName] = useState(null);
   const [keyword, setKeyword] = useState(null);
   const onKeywordHandler = e => {
-    console.log(e);
     setKeyword(e.currentTarget.value);
+  };
+  const onSearchHandler = e => {
     console.log(keyword);
+    e.preventDefault();
+    const body = {
+      keyword: keyword,
+    };
+    if (keyword) {
+      dispatch(searchKeyword(body)).then(response => {
+        if (response.payload.message.isSuccess) {
+          navigate('/organization');
+        }
+      });
+    }
   };
   const testItem = [
     {
@@ -43,8 +61,9 @@ export default function LandingPage(props) {
           id="free-solo-demo"
           freeSolo
           options={testItem.map(option => option.cname)}
-          renderInput={params => <TextField {...params} label="freeSolo" />}
+          renderInput={params => <TextField {...params} onChange={onKeywordHandler} onSubmit={onSearchHandler} label="Search.." />}
         />
+        <SearchIcon style={{ display: 'inline-block' }} />
       </Stack>
     </>
   );
