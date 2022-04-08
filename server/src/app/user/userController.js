@@ -1,4 +1,5 @@
 import { createUser, createOrganizationUser, userLogin, organizationUserLogin } from './userService.js';
+import { retrieveUserProfile } from './userProvider.js';
 import {
   NICKNAME_EMPTY,
   PASSWORD_EMPTY,
@@ -130,6 +131,16 @@ class userController {
     });
     return res.send(loginResult);
   };
-  getProfile = async function (req, res) {};
+  /**
+   *  API No. 4
+   *  API Name : 사용자 프로필 API
+   * [GET`] /app/users/profile/:userId
+   */
+  getProfile = async function (req, res) {
+    const userId = req.params;
+    console.log(userId);
+    const profileResult = await retrieveUserProfile(userId);
+    return res.send(profileResult);
+  };
 }
 export default new userController();

@@ -1,16 +1,20 @@
 // Read
+import { SERVER_CONNECT_ERROR } from '../../../config/baseResponseStatus.js';
 import { pool } from '../../../config/database.js';
-import { selectUserId, selectOrganizationId } from './userDao.js';
+import { selectUserId, selectOrganizationId, selectUserProfile } from './userDao.js';
 export async function userIdCheck(userId) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdRow = await selectUserId(connection, userId);
     return userIdRow;
   } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
 }
+
 export async function organizationIdCheck(organizationId) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
@@ -18,6 +22,20 @@ export async function organizationIdCheck(organizationId) {
     return organizationIdRow;
   } catch (err) {
     console.log(err);
+    return SERVER_CONNECT_ERROR;
+  } finally {
+    connection.release();
+  }
+}
+
+export async function retrieveUserProfile(userId) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    const userProfileResult = selectUserProfile(connection, userId);
+    return userProfileResult;
+  } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }

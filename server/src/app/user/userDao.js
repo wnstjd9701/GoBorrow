@@ -55,3 +55,11 @@ export async function checkPasswordByUserId(connection, params) {
   const [userPasswordRows] = await connection.query(getUserPassword, params);
   return userPasswordRows;
 }
+
+export async function selectUserProfile(connection, userId) {
+  const getUserProfile = `
+  SELECT * FROM User WHERE userId = ?
+  `;
+  const userProfileResult = await connection.query(getUserProfile, userId);
+  return userProfileResult;
+}
