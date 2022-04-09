@@ -100,47 +100,43 @@ export default function LandingPage(props) {
             <div>
               <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>General settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 산학협력단</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    노트북
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget maximus est, id dignissim quam.
+                    제품 코드: 44043 <br />
+                    대여 기간: 2022-04-10 ~ 2022-04-17
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2bh-content" id="panel2bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>You are currently not an owner</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>용인시청</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    용인시청 스터디룸
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque
-                    convallis laoreet laoreet.
+                    제품 코드: R203 <br />
+                    대여 기간: 2022-04-12 12:30 ~ 2022-04-12 17:30
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3bh-content" id="panel3bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Advanced settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>Filtering has been entirely disabled for whole web server</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 총학생회</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    우산
                   </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel4bh-content" id="panel4bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                    제품 코드: CWE2045 <br />
+                    대여 기간: 2022-04-12 ~ 2022-04-14
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -151,47 +147,43 @@ export default function LandingPage(props) {
             <div>
               <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>General settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 산학협력단</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    노트북
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget maximus est, id dignissim quam.
+                    제품 코드: 44043 <br />
+                    대여 기간: 2022-04-10 ~ 2022-04-17
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2bh-content" id="panel2bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>You are currently not an owner</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>용인시청</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    용인시청 스터디룸
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque
-                    convallis laoreet laoreet.
+                    제품 코드: R203 <br />
+                    대여 기간: 2022-04-12 12:30 ~ 2022-04-12 17:30
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3bh-content" id="panel3bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Advanced settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>Filtering has been entirely disabled for whole web server</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 총학생회</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    우산
                   </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel4bh-content" id="panel4bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                    제품 코드: CWE2045 <br />
+                    대여 기간: 2022-04-12 ~ 2022-04-14
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -202,47 +194,43 @@ export default function LandingPage(props) {
             <div>
               <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>General settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 산학협력단</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    노트북
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget maximus est, id dignissim quam.
+                    제품 코드: 44043 <br />
+                    대여 기간: 2022-04-10 ~ 2022-04-17
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2bh-content" id="panel2bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>You are currently not an owner</Typography>
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>용인시청</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    용인시청 스터디룸
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque
-                    convallis laoreet laoreet.
+                    제품 코드: R203 <br />
+                    대여 기간: 2022-04-12 12:30 ~ 2022-04-12 17:30
                   </Typography>
                 </AccordionDetails>
               </Accordion>
               <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3bh-content" id="panel3bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Advanced settings</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>Filtering has been entirely disabled for whole web server</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                  <Typography sx={{ fontWeight: 'bold', flexShrink: 0 }}>단국대학교 총학생회</Typography>
+                  <Typography style={{ margin: '0 auto' }} sx={{ color: 'text.secondary' }}>
+                    우산
                   </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel4bh-content" id="panel4bh-header">
-                  <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                    제품 코드: CWE2045 <br />
+                    대여 기간: 2022-04-12 ~ 2022-04-14
                   </Typography>
                 </AccordionDetails>
               </Accordion>
