@@ -202,8 +202,3 @@ code {
   line-height: 15px;
   color: #333;
 }
-
-.MuiPaper-elevation1 {
-  width: fit-content !important;
-  margin: 0 auto;
-}

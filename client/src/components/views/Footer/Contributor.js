@@ -64,7 +64,7 @@ export default function Contributor() {
           alt="profile"
         ></img>
       </header>
-      <TableContainer component={Paper}>
+      <TableContainer style={{ width: 'fit-content', margin: '0 auto' }} component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
