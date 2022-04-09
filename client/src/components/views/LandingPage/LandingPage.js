@@ -8,6 +8,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux';
 import { searchKeyword } from '../../../_actions/user_action';
 import SearchIcon from '@mui/icons-material/Search';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 export default function LandingPage(props) {
   const dispatch = useDispatch();
@@ -41,6 +45,13 @@ export default function LandingPage(props) {
       place: '서울',
     },
   ];
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
   useEffect(
     () =>
       async function () {
@@ -73,6 +84,19 @@ export default function LandingPage(props) {
           </button>
         </Stack>
       </form>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={1}>
+          <Grid item xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+          <Grid item xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+          <Grid item xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 }
