@@ -1,4 +1,4 @@
-import { getOrganization } from './organizationService.js';
+import { getOrganization, getOrganizationInfoDetail } from './organizationService.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**
@@ -15,6 +15,16 @@ class organizationController {
     }
     const organizationResult = await getOrganization(organizationName);
     return res.send(organizationResult);
+  };
+  /**
+   *  API No. 6
+   *  API Name : 기관 정보 API
+   * [GET] /app/organization/:organizationName
+   */
+  organizationDetail = async function (req, res) {
+    const organizationName = req.params.organizationName;
+    const organizationInformationResult = await getOrganizationInfoDetail(organizationName);
+    return res.send(organizationInformationResult);
   };
 }
 

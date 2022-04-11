@@ -10,7 +10,7 @@ dotenv.config('../../../.env');
 // Create, Update, Delete
 
 export async function createUser(userId, password, userName, phoneNumber, address, type, info) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdCheckResult = await userIdCheck(userId);
     if (userIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id가 이미 존재할 경우
@@ -38,7 +38,7 @@ export async function createOrganizationUser(
   type,
   info,
 ) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const organizationIdCheckResult = await organizationIdCheck(organizationId);
     if (organizationIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id 가 이미 존재할 경우
@@ -56,13 +56,9 @@ export async function createOrganizationUser(
   }
 }
 
-<<<<<<< HEAD
 export async function userLogin(userId, password, type) {
   const connection = await pool.getConnection(async (conn) => conn);
-=======
-export async function userLogin(id, password, type) {
-  const connection = await pool.getConnection(async conn => conn);
->>>>>>> d4435a9ee9f7c4a85ed4518049f8c39eb6c85fbb
+
   try {
     const userIdCheckResult = await userIdCheck(userId);
     if (userIdCheckResult.length < 1) return LOGIN_FAILURE; // code 1002 아이디가 존재 하지 않을 경우
@@ -91,7 +87,7 @@ export async function userLogin(id, password, type) {
 }
 
 export async function organizationUserLogin(organizationId, password, type) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const organizationUserIdCheck = await organizationIdCheck(organizationId);
     if (organizationUserIdCheck.length < 1) return LOGIN_FAILURE;
