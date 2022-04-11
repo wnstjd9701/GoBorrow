@@ -71,7 +71,7 @@ export default function Register(props) {
       address: Address,
       name: Name,
       phoneNumber: PhoneNumber,
-      distinction: props.name,
+      type: props.name,
       info: Info,
     };
 

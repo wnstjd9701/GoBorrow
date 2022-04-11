@@ -81,12 +81,12 @@ export default function Register(props) {
       name: Name,
       ceoName: CEOName,
       phoneNumber: PhoneNumber,
-      distinction: props.name,
+      type: props.name,
       info: Info,
     };
 
     dispatch(registerUser(body)).then(response => {
-      if (response.payload.success) {
+      if (response.payload.isSuccess) {
         alert(response.payload.message);
         navigate('/users/login');
       } else {

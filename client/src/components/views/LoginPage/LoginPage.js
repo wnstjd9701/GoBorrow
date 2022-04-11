@@ -21,7 +21,7 @@ export default function LoginPage(props) {
     const body = {
       id: Nickname,
       password: Password,
-      distinction: props.name,
+      type: props.name,
     };
 
     dispatch(loginUser(body)).then(response => {

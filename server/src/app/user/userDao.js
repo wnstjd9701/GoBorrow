@@ -1,7 +1,7 @@
 // id -> userId
 export async function selectUserId(connection, userId) {
   const getUserId = `
-    SELECT id FROM User WHERE id = ?
+    SELECT userId FROM User WHERE userId = ?
     `;
   const [userIdResult] = await connection.query(getUserId, userId);
   return userIdResult;
@@ -9,7 +9,7 @@ export async function selectUserId(connection, userId) {
 
 export async function selectOrganizationId(connection, organizationId) {
   const getOrganizationUser = `
-  SELECT id FROM Organization WHERE id = ?
+  SELECT organizationId FROM Organization WHERE organizationId = ?
   `;
   const [organizationIdResult] = await connection.query(getOrganizationUser, organizationId);
   return organizationIdResult;
@@ -17,7 +17,7 @@ export async function selectOrganizationId(connection, organizationId) {
 
 export async function getUserInfo(connection, params) {
   const getUserInformation = `
-  SELECT id, distinction FROM User WHERE id = ? and password = ?
+  SELECT userId, type FROM User WHERE userId = ? and password = ?
   `;
   const [userInfoResult] = await connection.query(getUserInformation, params);
   return userInfoResult;
@@ -33,7 +33,7 @@ export async function getOrganizationUserInfo(connection, params) {
 
 export async function createUserAccount(connection, params) {
   const insertUserInfo = `
-  INSERT INTO User (id, password, userName, phoneNumber, address, distinction, info)
+  INSERT INTO User (userId, password, userName, phoneNumber, address, type, info)
   VALUES (?, ?, ?, ?, ?, ?, ?);
   `;
   const userIdResult = await connection.query(insertUserInfo, params);
@@ -42,7 +42,7 @@ export async function createUserAccount(connection, params) {
 
 export async function createOrganizationUserAccount(connection, params) {
   const insertOrganizationUserInfo = `
-  INSERT INTO Organization (id, password, address, detailAddress, organizationName, managerName, phoneNumber, type, info)
+  INSERT INTO Organization (organizationId, password, address, detailAddress, organizationName, managerName, phoneNumber, type, info)
   VALUES (?,?,?,?,?,?,?,?,?)`;
   const organizationIdResult = await connection.query(insertOrganizationUserInfo, params);
   return organizationIdResult;
@@ -50,7 +50,7 @@ export async function createOrganizationUserAccount(connection, params) {
 
 export async function checkPasswordByUserId(connection, params) {
   const getUserPassword = `
-          SELECT exists (SELECT id FROM User WHERE id=? and password=? and isDeleted=0) as exist;
+          SELECT exists (SELECT userId FROM User WHERE id=? and password=? and isDeleted=0) as exist;
           `;
   const [userPasswordRows] = await connection.query(getUserPassword, params);
   return userPasswordRows;

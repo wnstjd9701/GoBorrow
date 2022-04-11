@@ -30,9 +30,7 @@ class userController {
   //   distinction: props.name, -- type
   //   info: Info,
   postUser = async function (req, res) {
-    const parsedType = parseInt(req.body.distinction); // 회원 구분
-    console.log(parsedType);
-    console.log(req.body.distinction);
+    const parsedType = parseInt(req.body.type); // 회원 구분
     // type 1. 사용자, 2.조직/기관
     if (parsedType === 1) {
       // 사용자 회원가입
@@ -72,7 +70,7 @@ class userController {
     if (!password) return res.send(PASSWORD_EMPTY); // code 2001
     if (password.length < 6 || password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
     if (!organizationName) return res.send(SIGNUP_NAME_EMPTY); // code 2005
-    if (!ceoName) return res.send(SIGN_UP_CEO_NAME); // code 2011
+    if (!managerName) return res.send(SIGN_UP_CEO_NAME); // code 2011
     if (!address) return res.send(ADDRESS_EMPTY); // code 2010
     if (!phoneNumber) return res.send(PHONENUMBER_EMPTY); //code 2011
 
@@ -97,7 +95,7 @@ class userController {
    */
   // type 1: 사용자, 2: 조직/기관
   login = async function (req, res) {
-    const type = parseInt(req.body.distinction); // req.body.type
+    const type = parseInt(req.body.type);
     if (type === 1) {
       // 사용자 로그인
       const userId = req.body.id;
@@ -120,7 +118,7 @@ class userController {
     const password = req.body.password;
 
     if (!organizationId) return res.send(NICKNAME_EMPTY); // code 2009
-    if (userId.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
+    if (organizationId.length > 20) return res.send(ID_LENGTH_ERROR); // code 2012
     if (!password) return res.send(PASSWORD_EMPTY); // code 2003
     if (password.length > 20) return res.send(PASSWORD_LENGTH_ERROR); // code 2013
 
