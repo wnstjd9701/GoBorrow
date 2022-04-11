@@ -25,7 +25,6 @@ export default function SearchBar() {
     setKeyword(e.currentTarget.value);
   };
   const onSearchHandler = e => {
-    console.log(keyword);
     e.preventDefault();
     const body = {
       keyword: keyword,

@@ -47,13 +47,13 @@ export default function LoginLandingPage() {
           {On === 'user' ? <UserRegister name="1" /> : <OrgRegister name="2" />}
         </div>
       </div>
-      <Link to="/users/login">
-        <button style={{ background: 'black', width: '100px', marginTop: '10px' }} type="submit" className="btn_login" id="log.register">
+      <button style={{ background: 'black', width: '100px', marginTop: '10px' }} type="submit" className="btn_login" id="log.register">
+        <Link to="/users/login">
           <span style={{ color: 'white' }} className="btn_text">
             로그인
           </span>
-        </button>
-      </Link>
+        </Link>
+      </button>
       <Footer />
     </>
   );
