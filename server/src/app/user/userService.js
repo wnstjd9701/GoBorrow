@@ -56,20 +56,20 @@ export async function createOrganizationUser(
   }
 }
 
-export async function userLogin(id, password, type) {
+export async function userLogin(userId, password, type) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
-    const userIdCheckResult = await userIdCheck(id);
+    const userIdCheckResult = await userIdCheck(userId);
     if (userIdCheckResult.length < 1) return LOGIN_FAILURE; // code 1002 아이디가 존재 하지 않을 경우
 
     const hashedPassword = createHash('sha512').update(password).digest('hex');
-    const params = [id, hashedPassword];
+    const params = [userId, hashedPassword];
     const checkResult = await getUserInfo(connection, params);
 
     if (checkResult.length >= 1) {
       // DB에서 비교후에 id가 존재할 경우
-      const accessToken = jwt.sign({ id: id, userType: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      const refreshToken = jwt.sign({ id: id, userType: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
+      const accessToken = jwt.sign({ id: userId, userType: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      const refreshToken = jwt.sign({ id: userId, userType: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
         message: SUCCESS,
         accessToken: accessToken,
@@ -92,7 +92,7 @@ export async function organizationUserLogin(organizationId, password, type) {
     if (organizationUserIdCheck.length < 1) return LOGIN_FAILURE;
 
     const hashedPassword = createHash('sha512').update(password).digest('hex');
-    const params = [id, hashedPassword];
+    const params = [organizationId, hashedPassword];
     const checkResult = await getOrganizationUserInfo(connection, params);
 
     if (checkResult.length >= 1) {

@@ -132,11 +132,11 @@ class userController {
   /**
    *  API No. 4
    *  API Name : 사용자 프로필 API
-   * [GET`] /app/users/profile/:userId
+   * [GET] /app/users/profile
    */
   getProfile = async function (req, res) {
-    const userId = req.params;
-    console.log(userId);
+    const userId = req.id;
+
     const profileResult = await retrieveUserProfile(userId);
     return res.send(profileResult);
   };

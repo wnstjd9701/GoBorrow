@@ -50,7 +50,7 @@ export async function createOrganizationUserAccount(connection, params) {
 
 export async function checkPasswordByUserId(connection, params) {
   const getUserPassword = `
-          SELECT exists (SELECT userId FROM User WHERE id=? and password=? and isDeleted=0) as exist;
+          SELECT exists (SELECT userId FROM User WHERE userId=? and password=? and isDeleted=1) as exist;
           `;
   const [userPasswordRows] = await connection.query(getUserPassword, params);
   return userPasswordRows;
@@ -58,8 +58,8 @@ export async function checkPasswordByUserId(connection, params) {
 
 export async function selectUserProfile(connection, userId) {
   const getUserProfile = `
-  SELECT * FROM User WHERE userId = ?
+  SELECT userId, userName, phoneNumber, address, type, info FROM User WHERE userId = ?
   `;
-  const userProfileResult = await connection.query(getUserProfile, userId);
+  const [userProfileResult] = await connection.query(getUserProfile, userId);
   return userProfileResult;
 }
