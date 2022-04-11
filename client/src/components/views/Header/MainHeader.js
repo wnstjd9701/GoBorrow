@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { LogoutUser } from '../../../_actions/user_action';
+import authAxios from '../../../lib/refreshToken';
 
 function MainHeader() {
+  const [name, setName] = useState(null);
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const header_style = {
@@ -22,7 +24,7 @@ function MainHeader() {
   };
   const postLogOut = e => {
     dispatch(LogoutUser()).then(response => {
-      if (response.payload.success) {
+      if (response.payload.isSuccess) {
         navigate('/users/login');
       } else {
         alert('LogOut Error');
@@ -30,6 +32,16 @@ function MainHeader() {
       }
     });
   };
+  useEffect(() => {
+    async function test() {
+      console.log('hi');
+      const { profile } = await authAxios.get('/users/profile');
+      if (profile.isSuccess) {
+        setName(profile.name);
+      }
+    }
+    test();
+  }, []);
   return (
     <header style={head_style}>
       <div stlye={div_style}>

@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer.js';
 import Header from '../Header/Header.js';
 import Login from './LoginPage.js';
 import moment from 'moment';
+import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function LoginLandingPage() {
@@ -26,12 +27,23 @@ export default function LoginLandingPage() {
     }
   };
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    const expireAt = localStorage.getItem('expiresAt');
-    if (accessToken && moment(expireAt).diff(moment()) > 0) {
-      navigate('/');
+    async function checkLogin() {
+      let accessToken = localStorage.getItem('accessToken');
+      const expireAt = localStorage.getItem('expiresAt');
+      if (accessToken && moment(expireAt).diff(moment()) > 0) {
+        navigate('/');
+      } else if (!accessToken || moment(expireAt).diff(moment()) < 0) {
+        const { data } = await axios.get('/auth/token');
+        if (data.isSuccess) {
+          accessToken = data.accessToken;
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
+          navigate('/');
+        }
+      }
     }
-  }, [navigate]); //맨처음 로딩 될 때 자동 로그인이 되어 있는지 확인
+    checkLogin();
+  }, []); //맨처음 로딩 될 때 자동 로그인이 되어 있는지 확인
   return (
     <>
       <Header />
@@ -56,13 +68,13 @@ export default function LoginLandingPage() {
           <Login name={distinc} />
         </div>
       </div>
-      <Link to="/users/register">
-        <button style={{ background: 'black', width: '100px', marginTop: '10px' }} type="submit" className="btn_login" id="log.register">
+      <button style={{ background: 'black', width: '100px', marginTop: '10px' }} type="submit" className="btn_login" id="log.register">
+        <Link to="/users/register">
           <span style={{ color: 'white' }} className="btn_text">
             회원가입
           </span>
-        </button>
-      </Link>
+        </Link>
+      </button>
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 import { createUser, createOrganizationUser, userLogin, organizationUserLogin } from './userService.js';
 import { retrieveUserProfile } from './userProvider.js';
 import {
+  SUCCESS,
   NICKNAME_EMPTY,
   PASSWORD_EMPTY,
   SIGNUP_NAME_EMPTY,
@@ -129,6 +130,18 @@ class userController {
     });
     return res.send(loginResult);
   };
+  /**
+   *  API No. 5
+   *  API Name : 로그아웃 API
+   * [POST`] /app/users/logout
+   */
+  logout = async function (req, res) {
+    res.cookie('refreshToken', '', {
+      httpOnly: true,
+    });
+    return res.send(SUCCESS);
+  };
+
   /**
    *  API No. 4
    *  API Name : 사용자 프로필 API

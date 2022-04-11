@@ -3,7 +3,7 @@ import { SERVER_CONNECT_ERROR } from '../../../config/baseResponseStatus.js';
 import { pool } from '../../../config/database.js';
 import { selectUserId, selectOrganizationId, selectUserProfile } from './userDao.js';
 export async function userIdCheck(userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userIdRow = await selectUserId(connection, userId);
     return userIdRow;
@@ -16,7 +16,7 @@ export async function userIdCheck(userId) {
 }
 
 export async function organizationIdCheck(organizationId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationIdRow = await selectOrganizationId(connection, organizationId);
     return organizationIdRow;
@@ -29,7 +29,7 @@ export async function organizationIdCheck(organizationId) {
 }
 
 export async function retrieveUserProfile(userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userProfileResult = selectUserProfile(connection, userId);
     return userProfileResult;

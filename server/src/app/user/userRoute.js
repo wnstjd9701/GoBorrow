@@ -6,5 +6,6 @@ import { authentication, reissuanceToken } from '../../../config/jwtMiddleware.j
 
 router.post('/', userController.postUser); // 회원가입 API
 router.post('/login', userController.login); // 로그인 API
+router.post('/logout', userController.logout); //로그아웃 API
 router.get('/profile/:userId', userController.getProfile); //프로필 API
 export default router;
