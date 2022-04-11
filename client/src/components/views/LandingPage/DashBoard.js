@@ -42,7 +42,8 @@ export default function DashBoard() {
               <AccordionDetails>
                 <Typography style={{ fontSize: '0.9rem' }}>
                   <b>제품 코드:</b> R203 <br />
-                  <b>대여 기간:</b> 2022-04-12 12:30 ~ 2022-04-12 17:30
+                  <b>대여 기간:</b> 2022-04-12 ~ 2022-04-12 <br />
+                  <b>대여 시간:</b> 12:30 ~ 17:30
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -89,7 +90,8 @@ export default function DashBoard() {
               <AccordionDetails>
                 <Typography style={{ fontSize: '0.9rem' }}>
                   <b>제품 코드:</b> R203 <br />
-                  <b>대여 기간:</b> 2022-04-12 12:30 ~ 2022-04-12 17:30
+                  <b>대여 기간:</b> 2022-04-12 ~ 2022-04-12 <br />
+                  <b>대여 시간:</b> 12:30 ~ 17:30
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -136,7 +138,8 @@ export default function DashBoard() {
               <AccordionDetails>
                 <Typography style={{ fontSize: '0.9rem' }}>
                   <b>제품 코드:</b> R203 <br />
-                  <b>대여 기간:</b> 2022-04-12 12:30 ~ 2022-04-12 17:30
+                  <b>대여 기간:</b> 2022-04-12 ~ 2022-04-12 <br />
+                  <b>대여 시간:</b> 12:30 ~ 17:30
                 </Typography>
               </AccordionDetails>
             </Accordion>
