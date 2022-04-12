@@ -7,7 +7,10 @@ export async function getOrganization(organizationName) {
   try {
     const organizationResult = await organizationIdCheck(connection, organizationName);
     if (organizationResult.length > 0) {
-      return organizationResult;
+      return {
+        isSuccess: true,
+        organizationResult,
+      };
     }
     return ORGANIZATION_SEARCH_RESULT;
   } catch (err) {
@@ -23,7 +26,10 @@ export async function getOrganizationInfoDetail(organizationName) {
   try {
     const organizationInfoResult = await retrieveOrganizationInformation(connection, organizationName);
     if (organizationInfoResult.length > 0) {
-      return organizationInfoResult;
+      return {
+        isSuccess: true,
+        organizationInfoResult,
+      };
     }
     return ORGANIZATION_SEARCH_RESULT;
   } catch (err) {

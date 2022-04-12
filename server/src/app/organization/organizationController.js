@@ -1,4 +1,4 @@
-import { getOrganization, getOrganizationInfoDetail } from './organizationService.js';
+import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationService.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**
@@ -13,7 +13,7 @@ class organizationController {
       // 아무것도 검색하지 않았을 경우
       return res.send(ORGANIZATION_SEARCH_EMPTY);
     }
-    const organizationResult = await getOrganization(organizationName);
+    const organizationResult = await getOrganizationInfo(organizationName);
     return res.send(organizationResult);
   };
   /**

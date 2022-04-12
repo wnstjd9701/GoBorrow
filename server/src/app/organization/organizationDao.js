@@ -1,4 +1,4 @@
-export async function organizationIdCheck(connection, organizationName) {
+export async function getOrganizationInfoByName(connection, organizationName) {
   const organizationNameSearch = '%' + organizationName + '%';
   const getOrganizationResult = `
   SELECT organizationName,
