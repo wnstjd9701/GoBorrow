@@ -1,4 +1,4 @@
-import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationService.js';
+import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationProvide.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**

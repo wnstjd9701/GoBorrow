@@ -72,7 +72,9 @@ export async function userLogin(userId, password, type) {
       const accessToken = jwt.sign({ id: userId, userType: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
       const refreshToken = jwt.sign({ id: userId, userType: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
-        message: SUCCESS,
+        isSuccess: true,
+        code: 1000,
+        message: '성공',
         accessToken: accessToken,
         refreshToken: refreshToken,
       };
@@ -100,7 +102,9 @@ export async function organizationUserLogin(organizationId, password, type) {
       const accessToken = jwt.sign({ id: organizationId, userType: type }, process.env.JWT_SECRET, { expiresIn: '1h' });
       const refreshToken = jwt.sign({ id: organizationId, userType: type }, process.env.JWT_SECRET, { expiresIn: '14 days' });
       return {
-        message: SUCCESS,
+        isSuccess: true,
+        code: 1000,
+        message: '성공',
         accessToken: accessToken,
         refreshToken: refreshToken,
       };
