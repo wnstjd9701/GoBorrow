@@ -8,7 +8,7 @@ class organizationController {
    */
   organizationInformation = async function (req, res) {
     //  const organizationId = req.id;
-    const organizationName = req.query.organizationName;
+    const organizationName = req.query.keyword;
     if (organizationName === '') {
       // 아무것도 검색하지 않았을 경우
       return res.send(ORGANIZATION_SEARCH_EMPTY);

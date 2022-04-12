@@ -27,8 +27,8 @@ export async function LogoutUser() {
   };
 }
 
-export async function searchKeyword(dataToSubmit) {
-  const request = await axios.get('/app/organization', dataToSubmit).then(response => response.data);
+export async function searchKeyword(keyword) {
+  const request = await axios.get('/app/organization', { params: { keyword: keyword } }).then(response => response.data);
   return {
     type: SEARCH_ORG,
     payload: request,

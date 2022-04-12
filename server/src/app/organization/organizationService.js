@@ -3,7 +3,7 @@ import { SERVER_CONNECT_ERROR, ORGANIZATION_SEARCH_RESULT, SUCCESS } from '../..
 import { organizationIdCheck, retrieveOrganizationInformation } from './organizationDao.js';
 
 export async function getOrganization(organizationName) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationResult = await organizationIdCheck(connection, organizationName);
     if (organizationResult.length > 0) {
@@ -19,7 +19,7 @@ export async function getOrganization(organizationName) {
 }
 
 export async function getOrganizationInfoDetail(organizationName) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationInfoResult = await retrieveOrganizationInformation(connection, organizationName);
     if (organizationInfoResult.length > 0) {

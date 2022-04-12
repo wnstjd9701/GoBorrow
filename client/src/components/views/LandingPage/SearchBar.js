@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux';
 import { searchKeyword } from '../../../_actions/user_action';
@@ -25,17 +25,16 @@ export default function SearchBar() {
     setKeyword(e.currentTarget.value);
   };
   const onSearchHandler = e => {
-    e.preventDefault();
-    const body = {
-      keyword: keyword,
-    };
-    if (keyword) {
-      dispatch(searchKeyword(body)).then(response => {
-        if (response.payload.message.isSuccess) {
-          navigate('/organization');
-        }
-      });
-    }
+    // e.preventDefault();
+    // if (keyword) {
+    //   dispatch(searchKeyword(keyword)).then(response => {
+    //     if (response.payload.isSuccess) {
+    //       navigate('/organizations', { keyword: response.payload });
+    //     } else {
+    //       navigate('/organizations', { keyword: response.payload.message });
+    //     }
+    //   });
+    // }
   };
   return (
     <>
@@ -52,9 +51,11 @@ export default function SearchBar() {
             }}
             renderInput={params => <TextField {...params} onChange={onKeywordHandler} label="Search.." />}
           />
-          <button style={{ margin: '0 auto' }}>
-            <SearchIcon style={{ display: 'inline-block' }} />
-          </button>
+          <Link to={'/organizations/' + keyword}>
+            <button style={{ margin: '0 auto' }}>
+              <SearchIcon style={{ display: 'inline-block' }} />
+            </button>
+          </Link>
         </Stack>
       </form>
     </>
