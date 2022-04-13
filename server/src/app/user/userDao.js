@@ -64,7 +64,7 @@ export async function selectUserProfile(connection, userId) {
   return userProfileResult;
 }
 
-export async function updateUserProfile(connection, params) {
+export async function updateUserProfileInfo(connection, params) {
   const updateProfile = `
   UPDATE User
   SET 

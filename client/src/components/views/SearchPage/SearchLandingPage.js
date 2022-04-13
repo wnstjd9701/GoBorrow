@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/MainHeader';
 import SearchNullResultPage from './SearchNullResultPage';
+import SearchResultPage from './SearchResultPage';
 
 const SearchPage = ({ match }) => {
   const [orglist, setOrg] = useState(null);
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
   const { keyword } = useParams();
 
   useEffect(() => {
@@ -28,9 +29,12 @@ const SearchPage = ({ match }) => {
       <Header />
       <div>
         {state === true ? (
-          orglist.map((org, idx) => {
-            return <h3>{org.organizationName} </h3>;
-          })
+          // (
+          //   orglist.map((org, idx) => {
+          //     return <h3>{org.organizationName} </h3>;
+          //   })
+          // )
+          <SearchResultPage />
         ) : (
           <SearchNullResultPage name={keyword} />
         )}

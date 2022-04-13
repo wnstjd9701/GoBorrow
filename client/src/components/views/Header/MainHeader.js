@@ -32,19 +32,16 @@ function MainHeader(props) {
       }
     });
   };
+
   useEffect(() => {
     async function getProfile() {
       const profile = await authAxios.get('/app/users/profile');
-      const sendProfileData = () => {
-        props.getProfile(name);
-      };
       if (profile.data.isSuccess) {
         setName(profile.data.data.userName);
-        sendProfileData();
       }
     }
     getProfile();
-  }, [props]);
+  }, []);
   return (
     <header style={head_style}>
       <div stlye={div_style}>
