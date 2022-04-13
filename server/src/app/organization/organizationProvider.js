@@ -3,7 +3,7 @@ import { SERVER_CONNECT_ERROR, ORGANIZATION_SEARCH_RESULT, SUCCESS } from '../..
 import { getOrganizationInfoByName, retrieveOrganizationInformation } from './organizationDao.js';
 
 export async function getOrganizationInfo(organizationName) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationResult = await getOrganizationInfoByName(connection, organizationName);
     if (organizationResult.length > 0) {
@@ -11,7 +11,7 @@ export async function getOrganizationInfo(organizationName) {
         isSuccess: true,
         code: 1000,
         message: '성공',
-        organizationResult,
+        data: organizationResult,
       };
     }
     return ORGANIZATION_SEARCH_RESULT;
@@ -24,7 +24,7 @@ export async function getOrganizationInfo(organizationName) {
 }
 
 export async function getOrganizationInfoDetail(organizationName) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationInfoResult = await retrieveOrganizationInformation(connection, organizationName);
     if (organizationInfoResult.length > 0) {
@@ -32,7 +32,7 @@ export async function getOrganizationInfoDetail(organizationName) {
         isSuccess: true,
         code: 1000,
         message: '성공',
-        organizationInfoResult,
+        data: organizationInfoResult,
       };
     }
     return ORGANIZATION_SEARCH_RESULT;

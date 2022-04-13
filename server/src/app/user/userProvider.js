@@ -31,8 +31,8 @@ export async function organizationIdCheck(organizationId) {
 export async function retrieveUserProfile(userId) {
   const connection = await pool.getConnection(async conn => conn);
   try {
-    const userProfileResult = selectUserProfile(connection, userId);
-    return userProfileResult;
+    const userProfileResult = await selectUserProfile(connection, userId);
+    return { isSuccess: true, code: 1000, message: '성공', data: userProfileResult[0] };
   } catch (err) {
     console.log(err);
     return SERVER_CONNECT_ERROR;

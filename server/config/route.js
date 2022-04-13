@@ -6,7 +6,7 @@ import organizationRoute from '../src/app/organization/organizationRoute.js';
 const router = Router();
 
 router.use('/app/users', userRoute);
-router.use('/app/organization', organizationRoute);
+router.use('/app/organizations', organizationRoute);
 router.use('/auth', authRoute);
 
 export default router;

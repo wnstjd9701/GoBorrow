@@ -25,7 +25,7 @@ export default function LoginPage(props) {
     };
 
     dispatch(loginUser(body)).then(response => {
-      if (response.payload.message.isSuccess) {
+      if (response.payload.isSuccess) {
         localStorage.setItem('accessToken', response.payload.accessToken);
         localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
         navigate('/');

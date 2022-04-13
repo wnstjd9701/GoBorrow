@@ -1,4 +1,4 @@
-import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationProvide.js';
+import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationProvider.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**
@@ -7,6 +7,7 @@ class organizationController {
    * [GET] /app/organization?organizationName=~
    */
   organizationInformation = async function (req, res) {
+    console.log('hi');
     //  const organizationId = req.id;
     const organizationName = req.query.keyword;
     if (organizationName === '') {

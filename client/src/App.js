@@ -4,7 +4,8 @@ import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginLandingPage from './components/views/LoginPage/LoginLandingPage';
 import RegisterLandingPage from './components/views/RegisterPage/RegisterLandingPage';
 import Contributor from './components/views/Footer/Contributor';
-import SearchPage from './components/views/SearchPage/SearchPage';
+import SearchPage from './components/views/SearchPage/SearchLandingPage';
+import MyPage from './components/views/MyPage/MyPage';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/users/register" element={<RegisterLandingPage />} />
             <Route exact path="/organizations/:keyword" element={<SearchPage />} />
             <Route exact path="/contributors" element={<Contributor />} />
+            <Route exact path="/users/myPage" element={<MyPage />} />
           </Routes>
         </div>
       </Router>

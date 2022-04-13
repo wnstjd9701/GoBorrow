@@ -149,7 +149,6 @@ class userController {
    */
   getProfile = async function (req, res) {
     const userId = req.id;
-
     const profileResult = await retrieveUserProfile(userId);
     return res.send(profileResult);
   };

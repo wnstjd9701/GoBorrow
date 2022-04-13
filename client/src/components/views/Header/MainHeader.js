@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LogoutUser } from '../../../_actions/user_action';
 import authAxios from '../../../lib/refreshToken';
 
-function MainHeader() {
+function MainHeader(props) {
   const [name, setName] = useState(null);
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -33,14 +33,18 @@ function MainHeader() {
     });
   };
   useEffect(() => {
-    async function test() {
-      const { profile } = await authAxios.get('/users/profile');
-      if (profile.isSuccess) {
-        setName(profile.name);
+    async function getProfile() {
+      const profile = await authAxios.get('/app/users/profile');
+      const sendProfileData = () => {
+        props.getProfile(name);
+      };
+      if (profile.data.isSuccess) {
+        setName(profile.data.data.userName);
+        sendProfileData();
       }
     }
-    test();
-  }, []);
+    getProfile();
+  }, [props]);
   return (
     <header style={head_style}>
       <div stlye={div_style}>
@@ -81,6 +85,12 @@ function MainHeader() {
             HOME
           </Button>
         </Link>
+        <span style={{ float: 'right', display: 'inline-flex', lineHeight: '1.75em', padding: '6px 8px' }}>
+          <Link to="/users/myPage" style={{ textDecoration: 'none', color: 'green' }}>
+            <b>{name}</b>
+          </Link>
+          님 환영합니다!
+        </span>
       </div>
     </header>
   );

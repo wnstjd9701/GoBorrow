@@ -9,8 +9,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar() {
   const [keyword, setKeyword] = useState(null);
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
   const testItem = [
     {
       cname: '단국대학교 죽전캠퍼스',
@@ -24,22 +22,10 @@ export default function SearchBar() {
   const onKeywordHandler = e => {
     setKeyword(e.currentTarget.value);
   };
-  const onSearchHandler = e => {
-    // e.preventDefault();
-    // if (keyword) {
-    //   dispatch(searchKeyword(keyword)).then(response => {
-    //     if (response.payload.isSuccess) {
-    //       navigate('/organizations', { keyword: response.payload });
-    //     } else {
-    //       navigate('/organizations', { keyword: response.payload.message });
-    //     }
-    //   });
-    // }
-  };
   return (
     <>
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
-      <form onSubmit={onSearchHandler}>
+      <form>
         <Stack style={{ flexDirection: 'row', margin: '0 auto' }} spacing={2} sx={{ width: 330 }}>
           <Autocomplete
             style={{ width: 'inherit' }}
