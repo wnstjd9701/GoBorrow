@@ -63,3 +63,17 @@ export async function selectUserProfile(connection, userId) {
   const [userProfileResult] = await connection.query(getUserProfile, userId);
   return userProfileResult;
 }
+
+export async function updateUserProfile(connection, params) {
+  const updateProfile = `
+  UPDATE User
+  SET 
+    userName    = ?,
+    phoneNumber = ?,
+    address     = ?,
+    info        = ?
+  WHERE userId = ?;
+  `;
+  const [updateUserProfileResult] = await connection.query(updateProfile, params);
+  return updateUserProfileResult;
+}

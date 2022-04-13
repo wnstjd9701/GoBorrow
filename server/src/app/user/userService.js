@@ -1,4 +1,4 @@
-import { createUserAccount, createOrganizationUserAccount, getUserInfo } from './userDao.js';
+import { createUserAccount, createOrganizationUserAccount, getUserInfo, userProfileUpdate } from './userDao.js';
 import { userIdCheck, organizationIdCheck } from './userProvider.js';
 import { pool } from '../../../config/database.js';
 import {
@@ -128,7 +128,7 @@ export async function organizationUserLogin(organizationId, password, type) {
   export async function updateUserProfile(userId) {
     const connection = await pool.getConnection(async (conn) => conn);
     try {
-      const updateUserProfileResponse = await updateUserProfile(connection, userId);
+      const updateUserProfileResponse = await userProfileUpdate(connection, userId);
       return SUCCESS;
     } catch (err) {
       console.log(err);

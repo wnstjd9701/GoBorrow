@@ -1,4 +1,4 @@
-import { createUser, createOrganizationUser, userLogin, organizationUserLogin } from './userService.js';
+import { createUser, createOrganizationUser, userLogin, organizationUserLogin, editUserProfile } from './userService.js';
 import { retrieveUserProfile } from './userProvider.js';
 import {
   SUCCESS,
