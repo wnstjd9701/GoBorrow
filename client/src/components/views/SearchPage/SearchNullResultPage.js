@@ -15,7 +15,7 @@ export default function SearchNullResultPage(props) {
   const keyword = props.name;
   return (
     <>
-      <SearchBar />
+      <SearchBar name={keyword} />
       <div style={div_Style}>
         <div style={{ margin: 5 }}>
           <span style={{ color: 'blue' }}>검색어</span>: {keyword}

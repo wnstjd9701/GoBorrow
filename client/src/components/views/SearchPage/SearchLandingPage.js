@@ -34,7 +34,7 @@ const SearchPage = ({ match }) => {
           //     return <h3>{org.organizationName} </h3>;
           //   })
           // )
-          <SearchResultPage />
+          <SearchResultPage name={keyword} />
         ) : (
           <SearchNullResultPage name={keyword} />
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import { useNavigate, Link } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -7,7 +7,8 @@ import { searchKeyword } from '../../../_actions/user_action';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  useEffect(() => {}, [props]);
   const [keyword, setKeyword] = useState(null);
   const testItem = [
     {
@@ -22,6 +23,7 @@ export default function SearchBar() {
   const onKeywordHandler = e => {
     setKeyword(e.currentTarget.value);
   };
+  const searchword = props.name ? props.name : 'Search..';
   return (
     <>
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
@@ -35,7 +37,7 @@ export default function SearchBar() {
             onChange={(e, newValue) => {
               setKeyword(newValue);
             }}
-            renderInput={params => <TextField {...params} onChange={onKeywordHandler} label="Search.." />}
+            renderInput={params => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
           />
           <Link to={'/organizations/' + keyword}>
             <button style={{ margin: '0 auto' }}>

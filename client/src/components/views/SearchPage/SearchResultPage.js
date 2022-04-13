@@ -8,10 +8,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import SearchBar from '../LandingPage/SearchBar';
 
-export default function SearchResultPage() {
+export default function SearchResultPage(props) {
+  const keyword = props.name;
   return (
     <>
-      <SearchBar />
+      <SearchBar name={keyword} />
       <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 345 }}>
         <CardHeader
           titleTypographyProps={{ fontSize: '1.15rem' }}
