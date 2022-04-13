@@ -1,7 +1,15 @@
 import { createUserAccount, createOrganizationUserAccount, getUserInfo } from './userDao.js';
 import { userIdCheck, organizationIdCheck } from './userProvider.js';
 import { pool } from '../../../config/database.js';
-import { ID_ALREADY_EXISTS, SUCCESS, FAIL, LOGIN_FAILURE, PASSWORD_WRONG, SIGNUP_SUCCESS } from '../../../config/baseResponseStatus.js';
+import {
+  ID_ALREADY_EXISTS,
+  SUCCESS,
+  FAIL,
+  LOGIN_FAILURE,
+  PASSWORD_WRONG,
+  SIGNUP_SUCCESS,
+  SERVER_CONNECT_ERROR,
+} from '../../../config/baseResponseStatus.js';
 import jwt from 'jsonwebtoken';
 import { createHash } from 'crypto';
 import dotenv from 'dotenv';
@@ -115,5 +123,18 @@ export async function organizationUserLogin(organizationId, password, type) {
     console.log(err);
   } finally {
     connection.release();
+  }
+
+  export async function updateUserProfile(userId) {
+    const connection = await pool.getConnection(async (conn) => conn);
+    try {
+      const updateUserProfileResponse = await updateUserProfile(connection, userId);
+      return SUCCESS;
+    } catch (err) {
+      console.log(err);
+      return SERVER_CONNECT_ERROR;
+    } finally {
+      connection.release();
+    }
   }
 }

@@ -152,5 +152,15 @@ class userController {
     const profileResult = await retrieveUserProfile(userId);
     return res.send(profileResult);
   };
+  /**
+   *  API No. 7
+   *  API Name : 사용자 정보수정 API
+   * [PUT] /app/users/profile
+   */
+  editUserProfile = async function (req, res) {
+    const userId = req.id;
+    const editUserProfileResult = await updateUserProfile(userId);
+    return res.send(editUserProfileResult);
+  };
 }
 export default new userController();
