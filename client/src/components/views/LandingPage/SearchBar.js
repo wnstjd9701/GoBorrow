@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar(props) {
-  const [keyword, setKeyword] = useState(null);
+  const [keyword, setKeyword] = useState('');
   const testItem = [
     {
       cname: '단국대학교 죽전캠퍼스',

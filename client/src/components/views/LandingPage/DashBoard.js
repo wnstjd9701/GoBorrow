@@ -17,7 +17,7 @@ export default function DashBoard() {
     <Box maxWidth="md" style={{ margin: '30px auto' }} sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>대여 승인 신청</div>{' '}
+          <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>승인 대기</div>{' '}
           <div>
             <Accordion expanded={expanded === 'panel1-1'} onChange={handleChange('panel1-1')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-1bh-content" id="panel1-1bh-header">
@@ -65,7 +65,7 @@ export default function DashBoard() {
           </div>
         </Grid>
         <Grid item xs={4}>
-          <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>대여중(반납 예정)</div>{' '}
+          <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>반납 예정</div>{' '}
           <div>
             <Accordion expanded={expanded === 'panel2-1'} onChange={handleChange('panel2-1')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2-1bh-content" id="panel2-1bh-header">
