@@ -6,6 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Container from '@mui/material/Container';
 
 export default function DashBoard() {
   const [expanded, setExpanded] = useState(false);
@@ -13,7 +14,7 @@ export default function DashBoard() {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <Box style={{ width: 900, margin: '30px auto' }} sx={{ flexGrow: 1 }}>
+    <Box maxWidth="md" style={{ margin: '30px auto' }} sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>대여 승인 신청</div>{' '}

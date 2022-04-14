@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux';
 import { searchKeyword } from '../../../_actions/user_action';
@@ -8,7 +8,6 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar(props) {
-  useEffect(() => {}, [props]);
   const [keyword, setKeyword] = useState(null);
   const testItem = [
     {
@@ -24,6 +23,7 @@ export default function SearchBar(props) {
     setKeyword(e.currentTarget.value);
   };
   const searchword = props.name ? props.name : 'Search..';
+
   return (
     <>
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
@@ -39,7 +39,7 @@ export default function SearchBar(props) {
             }}
             renderInput={params => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
           />
-          <Link to={'/organizations/' + keyword}>
+          <Link to={'/organizations?keyword=' + keyword}>
             <button style={{ margin: '0 auto' }}>
               <SearchIcon style={{ display: 'inline-block' }} />
             </button>

@@ -16,7 +16,7 @@ class App extends Component {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/users/login" element={<LoginLandingPage />} />
             <Route exact path="/users/register" element={<RegisterLandingPage />} />
-            <Route exact path="/organizations/:keyword" element={<SearchPage />} />
+            <Route exact path="/organizations" element={<SearchPage />} />
             <Route exact path="/contributors" element={<Contributor />} />
             <Route exact path="/users/myPage" element={<MyPage />} />
           </Routes>

@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from '../LandingPage/SearchBar';
 
 export default function SearchNullResultPage(props) {
   const div_Style = {
@@ -15,7 +14,6 @@ export default function SearchNullResultPage(props) {
   const keyword = props.name;
   return (
     <>
-      <SearchBar name={keyword} />
       <div style={div_Style}>
         <div style={{ margin: 5 }}>
           <span style={{ color: 'blue' }}>검색어</span>: {keyword}
