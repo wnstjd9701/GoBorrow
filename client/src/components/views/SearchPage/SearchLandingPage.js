@@ -6,6 +6,7 @@ import SearchNullResultPage from './SearchNullResultPage';
 import SearchResultPage from './SearchResultPage';
 import SearchBar from '../LandingPage/SearchBar';
 import QueryString from 'query-string';
+import Footer from '../Footer/Footer';
 
 export default function SearchPage() {
   // const [orglist, setOrg] = useState(null);
@@ -43,6 +44,7 @@ export default function SearchPage() {
           <SearchNullResultPage name={searchword} />
         )}
       </div>
+      <Footer />
     </>
   );
 }
