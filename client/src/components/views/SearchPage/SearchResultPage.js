@@ -12,15 +12,21 @@ import { Container } from '@mui/material';
 export default function SearchResultPage() {
   return (
     <>
-      <Container fixed>
-        <Grid style={{ margin: '30px auto' }} maxWidth="lg" columns={15} container spacing={-1}>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 330 }}>
+      <Container style={{ maxWidth: 'max-content' }} fixed>
+        <Grid style={{ justifyContent: 'center', marginTop: 5 }} maxWidth="lg" columns={15} container spacing={0}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card style={{}} sx={{ width: '100%' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="총학생회"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -39,13 +45,19 @@ export default function SearchResultPage() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 330 }}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card style={{}} sx={{ width: '100%' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="소프트웨어학과 학생회"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -64,13 +76,19 @@ export default function SearchResultPage() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 330 }}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card style={{}} sx={{ width: '100%' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                title="(주)단국바이크"
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="(주)단국바이크"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -90,14 +108,20 @@ export default function SearchResultPage() {
             </Card>
           </Grid>
         </Grid>
-        <Grid style={{ margin: '30px auto' }} maxWidth="lg" columns={15} container spacing={0}>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 320 }}>
+        <Grid style={{ justifyContent: 'center', marginTop: 5 }} maxWidth="lg" columns={15} container spacing={0}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card style={{}} sx={{ width: '100%' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="퇴계중앙기념도서관"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -116,13 +140,19 @@ export default function SearchResultPage() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 320 }}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card style={{}} sx={{ width: '100%' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                title="단국서점"
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="단국서점"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -141,13 +171,19 @@ export default function SearchResultPage() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={5}>
-            <Card style={{ margin: '20px auto' }} sx={{ maxWidth: 320 }}>
+          <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+            <Card sx={{ width: '100%', overflow: 'ellipsis' }}>
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
                 title="단국대학교"
-                subheaderTypographyProps={{ fontSize: '0.875rem' }}
-                subheader="단국대학교 총학생회 대여팀입니다."
+                subheaderTypographyProps={{
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152"
                 action={
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />

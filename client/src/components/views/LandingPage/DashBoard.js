@@ -15,8 +15,8 @@ export default function DashBoard() {
   };
   return (
     <Box maxWidth="md" style={{ margin: '30px auto' }} sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
+      <Grid style={{ justifyContent: 'center' }} container spacing={2}>
+        <Grid style={{ minWidth: 300, maxWidth: 360 }} item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>승인 대기</div>{' '}
           <div>
             <Accordion expanded={expanded === 'panel1-1'} onChange={handleChange('panel1-1')}>
@@ -64,7 +64,7 @@ export default function DashBoard() {
             </Accordion>
           </div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid style={{ minWidth: 300, maxWidth: 360 }} item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>반납 예정</div>{' '}
           <div>
             <Accordion expanded={expanded === 'panel2-1'} onChange={handleChange('panel2-1')}>
@@ -112,7 +112,7 @@ export default function DashBoard() {
             </Accordion>
           </div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid style={{ minWidth: 300, maxWidth: 360 }} item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>반납 완료</div>{' '}
           <div>
             <Accordion expanded={expanded === 'panel3-1'} onChange={handleChange('panel3-1')}>
