@@ -1,5 +1,5 @@
 import { createUser, createOrganizationUser, userLogin, organizationUserLogin, updateUserProfile } from './userService.js';
-import { retrieveUserProfile } from './userProvider.js';
+import { retrieveUserProfile, getRentListByUserId } from './userProvider.js';
 import {
   SUCCESS,
   NICKNAME_EMPTY,
@@ -161,6 +161,16 @@ class userController {
     const userId = req.id;
     const editUserProfileResult = await updateUserProfile(userId);
     return res.send(editUserProfileResult);
+  };
+  /**
+   *  API No. 8
+   *  API Name : 사용자 대여 리스트 API
+   * [GET] /app/users/rentlist
+   */
+  getUserRentList = async function (req, res) {
+    const userId = req.id;
+    const userRentListResult = await getRentListByUserId(userId);
+    return res.send(userRentListResult);
   };
 }
 export default new userController();

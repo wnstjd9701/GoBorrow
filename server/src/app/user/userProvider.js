@@ -1,11 +1,10 @@
-// Read
 import { SERVER_CONNECT_ERROR } from '../../../config/baseResponseStatus.js';
 import { pool } from '../../../config/database.js';
-import { selectUserId, selectOrganizationId, selectUserProfile } from './userDao.js';
+import { selectUserId, selectOrganizationId, selectUserProfile, selectUserRentList } from './userDao.js';
 // Read
 
 export async function userIdCheck(userId) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userIdRow = await selectUserId(connection, userId);
     return userIdRow;
@@ -18,7 +17,7 @@ export async function userIdCheck(userId) {
 }
 
 export async function organizationIdCheck(organizationId) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const organizationIdRow = await selectOrganizationId(connection, organizationId);
     return organizationIdRow;
@@ -31,10 +30,34 @@ export async function organizationIdCheck(organizationId) {
 }
 
 export async function retrieveUserProfile(userId) {
-  const connection = await pool.getConnection(async conn => conn);
+  const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userProfileResult = await selectUserProfile(connection, userId);
-    return { isSuccess: true, code: 1000, message: '성공', data: userProfileResult[0] };
+    return {
+      isSuccess: true,
+      code: 1000,
+      message: '성공',
+      data: userProfileResult[0],
+    };
+  } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
+  } finally {
+    connection.release();
+  }
+}
+
+export async function getRentListByUserId(userId) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    const userRentLists = await selectUserRentList(connection, userId);
+    console.log(userRentLists.length);
+    return {
+      isSuccess: true,
+      code: 1000,
+      message: '성공',
+      data: userRentLists,
+    };
   } catch (err) {
     console.log(err);
     return SERVER_CONNECT_ERROR;
