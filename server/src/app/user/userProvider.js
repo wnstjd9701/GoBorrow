@@ -33,6 +33,7 @@ export async function retrieveUserProfile(userId) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
     const userProfileResult = await selectUserProfile(connection, userId);
+    console.log(userProfileResult);
     return {
       isSuccess: true,
       code: 1000,

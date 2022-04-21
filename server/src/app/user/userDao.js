@@ -94,7 +94,8 @@ export async function selectUserRentList(connection, userId) {
        r.statusReason     상태변경,
        r.returnDate       반납일시,
        r.returnInfo       반납관련비고
-  FROM Product p,
+  FROM
+      Product p,
       Rent r,
       User u,
       Organization o,
