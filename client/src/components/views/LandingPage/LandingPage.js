@@ -3,13 +3,16 @@ import Header from '../Header/MainHeader';
 import SearchBar from './SearchBar';
 import DashBoard from './DashBoard';
 import Footer from '../Footer/Footer';
+import { Container } from '@mui/material';
 
 export default function LandingPage(props) {
   return (
     <>
       <Header />
-      <SearchBar />
-      <DashBoard />
+      <Container>
+        <SearchBar />
+        <DashBoard />
+      </Container>
       <Footer />
     </>
   );
