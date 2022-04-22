@@ -7,6 +7,7 @@ import SearchResultPage from './SearchResultPage';
 import SearchBar from '../LandingPage/SearchBar';
 import QueryString from 'query-string';
 import Footer from '../Footer/Footer';
+import { Container } from '@mui/material';
 
 export default function SearchPage() {
   // const [orglist, setOrg] = useState(null);
@@ -29,21 +30,23 @@ export default function SearchPage() {
   return (
     <>
       <Header />
-      <SearchBar name={searchword} />
-      <div>
-        {loading ? (
-          <div style={{ textAlign: 'center', margin: '20px auto', fontSize: 13, fontWeight: 500 }}>loading..</div>
-        ) : state ? (
-          // (
-          //   orglist.map((org, idx) => {
-          //     return <h3>{org.organizationName} </h3>;
-          //   })
-          // )
-          <SearchResultPage name={searchword} />
-        ) : (
-          <SearchNullResultPage name={searchword} />
-        )}
-      </div>
+      <Container style={{ maxWidth: 'max-content' }} fixed>
+        <SearchBar name={searchword} />
+        <div>
+          {loading ? (
+            <div style={{ textAlign: 'center', margin: '20px auto', fontSize: 13, fontWeight: 500 }}>loading..</div>
+          ) : state ? (
+            // (
+            //   orglist.map((org, idx) => {
+            //     return <h3>{org.organizationName} </h3>;
+            //   })
+            // )
+            <SearchResultPage name={searchword} />
+          ) : (
+            <SearchNullResultPage name={searchword} />
+          )}
+        </div>
+      </Container>
       <Footer />
     </>
   );
