@@ -109,3 +109,25 @@ export async function selectUserRentList(connection, userId) {
   const [getUserRentListResult] = await connection.query(getUserRentLists, userId);
   return getUserRentListResult;
 }
+
+export async function updateUserPassword(connection, params) {
+  const updatePassword = `
+  UPDATE User
+  SET 
+    password = ?
+  WHERE userId = ?;
+  `;
+  const [updatePasswordResult] = await connection.query(updatePassword, params);
+  return updatePasswordResult;
+}
+
+export async function updateOrganizationPassword(connection, params) {
+  const updatePassword = `
+  UPDATE Organization
+  SET 
+    password = ?
+  WHERE organizationId = ?;
+  `;
+  const [updatePasswordResult] = await connection.query(updatePassword, params);
+  return updatePasswordResult;
+}

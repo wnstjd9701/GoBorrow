@@ -1,4 +1,11 @@
-import { createUserAccount, createOrganizationUserAccount, getUserInfo, updateUserProfileInfo } from './userDao.js';
+import {
+  createUserAccount,
+  createOrganizationUserAccount,
+  getUserInfo,
+  updateUserProfileInfo,
+  updateUserPassword,
+  updateOrganizationPassword,
+} from './userDao.js';
 import { userIdCheck, organizationIdCheck } from './userProvider.js';
 import { pool } from '../../../config/database.js';
 import {
@@ -121,6 +128,38 @@ export async function organizationUserLogin(organizationId, password, type) {
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    connection.release();
+  }
+}
+
+export async function changeUserPassword(userId, newPassword) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
+    const params = [hashedPassword, userId];
+
+    const changePasswordResult = await updateUserPassword(connection, params);
+    return SUCCESS;
+  } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
+  } finally {
+    connection.release();
+  }
+}
+
+export async function changeOrganizationPassword(organizationId, newPassword) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
+    const params = [hashedPassword, organizationId];
+
+    const changePasswordResult = updateOrganizationPassword(connection, params);
+    return SUCCESS;
+  } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
