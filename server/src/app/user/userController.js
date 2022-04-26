@@ -160,7 +160,7 @@ class userController {
   editUserProfile = async function (req, res) {
     const userId = req.id;
     const { userName, phoneNumber, address, info } = req.body;
-    console.log(userName);
+
     const editUserProfileResult = await updateUserProfile(userName, phoneNumber, address, info, userId);
     return res.send(editUserProfileResult);
   };
