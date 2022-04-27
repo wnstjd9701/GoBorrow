@@ -163,7 +163,8 @@ class userController {
       const userPasswordResult = await changeUserPassword(userId, newPassword);
       return userPasswordResult;
     } else {
-      const organizationPasswordResult = await changeOrganizationPassword(userId, newPassword);
+      const organizationId = req.id;
+      const organizationPasswordResult = await changeOrganizationPassword(organizationId, newPassword);
       return organizationPasswordResult;
     }
   };
