@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { TOKEN_VERIFICATION_FAILURE } from './baseResponseStatus.js';
 dotenv.config();
 class jwtAuthorization {
-  sign = (user) => {
+  sign = user => {
     const payload = {
       // accessToken 에 들어갈 payload
       id: user.id,
@@ -15,7 +15,7 @@ class jwtAuthorization {
     });
   };
 
-  verify = (accessToken) => {
+  verify = accessToken => {
     // access token 검증
     const tokenData = jwt.verify(accessToken, process.env.JWT_SECRET, (err, data) => {
       if (err)
@@ -35,7 +35,7 @@ class jwtAuthorization {
     return tokenData;
   };
 
-  refresh = (user) => {
+  refresh = user => {
     const payload = {
       id: user.id,
       distinction: user.distinction,
