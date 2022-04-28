@@ -23,9 +23,8 @@ export default function MyPage() {
   const [id, setId] = useState('');
   const [phoneNumber, setphonenumber] = useState('');
   const [address, setAddress] = useState('');
-  const [type, setType] = useState('');
   const [info, setInfo] = useState('');
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleClick = () => {
     setOpen(!open);
