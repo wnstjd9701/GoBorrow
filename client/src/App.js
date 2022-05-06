@@ -6,6 +6,7 @@ import RegisterLandingPage from './components/views/RegisterPage/RegisterLanding
 import Contributor from './components/views/Footer/Contributor';
 import SearchPage from './components/views/SearchPage/SearchLandingPage';
 import MyPage from './components/views/MyPage/MyPage';
+import OrgMainPage from './components/views/Organization/OrgMainPage';
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/users/login" element={<LoginLandingPage />} />
             <Route exact path="/users/register" element={<RegisterLandingPage />} />
-            <Route exact path="/organizations/:keyword" element={<SearchPage />} />
+            <Route exact path="/organizations" element={<SearchPage />} />
+            <Route exact path="/organizations/:organizationId" element={<OrgMainPage />} />
             <Route exact path="/contributors" element={<Contributor />} />
             <Route exact path="/users/myPage" element={<MyPage />} />
           </Routes>

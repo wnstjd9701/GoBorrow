@@ -20,31 +20,34 @@ export default function SearchBar(props) {
       place: '서울',
     },
   ];
-  const onKeywordHandler = e => {
+  const onKeywordHandler = (e) => {
     setKeyword(e.currentTarget.value);
   };
   const searchword = props.name ? props.name : 'Search..';
   return (
     <>
       <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
-      <form>
-        <Stack style={{ flexDirection: 'row', margin: '0 auto' }} spacing={2} sx={{ width: 330 }}>
-          <Autocomplete
-            style={{ width: 'inherit' }}
-            id="free-solo-demo"
-            freeSolo
-            options={testItem.map(option => option.cname)}
-            onChange={(e, newValue) => {
-              setKeyword(newValue);
-            }}
-            renderInput={params => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
-          />
-          <Link to={'/organizations/' + keyword}>
-            <button style={{ margin: '0 auto' }}>
-              <SearchIcon style={{ display: 'inline-block' }} />
-            </button>
-          </Link>
-        </Stack>
+      <form style={{ marginBottom: '20px' }}>
+        <div>
+          <Stack style={{ position: 'relative', flexDirection: 'row', margin: '0 auto' }} spacing={2} sx={{ width: 330 }}>
+            <Autocomplete
+              disableClearable
+              style={{ width: 'inherit' }}
+              id="free-solo-demo"
+              freeSolo
+              options={testItem.map((option) => option.cname)}
+              onChange={(e, newValue) => {
+                setKeyword(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
+            />
+            <Link style={{ position: 'absolute', right: 0, zIndex: 4 }} to={'/organizations?keyword=' + keyword}>
+              <button style={{ margin: '0 auto' }}>
+                <SearchIcon style={{ display: 'inline-block' }} />
+              </button>
+            </Link>
+          </Stack>
+        </div>
       </form>
     </>
   );

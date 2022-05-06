@@ -5,6 +5,15 @@ import authAxios from '../../../lib/refreshToken';
 
 export default function MyPage() {
   const [name, setName] = useState('');
+  const [id, setId] = useState('');
+  const [phoneNumber, setphonenumber] = useState('');
+  const [address, setAddress] = useState('');
+  const [info, setInfo] = useState('');
+  const [open, setOpen] = useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   useEffect(() => {
     async function getProfile() {
       const profile = await authAxios.get('/app/users/profile');

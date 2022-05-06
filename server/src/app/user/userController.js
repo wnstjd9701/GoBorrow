@@ -1,5 +1,13 @@
-import { createUser, createOrganizationUser, userLogin, organizationUserLogin, updateUserProfile } from './userService.js';
-import { retrieveUserProfile } from './userProvider.js';
+import {
+  createUser,
+  createOrganizationUser,
+  userLogin,
+  organizationUserLogin,
+  updateUserProfile,
+  changeUserPassword,
+  changeOrganizationPassword,
+} from './userService.js';
+import { retrieveUserProfile, getRentListByUserId } from './userProvider.js';
 import {
   SUCCESS,
   NICKNAME_EMPTY,
@@ -133,7 +141,7 @@ class userController {
   /**
    *  API No. 5
    *  API Name : 로그아웃 API
-   * [POST`] /app/users/logout
+   * [POST] /app/users/logout
    */
   logout = async function (req, res) {
     res.cookie('refreshToken', '', {
@@ -141,7 +149,25 @@ class userController {
     });
     return res.send(SUCCESS);
   };
-
+  /**
+   *  API No. 9
+   *  API Name : 사용자 비밀번호 수정 API
+   * [PATCH] /app/users/edit_password
+   */
+  editUserPassword = async function (req, res) {
+    const userId = req.id;
+    const type = req.userType;
+    const newPassword = req.body.newPassword;
+    if (newPassword.length < 6 || newPassword.length > 20) return res.send(PASSWORD_LENGTH_ERROR);
+    if (type == 1) {
+      const userPasswordResult = await changeUserPassword(userId, newPassword);
+      return userPasswordResult;
+    } else {
+      const organizationId = req.id;
+      const organizationPasswordResult = await changeOrganizationPassword(organizationId, newPassword);
+      return organizationPasswordResult;
+    }
+  };
   /**
    *  API No. 4
    *  API Name : 사용자 프로필 API
@@ -159,8 +185,20 @@ class userController {
    */
   editUserProfile = async function (req, res) {
     const userId = req.id;
-    const editUserProfileResult = await updateUserProfile(userId);
+    const { userName, phoneNumber, address, info } = req.body;
+
+    const editUserProfileResult = await updateUserProfile(userName, phoneNumber, address, info, userId);
     return res.send(editUserProfileResult);
+  };
+  /**
+   *  API No. 8
+   *  API Name : 사용자 대여 리스트 API
+   * [GET] /app/users/rentlist
+   */
+  getUserRentList = async function (req, res) {
+    const userId = req.id;
+    const userRentListResult = await getRentListByUserId(userId);
+    return res.send(userRentListResult);
   };
 }
 export default new userController();

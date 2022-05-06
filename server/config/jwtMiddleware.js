@@ -50,7 +50,7 @@ export const reissuanceAccessToken = async (req, res) => {
       isSuccess: false,
       code: 5001,
       name: 'RefreshToken',
-      message: 'RefreshToken doesn`t exist',
+      message: '로그인 세션이 만료되었습니다.',
     });
   }
   const refreshResult = await jwt.verify(refreshToken, process.env.JWT_SECRET, (err, data) => {

@@ -4,6 +4,10 @@ import axios from 'axios';
 import Header from '../Header/MainHeader';
 import SearchNullResultPage from './SearchNullResultPage';
 import SearchResultPage from './SearchResultPage';
+import SearchBar from '../LandingPage/SearchBar';
+import QueryString from 'query-string';
+import Footer from '../Footer/Footer';
+import { Container } from '@mui/material';
 
 const SearchPage = ({ match }) => {
   const [orglist, setOrg] = useState(null);
@@ -27,18 +31,24 @@ const SearchPage = ({ match }) => {
   return (
     <>
       <Header />
-      <div>
-        {state === true ? (
-          // (
-          //   orglist.map((org, idx) => {
-          //     return <h3>{org.organizationName} </h3>;
-          //   })
-          // )
-          <SearchResultPage name={keyword} />
-        ) : (
-          <SearchNullResultPage name={keyword} />
-        )}
-      </div>
+      <Container style={{ maxWidth: 'max-content' }} fixed>
+        <SearchBar name={searchword} />
+        <div>
+          {loading ? (
+            <div style={{ textAlign: 'center', margin: '20px auto', fontSize: 13, fontWeight: 500 }}>loading..</div>
+          ) : state ? (
+            // (
+            //   orglist.map((org, idx) => {
+            //     return <h3>{org.organizationName} </h3>;
+            //   })
+            // )
+            <SearchResultPage name={searchword} />
+          ) : (
+            <SearchNullResultPage name={searchword} />
+          )}
+        </div>
+      </Container>
+      <Footer />
     </>
   );
 };
