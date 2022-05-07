@@ -7,6 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import SearchBar from '../LandingPage/SearchBar';
+import { Grid } from '@mui/material';
 
 export default function SearchResultPage(props) {
   const keyword = props.name;

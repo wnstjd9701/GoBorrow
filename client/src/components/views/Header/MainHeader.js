@@ -20,7 +20,7 @@ function MainHeader(props) {
   const head_style = {
     alignItems: 'center',
     display: 'flex',
-    margin: '0 30px',
+    margin: '0 40px',
   };
   const postLogOut = e => {
     dispatch(LogoutUser()).then(response => {
@@ -62,7 +62,6 @@ function MainHeader(props) {
           style={{
             color: 'black',
             float: 'right',
-            marginRight: '50px',
           }}
           size="medium"
           variant="text"

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import { Container, Grid, Card, CardContent, Typography, Stack } from '@mui/material';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -65,7 +65,7 @@ export default function OrgMainPage() {
   return (
     <>
       <Header />
-      <Container sx={{ maxWidth: 'max-content', border: '1px solid #ddd' }} fixed>
+      <Container sx={{ maxWidth: 'max-content', border: '1px solid #ddd', background: 'rgb(249, 250, 251)', borderRadius: '10px' }} fixed>
         <Grid sx={{ textAlign: 'center', margin: '16px auto', justifyContent: 'center', maxWidth: 'max-content !important' }}>
           <div style={{ margin: '5px auto', display: 'inline-block', textAlign: 'center' }}>
             <img style={{ width: '500px', height: '300px' }} src={testImg.img} alt="" />
@@ -96,18 +96,30 @@ export default function OrgMainPage() {
           </Card>
         </Grid>
         <h2 style={{ textAlign: 'center' }}>Product</h2>
-        <ImageList sx={{ margin: '15px auto', gridTemplateColumns: 'repeat(4, 1fr) !important', gap: '10px !important' }}>
+        <ImageList
+          sx={{
+            margin: '15px auto',
+            gridTemplateColumns: 'repeat(4, 1fr) !important',
+            gap: '10px !important',
+          }}
+        >
           {itemData.map(item => (
-            <ImageListItem key={item.img}>
+            <ImageListItem
+              key={item.img}
+              sx={{
+                boxShadow:
+                  'rgb(145 158 171 / 20%) 0px 3px 1px -2px, rgb(145 158 171 / 14%) 0px 2px 2px 0px, rgb(145 158 171 / 12%) 0px 1px 5px 0px',
+              }}
+            >
               <img
                 src={`${item.img}?w=248&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
-                style={{ objectFit: 'scale-down' }}
+                style={{ objectFit: 'scale-down', background: 'rgb(255,255,255)', borderRadius: '10px 10px 0 0' }}
               />
               <ImageListItemBar
-                sx={{ textAlign: 'center' }}
+                sx={{ textAlign: 'center', background: 'rgb(252,251,252)', borderRadius: '0 0 10px 10px' }}
                 title={<b>{item.title}</b>}
                 subtitle={handleSide(item.state, item.quantity)}
                 position="below"
