@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/MainHeader';
 import Footer from '../Footer/Footer';
 import authAxios from '../../../lib/refreshToken';
@@ -17,6 +18,8 @@ import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 export default function MyPage() {
   const [name, setName] = useState('');
   const [id, setId] = useState('');
@@ -96,6 +99,14 @@ export default function MyPage() {
             </ListItemButton>
           </List>
         </Collapse>
+        <Link to="favorite">
+          <ListItemButton style={{ color: 'black' }}>
+            <ListItemIcon>
+              <FavoriteIcon />
+            </ListItemIcon>
+            <ListItemText primary="찜한 기관/조직" />
+          </ListItemButton>
+        </Link>
       </List>
       <Footer />
     </>
