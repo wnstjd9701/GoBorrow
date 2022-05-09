@@ -55,7 +55,7 @@ export default function Contributor() {
   };
   return (
     <>
-      <header>
+      <header style={{ backgroundColor: '#ffffff', marginBottom: '10px' }}>
         <img
           className="App-logo"
           style={header_style}

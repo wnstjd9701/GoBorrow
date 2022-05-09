@@ -4,9 +4,9 @@ import CardActions from '@mui/material/CardActions';
 import CardHeader from '@mui/material/CardHeader';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import SearchBar from '../LandingPage/SearchBar';
 import { Grid } from '@mui/material';
 
 export default function SearchResultPage(props) {
@@ -29,7 +29,7 @@ export default function SearchResultPage(props) {
               subheader="총학생회"
               action={
                 <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                  <FavoriteBorderIcon />
                 </IconButton>
               }
             />
@@ -91,7 +91,7 @@ export default function SearchResultPage(props) {
               subheader="(주)단국바이크"
               action={
                 <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                  <FavoriteBorderIcon />
                 </IconButton>
               }
             />
@@ -186,7 +186,7 @@ export default function SearchResultPage(props) {
               subheader="경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152"
               action={
                 <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                  <FavoriteBorderIcon />
                 </IconButton>
               }
             />

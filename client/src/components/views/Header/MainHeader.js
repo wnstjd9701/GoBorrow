@@ -18,9 +18,11 @@ function MainHeader(props) {
     textAlign: 'left',
   };
   const head_style = {
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     display: 'flex',
-    margin: '0 40px',
+    padding: '0 40px',
+    marginBottom: '10px',
   };
   const postLogOut = e => {
     dispatch(LogoutUser()).then(response => {

@@ -8,6 +8,7 @@ import SearchPage from './components/views/SearchPage/SearchLandingPage';
 import MyPage from './components/views/MyPage/MyPage';
 import OrgMainPage from './components/views/Organization/OrgMainPage';
 import ProductPage from './components/views/ProductPage/ProductMainPage';
+import MyFavoriteInstitution from './components/views/MyPage/Favorite';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/organizations/:organizationId/:productId" element={<ProductPage />} />
             <Route exact path="/contributors" element={<Contributor />} />
             <Route exact path="/users/myPage" element={<MyPage />} />
+            <Route exact path="/users/myPage/favorite" element={<MyFavoriteInstitution />} />
           </Routes>
         </div>
       </Router>

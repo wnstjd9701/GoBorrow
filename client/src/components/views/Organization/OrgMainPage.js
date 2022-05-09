@@ -65,7 +65,15 @@ export default function OrgMainPage() {
   return (
     <>
       <Header />
-      <Container sx={{ maxWidth: 'max-content', border: '1px solid #ddd', background: 'rgb(249, 250, 251)', borderRadius: '10px' }} fixed>
+      <Container
+        sx={{
+          maxWidth: 'max-content',
+          border: '1px solid #ddd',
+          background: 'rgb(249, 250, 251)',
+          borderRadius: '10px',
+        }}
+        fixed
+      >
         <Grid sx={{ textAlign: 'center', margin: '16px auto', justifyContent: 'center', maxWidth: 'max-content !important' }}>
           <div style={{ margin: '5px auto', display: 'inline-block', textAlign: 'center' }}>
             <img style={{ width: '500px', height: '300px' }} src={testImg.img} alt="" />

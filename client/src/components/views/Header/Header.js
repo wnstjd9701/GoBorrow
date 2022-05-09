@@ -9,7 +9,7 @@ export default function Header() {
     display: 'block',
   };
   return (
-    <header>
+    <header style={{ backgroundColor: '#ffffff' }}>
       <img
         className="App-logo"
         style={header_style}

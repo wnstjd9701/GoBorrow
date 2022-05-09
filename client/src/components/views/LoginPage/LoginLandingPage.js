@@ -47,7 +47,7 @@ export default function LoginLandingPage() {
   return (
     <>
       <Header />
-      <div className="content">
+      <div style={{ marginTop: '0' }} className="content">
         <div className="login_wrap">
           <ul className="menu_wrap" role="tablist">
             <li className="menu_item" role="presentation">
