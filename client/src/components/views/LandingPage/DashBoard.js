@@ -6,10 +6,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Pagination from '@mui/material/Pagination';
 
 export default function DashBoard() {
   const [expanded, setExpanded] = useState(false);
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (
@@ -62,6 +63,9 @@ export default function DashBoard() {
               </AccordionDetails>
             </Accordion>
           </div>
+          <div style={{ margin: '5px' }}>
+            <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
+          </div>
         </Grid>
         <Grid style={{ minWidth: 300, maxWidth: 360 }} item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>반납 예정</div>{' '}
@@ -110,6 +114,9 @@ export default function DashBoard() {
               </AccordionDetails>
             </Accordion>
           </div>
+          <div style={{ margin: '5px' }}>
+            <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
+          </div>
         </Grid>
         <Grid style={{ minWidth: 300, maxWidth: 360 }} item xs={4}>
           <div style={{ margin: '20px auto', textAlign: 'center', fontSize: 16, fontWeight: 'bold' }}>반납 완료</div>{' '}
@@ -157,6 +164,9 @@ export default function DashBoard() {
                 </Typography>
               </AccordionDetails>
             </Accordion>
+          </div>
+          <div style={{ margin: '5px' }}>
+            <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
           </div>
         </Grid>
       </Grid>
