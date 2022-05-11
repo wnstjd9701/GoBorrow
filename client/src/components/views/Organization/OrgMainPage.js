@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/MainHeader';
 import Footer from '../Footer/Footer';
 import { useParams } from 'react-router-dom';
@@ -23,13 +24,13 @@ const itemData = [
   {
     img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9A%B0%EC%82%B0.jpg',
     title: '우산',
-    state: false,
-    quantity: '0',
+    state: true,
+    quantity: '3',
   },
   {
     img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%85%B8%ED%8A%B8%EB%B6%81.jpeg',
     title: '노트북',
-    state: true,
+    state: false,
     quantity: '1',
   },
   {
@@ -126,12 +127,23 @@ export default function OrgMainPage() {
                 loading="lazy"
                 style={{ objectFit: 'scale-down', background: 'rgb(255,255,255)', borderRadius: '10px 10px 0 0' }}
               />
-              <ImageListItemBar
-                sx={{ textAlign: 'center', background: 'rgb(252,251,252)', borderRadius: '0 0 10px 10px' }}
-                title={<b>{item.title}</b>}
-                subtitle={handleSide(item.state, item.quantity)}
-                position="below"
-              />
+              {item.state ? (
+                <Link to="1">
+                  <ImageListItemBar
+                    sx={{ textAlign: 'center', background: 'rgb(252,251,252)', borderRadius: '0 0 10px 10px' }}
+                    title={<b>{item.title}</b>}
+                    subtitle={handleSide(item.state, item.quantity)}
+                    position="below"
+                  />
+                </Link>
+              ) : (
+                <ImageListItemBar
+                  sx={{ textAlign: 'center', background: 'rgb(252,251,252)', borderRadius: '0 0 10px 10px' }}
+                  title={<b>{item.title}</b>}
+                  subtitle={handleSide(item.state, item.quantity)}
+                  position="below"
+                />
+              )}
             </ImageListItem>
           ))}
         </ImageList>

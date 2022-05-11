@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardHeader from '@mui/material/CardHeader';
@@ -16,23 +17,26 @@ export default function SearchResultPage(props) {
       <Grid style={{ justifyContent: 'center', marginTop: 5 }} maxWidth="lg" columns={15} container spacing={0}>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card style={{}} sx={{ width: '100%' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="기관: 단국대학교"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="총학생회"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteBorderIcon />
-                </IconButton>
-              }
-            />
+            <Link to="1">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="총학생회"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
@@ -47,23 +51,26 @@ export default function SearchResultPage(props) {
         </Grid>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card style={{}} sx={{ width: '100%' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="기관: 단국대학교"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="소프트웨어학과 학생회"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-              }
-            />
+            <Link to="2">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="소프트웨어학과 학생회"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
@@ -78,23 +85,26 @@ export default function SearchResultPage(props) {
         </Grid>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card style={{}} sx={{ width: '100%' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="(주)단국바이크"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="(주)단국바이크"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteBorderIcon />
-                </IconButton>
-              }
-            />
+            <Link to="3">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="(주)단국바이크"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="(주)단국바이크"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
@@ -111,23 +121,26 @@ export default function SearchResultPage(props) {
       <Grid style={{ justifyContent: 'center', marginTop: 5 }} maxWidth="lg" columns={15} container spacing={0}>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card style={{}} sx={{ width: '100%' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="기관: 단국대학교"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="퇴계중앙기념도서관"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-              }
-            />
+            <Link to="4">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="퇴계중앙기념도서관"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
@@ -142,23 +155,26 @@ export default function SearchResultPage(props) {
         </Grid>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card style={{}} sx={{ width: '100%' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="단국서점"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="단국서점"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-              }
-            />
+            <Link to="5">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="단국서점"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="단국서점"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
@@ -173,23 +189,26 @@ export default function SearchResultPage(props) {
         </Grid>
         <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
           <Card sx={{ width: '100%', overflow: 'ellipsis' }}>
-            <CardHeader
-              titleTypographyProps={{ fontSize: '1.15rem' }}
-              title="단국대학교"
-              subheaderTypographyProps={{
-                fontSize: '0.875rem',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                width: '200px',
-              }}
-              subheader="경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152"
-              action={
-                <IconButton aria-label="add to favorites">
-                  <FavoriteBorderIcon />
-                </IconButton>
-              }
-            />
+            <Link to="6">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="단국대학교"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
             <CardMedia
               component="img"
               height="140"
