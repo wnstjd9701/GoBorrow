@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Pagination from '@mui/material/Pagination';
+import { Button } from '@mui/material';
 
 export default function DashBoard() {
   const [expanded, setExpanded] = useState(false);
@@ -32,6 +33,22 @@ export default function DashBoard() {
                   <b>대여 기간:</b> 2022-04-10 ~ 2022-04-17
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  대여 취소
+                </Button>
+              </div>
             </Accordion>
             <Accordion expanded={expanded === 'panel1-2'} onChange={handleChange('panel1-2')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-2bh-content" id="panel1-2bh-header">
@@ -47,6 +64,22 @@ export default function DashBoard() {
                   <b>대여 시간:</b> 12:30 ~ 17:30
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  대여 취소
+                </Button>
+              </div>
             </Accordion>
             <Accordion expanded={expanded === 'panel1-3'} onChange={handleChange('panel1-3')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-3bh-content" id="panel1-3bh-header">
@@ -61,6 +94,22 @@ export default function DashBoard() {
                   <b>대여 기간:</b> 2022-04-12 ~ 2022-04-14
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  대여 취소
+                </Button>
+              </div>
             </Accordion>
           </div>
           <div style={{ margin: '5px' }}>
@@ -134,6 +183,22 @@ export default function DashBoard() {
                   <b>대여 기간:</b> 2022-04-10 ~ 2022-04-17
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  삭제
+                </Button>
+              </div>
             </Accordion>
             <Accordion expanded={expanded === 'panel3-2'} onChange={handleChange('panel3-2')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3-2bh-content" id="panel3-2bh-header">
@@ -149,6 +214,22 @@ export default function DashBoard() {
                   <b>대여 시간:</b> 12:30 ~ 17:30
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  삭제
+                </Button>
+              </div>
             </Accordion>
             <Accordion expanded={expanded === 'panel3-3'} onChange={handleChange('panel3-3')}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3-3bh-content" id="panel3-3bh-header">
@@ -163,6 +244,22 @@ export default function DashBoard() {
                   <b>대여 기간:</b> 2022-04-12 ~ 2022-04-14
                 </Typography>
               </AccordionDetails>
+              <div style={{ textAlign: 'right' }}>
+                <Button
+                  size="small"
+                  style={{
+                    borderRadius: 15,
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    color: 'red',
+                    marginRight: '7px',
+                    marginBottom: '7px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  삭제
+                </Button>
+              </div>
             </Accordion>
           </div>
           <div style={{ margin: '5px' }}>
