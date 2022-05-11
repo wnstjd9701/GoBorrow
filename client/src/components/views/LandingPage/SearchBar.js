@@ -20,13 +20,15 @@ export default function SearchBar(props) {
       place: '서울',
     },
   ];
-  const onKeywordHandler = (e) => {
+  const onKeywordHandler = e => {
     setKeyword(e.currentTarget.value);
   };
   const searchword = props.name ? props.name : 'Search..';
   return (
     <>
-      <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>조직/기관명을 검색하세요</div>
+      <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 20, margin: '50px 0 20px 0' }}>
+        <span style={{ color: 'green' }}>조직/기관명</span>을 검색하세요
+      </div>
       <form style={{ marginBottom: '20px' }}>
         <div>
           <Stack style={{ position: 'relative', flexDirection: 'row', margin: '0 auto' }} spacing={2} sx={{ width: 330 }}>
@@ -35,11 +37,11 @@ export default function SearchBar(props) {
               style={{ width: 'inherit' }}
               id="free-solo-demo"
               freeSolo
-              options={testItem.map((option) => option.cname)}
+              options={testItem.map(option => option.cname)}
               onChange={(e, newValue) => {
                 setKeyword(newValue);
               }}
-              renderInput={(params) => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
+              renderInput={params => <TextField {...params} onChange={onKeywordHandler} label={searchword} />}
             />
             <Link style={{ position: 'absolute', right: 0, zIndex: 4 }} to={'/organizations?keyword=' + keyword}>
               <button style={{ margin: '0 auto' }}>
