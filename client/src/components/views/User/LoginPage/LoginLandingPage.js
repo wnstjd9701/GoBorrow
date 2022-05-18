@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Footer from '../Footer/Footer.js';
-import Header from '../Header/Header.js';
+import Footer from '../../Public/Footer/Footer.js';
+import Header from '../../Public/Header/Header.js';
 import Login from './LoginPage.js';
 import moment from 'moment';
 import axios from 'axios';

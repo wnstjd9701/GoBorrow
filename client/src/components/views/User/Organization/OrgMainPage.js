@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/MainHeader';
-import Footer from '../Footer/Footer';
+import Header from '../../Public/Header/MainHeader';
+import Footer from '../../Public/Footer/Footer';
 import { useParams } from 'react-router-dom';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';

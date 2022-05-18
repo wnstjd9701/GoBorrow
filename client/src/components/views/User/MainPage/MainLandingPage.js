@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header/MainHeader';
+import Header from '../../Public/Header/MainHeader';
 import SearchBar from './SearchBar';
 import DashBoard from './DashBoard';
-import Footer from '../Footer/Footer';
+import Footer from '../../Public/Footer/Footer';
 import { Container } from '@mui/material';
-import authAxios from '../../../lib/refreshToken';
+import authAxios from '../../../../lib/refreshToken';
 
 export default function LandingPage() {
   // const [name, setName] = useState('');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/MainHeader';
-import Footer from '../Footer/Footer';
+import Header from '../../Public/Header/MainHeader';
+import Footer from '../../Public/Footer/Footer';
 import { Container, Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';

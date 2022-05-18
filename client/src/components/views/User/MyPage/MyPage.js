@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/MainHeader';
-import Footer from '../Footer/Footer';
+import Header from '../../Public/Header/MainHeader';
+import Footer from '../../Public/Footer/Footer';
 import authAxios from '../../../../lib/refreshToken';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';

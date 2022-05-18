@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Footer from '../Footer/Footer.js';
-import Header from '../Header/Header.js';
+import Footer from '../../Public/Footer/Footer.js';
+import Header from '../../Public/Header/Header.js';
 import UserRegister from './UserRegisterPage';
 import OrgRegister from './OrgRegisterPage';
 import { Link } from 'react-router-dom';

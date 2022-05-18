@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import Header from '../Header/MainHeader';
+import Header from '../../Public/Header/MainHeader';
 import SearchNullResultPage from './SearchNullResultPage';
 import SearchResultPage from './SearchResultPage';
-import SearchBar from '../LandingPage/SearchBar';
+import SearchBar from '../MainPage/SearchBar';
 import QueryString from 'query-string';
-import Footer from '../Footer/Footer';
+import Footer from '../../Public/Footer/Footer';
 import { Container } from '@mui/material';
 
 export default function SearchPage() {
