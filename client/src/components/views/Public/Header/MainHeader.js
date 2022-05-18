@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { LogoutUser } from '../../../_actions/user_action';
-import authAxios from '../../../lib/refreshToken';
+import { LogoutUser } from '../../../../_actions/user_action';
+import authAxios from '../../../../lib/refreshToken';
 
 function MainHeader(props) {
   const [name, setName] = useState(null);

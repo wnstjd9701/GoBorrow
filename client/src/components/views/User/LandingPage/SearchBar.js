@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import { useNavigate, Link } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux';
-import { searchKeyword } from '../../../_actions/user_action';
+import { searchKeyword } from '../../../../_actions/user_action';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
