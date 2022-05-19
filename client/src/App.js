@@ -10,12 +10,15 @@ import OrgMainPage from './components/views/User/Organization/OrgMainPage';
 import ProductPage from './components/views/User/ProductPage/ProductMainPage';
 import MyFavoriteInstitution from './components/views/User/MyPage/Favorite';
 
+import OrganizationMainPage from './components/views/Organization/MainPage/MainLandingPage';
+
 class App extends Component {
   render() {
     return (
       <Router basename="/app">
         <div>
           <Routes>
+            {/* User Page */}
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/users/login" element={<LoginLandingPage />} />
             <Route exact path="/users/register" element={<RegisterLandingPage />} />
@@ -25,6 +28,9 @@ class App extends Component {
             <Route exact path="/contributors" element={<Contributor />} />
             <Route exact path="/users/myPage" element={<MyPage />} />
             <Route exact path="/users/myPage/favorite" element={<MyFavoriteInstitution />} />
+
+            {/* Organization Page */}
+            <Route exact path="/org" element={<OrganizationMainPage />} />
           </Routes>
         </div>
       </Router>
