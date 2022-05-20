@@ -1,10 +1,6 @@
 import { Typography } from '@mui/material';
-
-// project imports
 import NavGroup from './NavGroup/NavGroup';
 import menuItem from '../MenuItem';
-
-// ==============================|| SIDEBAR MENU LIST ||============================== //
 
 const MenuList = () => {
   const navItems = menuItem.items.map(item => {

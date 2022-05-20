@@ -3,15 +3,24 @@ import { useTheme } from '@mui/material/styles';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
 import { BrowserView, MobileView } from 'react-device-detect';
 import MenuList from './MenuList/MenuListLandingPage';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
   const theme = useTheme();
-  const matchUpMd = useMediaQuery(theme.breakpoints.up('sm'));
+  const matchUpMd = useMediaQuery(theme.breakpoints.up('md'));
 
   const drawer = (
     <>
       <BrowserView>
-        <MenuList />
+        <div
+          style={{
+            height: !matchUpMd ? 'calc(100vh - 56px)' : 'calc(100vh - 88px)',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+          }}
+        >
+          <MenuList />
+        </div>
       </BrowserView>
       <MobileView>
         <Box sx={{ px: 2 }}>
@@ -33,11 +42,13 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
         onClose={drawerToggle}
         sx={{
           '& .MuiDrawer-paper': {
-            position: 'relative',
             background: theme.palette.background.default,
             color: theme.palette.text.primary,
             borderRight: 'none',
-            padding: '15px',
+            [theme.breakpoints.up('md')]: {
+              top: '88px',
+              position: 'inherit',
+            },
           },
         }}
         ModalProps={{ keepMounted: true }}
