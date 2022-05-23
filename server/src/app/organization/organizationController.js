@@ -1,4 +1,4 @@
-import { getOrganizationInfo, getOrganizationInfoDetail } from './organizationProvider.js';
+import { getOrganizationInfo, getOrganizationInfoDetail, getOrganizationProductInformation } from './organizationProvider.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**
@@ -23,9 +23,20 @@ class organizationController {
    * [GET] /app/organization/:organizationName
    */
   organizationDetail = async function (req, res) {
-    const organizationName = req.params.organizationName;
+    const organizationName = req.params.keyword;
     const organizationInformationResult = await getOrganizationInfoDetail(organizationName);
     return res.send(organizationInformationResult);
+  };
+  /**
+   *  API No. 6
+   *  API Name : 물품 대여 API
+   * [GET] /app/organization/:organizationId/:productId
+   */
+  organizationProductInfo = async function (req, res) {
+    const organizationName = req.params.organizationName;
+    const productId = req.params.productId;
+    const organizationProductInfoResult = await getOrganizationProductInformation(organizationName, productId);
+    return res.send(organizationProductInfoResult);
   };
 }
 
