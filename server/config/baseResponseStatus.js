@@ -31,3 +31,6 @@ export const TOKEN_EMPTY = { isSuccess: false, code: 5001, message: 'JWT 토큰�
 export const TOKEN_VERIFICATION_FAILURE = { isSuccess: false, code: 5002, message: 'JWT 토큰 검증 실패' };
 export const TOKEN_EXPIRED = { isSuccess: false, code: 5003, message: 'JWT 토큰 만료, 다시 로그인 해주세요. ' };
 export const TOKEN_IS_VALID = { isSuccess: true, code: 5004, message: '모든 토큰이 유효 합니다. ' };
+
+export const ORGANIZATION_SEARCH_RESULT = { isSuccess: false, code: 6000, message: '조직/기관 검색 결과가 없습니다. ' };
+export const ORGANIZATION_SEARCH_EMPTY = { isSuccess: false, code: 6001, message: '조직/기관명을 입력하세요. ' };

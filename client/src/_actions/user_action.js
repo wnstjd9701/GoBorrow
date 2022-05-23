@@ -18,24 +18,17 @@ export async function registerUser(dataToSubmit) {
 }
 
 export async function LogoutUser() {
-  try {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('expiresAt');
-    return {
-      type: LOGOUT_USER,
-      payload: { success: true },
-    };
-  } catch (err) {
-    console.log(err);
-    return {
-      type: LOGOUT_USER,
-      payload: { success: false },
-    };
-  }
+  const request = await axios.post('/app/users/logout').then(response => response.data);
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('expiresAt');
+  return {
+    type: LOGOUT_USER,
+    payload: request,
+  };
 }
 
-export async function searchKeyword(dataToSubmit) {
-  const request = await axios.get('/app/organization', dataToSubmit).then(response => response.data);
+export async function searchKeyword(keyword) {
+  const request = await axios.get('/app/organization', { params: { keyword: keyword } }).then(response => response.data);
   return {
     type: SEARCH_ORG,
     payload: request,
