@@ -27,6 +27,26 @@ function srcset(image, width, height, rows = 1, cols = 1) {
   };
 }
 
+const Input = styled('input')({
+  display: 'block',
+});
+
+const itemData = [
+  {
+    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/yellowUmb.jpeg',
+    title: 'UR1022',
+    featured: true,
+  },
+  {
+    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/brownumb.jpg',
+    title: 'UR1023',
+  },
+  {
+    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9A%B0%EC%82%B0.jpg',
+    title: 'UR1024',
+  },
+];
+
 export default function ProductMainPage() {
   const [startDate, setStartDate] = useState(new Date());
   const [lastDate, setFinishDate] = useState(new Date());
@@ -168,23 +188,3 @@ export default function ProductMainPage() {
     </>
   );
 }
-
-const Input = styled('input')({
-  display: 'block',
-});
-
-const itemData = [
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/yellowUmb.jpeg',
-    title: 'UR1022',
-    featured: true,
-  },
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/brownumb.jpg',
-    title: 'UR1023',
-  },
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9A%B0%EC%82%B0.jpg',
-    title: 'UR1024',
-  },
-];
