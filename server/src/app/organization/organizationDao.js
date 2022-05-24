@@ -40,3 +40,19 @@ WHERE o.organizationName = ?;
   const [organizationInformationResult] = await connection.query(selectOrganizationInformation, organizationName);
   return organizationInformationResult;
 }
+
+export async function retrieveOrganizaionProductInformation(connection, organizationName, productId) {
+  const selectOrganizationProductInformation = `
+  SELECT p.productId, p.productName, p.productImage, p.info, p.price
+FROM Organization o,
+     Product p,
+     Item i
+WHERE o.organizationId = p.organizationId
+  and p.productId = i.productId
+  and o.organizationId = ?
+  and p.productId = ?
+ORDER BY i.itemId;
+  `;
+  const [organizationProductInformationResult] = await connection.query(selectOrganizationProductInformation, organizationName, productId);
+  return organizationProductInformationResult;
+}
