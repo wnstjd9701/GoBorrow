@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import { Card, Grid, Typography } from '@mui/material';
-import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 import chartData from './Product-Stock-Chart';
 
