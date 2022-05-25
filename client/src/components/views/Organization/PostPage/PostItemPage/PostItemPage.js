@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { postPorudctItem } from '../../../../../_actions/org_action';
@@ -17,7 +17,7 @@ export default function PostProductPage() {
   const dispatch = useDispatch();
   const [Inputs, setInputs] = useState({ itemName: '', image: '' });
   const [Items, setItems] = useState([]);
-  let nextId = 0;
+  const nextId = useRef(1);
   const { itemName, image } = Inputs;
 
   const onChange = e => {
@@ -39,7 +39,7 @@ export default function PostProductPage() {
 
   const onCreate = () => {
     const item = {
-      id: nextId,
+      id: nextId.current,
       itemName,
       image,
     };
@@ -49,7 +49,7 @@ export default function PostProductPage() {
         itemName: '',
         image: '',
       });
-      nextId += 1;
+      nextId.current += 1;
     } else {
       alert('제품 번호를 입력해주세요.');
     }
