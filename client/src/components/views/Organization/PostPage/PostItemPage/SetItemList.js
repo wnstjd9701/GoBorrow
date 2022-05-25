@@ -14,7 +14,7 @@ function Item({ item, onRemove }) {
 
 function CreateItemList({ items, onRemove }) {
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '5px' }}>
       {items.map(item => (
         <Item item={item} key={item.id} onRemove={onRemove} />
       ))}

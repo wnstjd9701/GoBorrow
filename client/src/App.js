@@ -11,7 +11,8 @@ import ProductPage from './components/views/User/ProductPage/ProductMainPage';
 import MyFavoriteInstitution from './components/views/User/MyPage/Favorite';
 
 import OrganizationMainPage from './components/views/Organization/MainPage/MainLandingPage';
-import OrganizationPostProudctPage from './components/views/Organization/PostPage/PostProductPage';
+import OrganizationPostProudctItemPage from './components/views/Organization/PostPage/PostItemPage/PostItemPage';
+import OrganizationPostProudctPage from './components/views/Organization/PostPage/PostProductPage/PostProductPage';
 
 class App extends Component {
   render() {
@@ -32,7 +33,8 @@ class App extends Component {
 
             {/* Organization Page */}
             <Route exact path="/org" element={<OrganizationMainPage />} />
-            <Route exact path="/org/post" element={<OrganizationPostProudctPage />} />
+            <Route exact path="/org/post/product" element={<OrganizationPostProudctPage />} />
+            <Route exact path="/org/post/product/item" element={<OrganizationPostProudctItemPage />} />
           </Routes>
         </div>
       </Router>
