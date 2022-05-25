@@ -15,15 +15,15 @@ import CreateItemButton from './CreateItemList';
 export default function PostProductPage() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const [inputs, setInputs] = useState({ itemName: '', image: '' });
-  const [items, setItems] = useState([]);
+  const [Inputs, setInputs] = useState({ itemName: '', image: '' });
+  const [Items, setItems] = useState([]);
   let nextId = 0;
-  const { itemName, image } = inputs;
+  const { itemName, image } = Inputs;
 
   const onChange = e => {
     const { name, value } = e.target;
     setInputs({
-      ...inputs,
+      ...Inputs,
       [name]: value,
     });
   };
@@ -32,7 +32,7 @@ export default function PostProductPage() {
     const value = e.target.files[0];
     const { name } = e.target;
     setInputs({
-      ...inputs,
+      ...Inputs,
       [name]: value,
     });
   };
@@ -44,7 +44,7 @@ export default function PostProductPage() {
       image,
     };
     if (itemName) {
-      setItems(items.concat(item));
+      setItems(Items.concat(item));
       setInputs({
         itemName: '',
         image: '',
@@ -56,13 +56,13 @@ export default function PostProductPage() {
   };
 
   const onRemove = id => {
-    setItems(items.filter(item => item.id !== id));
+    setItems(Items.filter(item => item.id !== id));
   };
 
   const onSubmitHandler = e => {
     e.preventDefault();
     const body = {
-      itesm: items,
+      item: Items,
     };
     dispatch(postPorudctItem(body)).then(response => {
       if (response.payload.isSuccess) {
@@ -97,7 +97,7 @@ export default function PostProductPage() {
                   <FormLabel id="demo-radio-buttons-group-label">
                     <h4 style={{ color: 'black', textAlign: 'left' }}>제품 번호 등록</h4>
                     <CreateItemButton itemName={itemName} onChange={onChange} onChangeImage={onChangeImage} onCreate={onCreate} />
-                    <ItemList items={items} onRemove={onRemove} />
+                    <ItemList items={Items} onRemove={onRemove} />
                   </FormLabel>
                   <div style={{ textAlign: 'center' }}>
                     <Button style={{ textAlign: 'center', margin: '15px auto 0' }} type="submit" variant="outlined">

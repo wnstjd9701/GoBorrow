@@ -14,7 +14,7 @@ function CreateItemList({ itemName, onChange, onChangeImage, onCreate }) {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <TextField sx={{ verticalAlign: 'baseline' }} name="itemName" placeholder="품목 번호" onChange={onChange} value={itemName} />
+      <TextField sx={{ verticalAlign: 'baseline' }} name="itemName" label="품목 번호" onChange={onChange} value={itemName} />
       <Input
         onChange={e => {
           setImageUrl(URL.createObjectURL(e.target.files[0]));
