@@ -19,19 +19,18 @@ WHERE organizationName LIKE ?;
 
 export async function retrieveOrganizationInformation(connection, organizationName) {
   const selectOrganizationInformation = `
-  SELECT i.itemId,
-       o.organizationImage,
+  SELECT o.organizationImage,
        o.organizationName,
        o.address,
        o.detailAddress,
        o.phoneNUmber,
        o.managerName,
        o.info,
+       p.productId,
        p.productImage,
        p.productName,
        p.info,
        p.price,
-       i.itemStatus,
        c.categoryName
 FROM Product p,
      Organization o,
@@ -52,7 +51,6 @@ export async function retrieveOrganizaionProductInformation(connection, params) 
   SELECT i.itemId,
        i.itemName,
        i.itemStatus,
-       i.itemStatus,
        p.productImage,
        p.info,
        p.price
@@ -65,7 +63,35 @@ WHERE o.organizationId = p.organizationId
   and p.productId = ?
 ORDER BY i.itemId;
   `;
-  console.log(params);
   const [organizationProductInformationResult] = await connection.query(selectOrganizationProductInformation, params);
   return organizationProductInformationResult;
+}
+
+export async function retrieveOrganizationIdByProductId(connection, productId) {
+  const selectOrganizationId = `
+  SELECT organizationId
+  FROM Product
+  WHERE productId = 1;`;
+  const [organizationId] = await connection.query(selectOrganizationId, productId);
+  return organizationId;
+}
+
+export async function insertRentInfromataion(connection, params) {
+  const insertIntoRentInfromation = `
+  INSERT INTO Rent (userId, organizationId, itemId, productId, startDate, startTime, endDate,
+    endTime)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+  `;
+  const [insertRentProductInfromation] = await connection.query(insertIntoRentInfromation, params);
+  return insertRentProductInfromation;
+}
+
+export async function getItemIdList(connection, itemId) {
+  const selectItemId = `
+  SELECT itemId
+  FROM Rent
+  WHERE itemId = ?;
+  `;
+  const [itemIdResult] = await connection.query(selectItemId, itemId);
+  return itemIdResult;
 }

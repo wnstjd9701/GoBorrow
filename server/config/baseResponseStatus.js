@@ -34,3 +34,6 @@ export const TOKEN_IS_VALID = { isSuccess: true, code: 5004, message: '모든 �
 
 export const ORGANIZATION_SEARCH_RESULT = { isSuccess: false, code: 6000, message: '조직/기관 검색 결과가 없습니다. ' };
 export const ORGANIZATION_SEARCH_EMPTY = { isSuccess: false, code: 6001, message: '조직/기관명을 입력하세요. ' };
+
+// 상품 에러
+export const PRODUCT_DISAVAILABLE = { isSuccess: false, code: 7000, message: '상품 대여가 불가능 합니다.' };

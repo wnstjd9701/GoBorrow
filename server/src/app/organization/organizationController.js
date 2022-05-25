@@ -1,4 +1,5 @@
 import { getOrganizationInfo, getOrganizationInfoDetail, getOrganizationProductInformation } from './organizationProvider.js';
+import { userRentProduct } from './organizationService.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
   /**
@@ -23,7 +24,7 @@ class organizationController {
    * [GET] /app/organizations/:organizationName
    */
   organizationDetail = async function (req, res) {
-    const organizationName = req.params.keyword;
+    const organizationName = req.params.organizationName;
     const organizationInformationResult = await getOrganizationInfoDetail(organizationName);
     return res.send(organizationInformationResult);
   };
@@ -39,18 +40,30 @@ class organizationController {
     return res.send(organizationProductInfoResult);
   };
   /**
-   *  API No. 12
+   *  API No. 11
    *  API Name : 물품 예약 API
    * [POST] /app/organizations/:organizationName/:productId
    */
   productReservation = async function (req, res) {
-    const organizationName = req.organizationName;
+    const userId = req.id;
+    const organizationName = req.params.organizationName;
+    const productId = req.params.productId;
     const itemId = req.body.itemId;
     const startDate = req.body.startDate;
     const endDate = req.body.endDate;
-    const userId = req.id;
     const certificationInfo = req.body.certificationInfo;
     const certificationImage = req.body.certificationImage;
+    const productReservationResult = await userRentProduct(
+      userId,
+      organizationName,
+      productId,
+      itemId,
+      startDate,
+      endDate,
+      certificationInfo,
+      certificationImage,
+    );
+    return res.send(productReservationResult);
   };
 }
 
