@@ -47,7 +47,8 @@ export async function getOrganizationInfoDetail(organizationName) {
 export async function getOrganizationProductInformation(organizationName, productId) {
   const connection = await pool.getConnection(async (conn) => conn);
   try {
-    const organizationProductInfoResult = await retrieveOrganizaionProductInformation(connection, organizationName, productId);
+    const params = [organizationName, productId];
+    const organizationProductInfoResult = await retrieveOrganizaionProductInformation(connection, params);
     return {
       isSuccess: true,
       code: 1000,
@@ -55,6 +56,7 @@ export async function getOrganizationProductInformation(organizationName, produc
       data: organizationProductInfoResult,
     };
   } catch (err) {
+    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();

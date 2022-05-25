@@ -4,7 +4,7 @@ class organizationController {
   /**
    *  API No. 5
    *  API Name : 기관 검색 API
-   * [GET] /app/organization?organizationName=~
+   * [GET] /app/organizations?organizationName=~
    */
   organizationInformation = async function (req, res) {
     console.log('hi');
@@ -20,7 +20,7 @@ class organizationController {
   /**
    *  API No. 6
    *  API Name : 기관 정보 API
-   * [GET] /app/organization/:organizationName
+   * [GET] /app/organizations/:organizationName
    */
   organizationDetail = async function (req, res) {
     const organizationName = req.params.keyword;
@@ -28,15 +28,29 @@ class organizationController {
     return res.send(organizationInformationResult);
   };
   /**
-   *  API No. 6
-   *  API Name : 물품 대여 API
-   * [GET] /app/organization/:organizationId/:productId
+   *  API No. 10
+   *  API Name : 대여 물품 리스트 API
+   * [GET] /app/organizations/:organizationName/:productId
    */
   organizationProductInfo = async function (req, res) {
     const organizationName = req.params.organizationName;
     const productId = req.params.productId;
     const organizationProductInfoResult = await getOrganizationProductInformation(organizationName, productId);
     return res.send(organizationProductInfoResult);
+  };
+  /**
+   *  API No. 12
+   *  API Name : 물품 예약 API
+   * [POST] /app/organizations/:organizationName/:productId
+   */
+  productReservation = async function (req, res) {
+    const organizationName = req.organizationName;
+    const itemId = req.body.itemId;
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const userId = req.id;
+    const certificationInfo = req.body.certificationInfo;
+    const certificationImage = req.body.certificationImage;
   };
 }
 

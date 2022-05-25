@@ -37,7 +37,6 @@ export async function createUser(userId, password, userName, phoneNumber, addres
     connection.release();
     return SIGNUP_SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   }
 }
@@ -65,7 +64,7 @@ export async function createOrganizationUser(
 
     return SIGNUP_SUCCESS;
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
@@ -97,7 +96,7 @@ export async function userLogin(userId, password, type) {
       return PASSWORD_WRONG;
     }
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
@@ -127,7 +126,7 @@ export async function organizationUserLogin(organizationId, password, type) {
       return PASSWORD_WRONG;
     }
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
@@ -142,7 +141,6 @@ export async function changeUserPassword(userId, newPassword) {
     const changePasswordResult = await updateUserPassword(connection, params);
     return SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
@@ -158,7 +156,6 @@ export async function changeOrganizationPassword(organizationId, newPassword) {
     const changePasswordResult = updateOrganizationPassword(connection, params);
     return SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
@@ -170,8 +167,8 @@ export async function updateUserProfile(userName, phoneNumber, address, info, us
   try {
     const params = [userName, phoneNumber, address, info, userId];
     const updateUserProfileResponse = await updateUserProfileInfo(connection, params);
-    console.log(updateUserProfileResponse.affectedRows);
-    console.log(updateUserProfileResponse.changedRows);
+    // console.log(updateUserProfileResponse.affectedRows);
+    // console.log(updateUserProfileResponse.changedRows);
     // changedRows = 0 -> 변경된 내용 없음
     // changedRows = 숫자 -> 변경된 열 수
     return {
@@ -183,7 +180,6 @@ export async function updateUserProfile(userName, phoneNumber, address, info, us
       },
     };
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();

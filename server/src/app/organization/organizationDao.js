@@ -19,7 +19,8 @@ WHERE organizationName LIKE ?;
 
 export async function retrieveOrganizationInformation(connection, organizationName) {
   const selectOrganizationInformation = `
-  SELECT o.organizationImage,
+  SELECT i.itemId,
+       o.organizationImage,
        o.organizationName,
        o.address,
        o.detailAddress,
@@ -30,29 +31,41 @@ export async function retrieveOrganizationInformation(connection, organizationNa
        p.productName,
        p.info,
        p.price,
-       p.quantity - (select count(*) as lending from Item WHERE itemStatus = '대여 중') as leftItem,
+       i.itemStatus,
        c.categoryName
-FROM Product p
-         LEFT JOIN Organization o on o.organizationId = p.organizationId
-         LEFT JOIN Category c on p.categoryId = c.categoryId
-WHERE o.organizationName = ?;
+FROM Product p,
+     Organization o,
+     Item i,
+     Category c
+WHERE p.organizationId = o.organizationId
+  and p.productId = i.productId
+  and p.categoryId = c.categoryId
+  and o.organizationName = ?
+GROUP BY p.productName;
   `;
   const [organizationInformationResult] = await connection.query(selectOrganizationInformation, organizationName);
   return organizationInformationResult;
 }
 
-export async function retrieveOrganizaionProductInformation(connection, organizationName, productId) {
+export async function retrieveOrganizaionProductInformation(connection, params) {
   const selectOrganizationProductInformation = `
-  SELECT p.productId, p.productName, p.productImage, p.info, p.price
+  SELECT i.itemId,
+       i.itemName,
+       i.itemStatus,
+       i.itemStatus,
+       p.productImage,
+       p.info,
+       p.price
 FROM Organization o,
      Product p,
      Item i
 WHERE o.organizationId = p.organizationId
   and p.productId = i.productId
-  and o.organizationId = ?
+  and o.organizationName = ?
   and p.productId = ?
 ORDER BY i.itemId;
   `;
-  const [organizationProductInformationResult] = await connection.query(selectOrganizationProductInformation, organizationName, productId);
+  console.log(params);
+  const [organizationProductInformationResult] = await connection.query(selectOrganizationProductInformation, params);
   return organizationProductInformationResult;
 }
