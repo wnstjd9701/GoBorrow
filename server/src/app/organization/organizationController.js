@@ -1,4 +1,9 @@
-import { getOrganizationInfo, getOrganizationInfoDetail, getOrganizationProductInformation } from './organizationProvider.js';
+import {
+  getOrganizationInfo,
+  getOrganizationInfoDetail,
+  getOrganizationProductInformation,
+  getProductReservationStatus,
+} from './organizationProvider.js';
 import { userRentProduct } from './organizationService.js';
 import { ORGANIZATION_SEARCH_EMPTY } from '../../../config/baseResponseStatus.js';
 class organizationController {
@@ -63,6 +68,19 @@ class organizationController {
       certificationInfo,
       certificationImage,
     );
+    return res.send(productReservationResult);
+  };
+  /**
+   *  API No. 12
+   *  API Name :
+   * [GET] /app/organizations/products/reservation
+   */
+  productReservationManagement = async function (req, res) {
+    //const organizationId = req.id;
+    console.log(req.id);
+    const organizationId = 'testorg2';
+    console.log(1);
+    const productReservationResult = await getProductReservationStatus(organizationId);
     return res.send(productReservationResult);
   };
 }
