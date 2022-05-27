@@ -34,7 +34,7 @@ class App extends Component {
 
             {/* Organization Page */}
             <Route exact path="/org" element={<OrganizationMainPage />} />
-            <Route exact path="/org/rental/processing" element={<OrganizationRentalProcessingPage />} />
+            <Route exact path="/org/products/rental/processing" element={<OrganizationRentalProcessingPage />} />
             <Route exact path="/org/post/product" element={<OrganizationPostProudctPage />} />
             <Route exact path="/org/post/product/item" element={<OrganizationPostProudctItemPage />} />
           </Routes>
