@@ -71,7 +71,6 @@ const MainLayout = () => {
     <>
       <Header />
       <Box sx={{ display: 'flex', flexGrow: '2' }}>
-        <CssBaseline />
         <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
         <Main theme={theme} open={leftDrawerOpened}>
           <Grid container spacing={3}>
