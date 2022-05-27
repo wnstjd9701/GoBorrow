@@ -58,7 +58,6 @@ export default function ProductMainPage() {
   const [imageUrl, setImageUrl] = useState(null);
 
   const onSubmitHandler = e => {
-    console.log(startDate.format('YYYY-DD-MM'), lastDate);
     e.preventDefault();
     const body = {};
     dispatch().then(response => {
