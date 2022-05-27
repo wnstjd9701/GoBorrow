@@ -22,7 +22,6 @@ function MainHeader(props) {
     alignItems: 'center',
     display: 'flex',
     padding: '0 40px',
-    marginBottom: '10px',
   };
   const postLogOut = e => {
     dispatch(LogoutUser()).then(response => {
