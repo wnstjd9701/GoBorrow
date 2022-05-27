@@ -86,6 +86,15 @@ export async function insertRentInfromataion(connection, params) {
   return insertRentProductInfromation;
 }
 
+export async function insertCertificationInformation(connection, certParams) {
+  const insertCertificationInfo = `
+  INSERT INTO Certification (certificationInfo, certificationImage)
+  VALUES (?, ?);
+  `;
+  const [insertResult] = await connection.query(insertCertificationInfo, certParams);
+  return insertResult;
+}
+
 export async function getItemIdList(connection, itemId) {
   const selectItemId = `
   SELECT itemId
@@ -94,4 +103,31 @@ export async function getItemIdList(connection, itemId) {
   `;
   const [itemIdResult] = await connection.query(selectItemId, itemId);
   return itemIdResult;
+}
+
+export async function retrieveOrganizationProductRentList(connection, organizationId) {
+  const selectProductRentList = `
+  SELECT r.userId,
+       r.productId,
+       p.productName,
+       i.itemName,
+       i.itemId,
+       r.startDate,
+       r.endDate,
+       c.certificationInfo,
+       r.rentStatus,
+       c.certificationImage
+  FROM Rent r,
+     Item i,
+     Product p,
+     Certification c
+  WHERE r.organizationId = ?
+    and c.organizationId = r.organizationId
+    and p.productId = r.productId
+    and i.itemId = r.itemId
+  ORDER BY r.startDate ASC;
+  `;
+  const [productRentList] = await connection.query(selectProductRentList, organizationId);
+  console.log(productRentList);
+  return productRentList;
 }

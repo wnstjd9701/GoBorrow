@@ -1,6 +1,6 @@
 import { pool } from '../../../config/database.js';
 import { SERVER_CONNECT_ERROR, ORGANIZATION_SEARCH_RESULT, SUCCESS, PRODUCT_DISAVAILABLE } from '../../../config/baseResponseStatus.js';
-import { insertRentInfromataion } from './organizationDao.js';
+import { insertRentInfromataion, insertCertificationInformation } from './organizationDao.js';
 import { getOrganizationIdByProductId, checkProduct } from './organizationProvider.js';
 // CREATE, UPDATE, DELETE
 export async function userRentProduct(
@@ -27,6 +27,7 @@ export async function userRentProduct(
     const params = [userId, organizationId, itemId, productId, newStartDate, newStartTime, newEndDate, newEndTime];
     const rentResult = await insertRentInfromataion(connection, params);
 
+    // if( 인증이 필요 없으면 ) No insertRentInfromation - Query가 다름
     const certParams = [certificationInfo, certificationImage];
     const certificationResult = await insertCertificationInformation(connection, certParams);
 

@@ -32,6 +32,7 @@ export const authentication = (req, res, next) => {
 
     req.id = user.id;
     req.userType = user.userType;
+
     next();
   });
 };

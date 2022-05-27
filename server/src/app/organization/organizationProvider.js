@@ -6,6 +6,7 @@ import {
   retrieveOrganizaionProductInformation,
   retrieveOrganizationIdByProductId,
   getItemIdList,
+  retrieveOrganizationProductRentList,
 } from './organizationDao.js';
 
 // READ
@@ -101,5 +102,17 @@ export async function getOrganizationIdByProductId(productId) {
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
+  }
+}
+
+export async function getProductReservationStatus(organizationId) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  try {
+    console.log(organizationId);
+    const organizationProductStatus = await retrieveOrganizationProductRentList(connection, organizationId);
+    return organizationProductStatus;
+  } catch (err) {
+    console.log(err);
+    return SERVER_CONNECT_ERROR;
   }
 }
