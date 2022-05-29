@@ -506,7 +506,7 @@ const RentalRequestPage = ({ isLoading }) => {
               </div>
             </Main>
             {detailEl ? (
-              <Card sx={{ maxWidth: 345, flexShrink: 1.5 }}>
+              <Card sx={{ maxWidth: 300, flexShrink: 1.5 }}>
                 <CardMedia
                   component="img"
                   image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpg"
@@ -525,6 +525,9 @@ const RentalRequestPage = ({ isLoading }) => {
                     </div>
                     <div style={{ margin: '5px' }}>
                       <b>시간: </b>17:30
+                    </div>
+                    <div style={{ margin: '5px' }}>
+                      <b>연락처: </b>010-5530-0651
                     </div>
                   </Typography>
                 </CardContent>
