@@ -409,7 +409,7 @@ const RentalRequestPage = ({ isLoading }) => {
                           <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                             <div>
                               <DivOverButton>010-2657-0707</DivOverButton>
-                              <DivOverButton>D+2</DivOverButton>
+                              <DivOverButton>연체+2</DivOverButton>
                               <Button id="6" onClick={handleSetDetailEl} color="success">
                                 상세 정보
                               </Button>
@@ -509,7 +509,7 @@ const RentalRequestPage = ({ isLoading }) => {
                           <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                             <div>
                               <DivOverButton>010-5530-0651</DivOverButton>
-                              <DivOverButton>D+2</DivOverButton>
+                              <DivOverButton>연체+2</DivOverButton>
                               <Button id="7" onClick={handleSetDetailEl} color="success">
                                 상세 정보
                               </Button>
