@@ -2,6 +2,7 @@ import {
   createUserAccount,
   createOrganizationUserAccount,
   getUserInfo,
+  getOrganizationUserInfo,
   updateUserProfileInfo,
   updateUserPassword,
   updateOrganizationPassword,
@@ -25,7 +26,7 @@ dotenv.config('../../../.env');
 // Create, Update, Delete
 
 export async function createUser(userId, password, userName, phoneNumber, address, type, info) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userIdCheckResult = await userIdCheck(userId);
     if (userIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id가 이미 존재할 경우
@@ -52,7 +53,7 @@ export async function createOrganizationUser(
   type,
   info,
 ) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationIdCheckResult = await organizationIdCheck(organizationId);
     if (organizationIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id 가 이미 존재할 경우
@@ -71,7 +72,7 @@ export async function createOrganizationUser(
 }
 
 export async function userLogin(userId, password, type) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
 
   try {
     const userIdCheckResult = await userIdCheck(userId);
@@ -103,7 +104,7 @@ export async function userLogin(userId, password, type) {
 }
 
 export async function organizationUserLogin(organizationId, password, type) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationUserIdCheck = await organizationIdCheck(organizationId);
     if (organizationUserIdCheck.length < 1) return LOGIN_FAILURE;
@@ -133,7 +134,7 @@ export async function organizationUserLogin(organizationId, password, type) {
 }
 
 export async function changeUserPassword(userId, newPassword) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
     const params = [hashedPassword, userId];
@@ -148,7 +149,7 @@ export async function changeUserPassword(userId, newPassword) {
 }
 
 export async function changeOrganizationPassword(organizationId, newPassword) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
     const params = [hashedPassword, organizationId];
@@ -163,7 +164,7 @@ export async function changeOrganizationPassword(organizationId, newPassword) {
 }
 
 export async function updateUserProfile(userName, phoneNumber, address, info, userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const params = [userName, phoneNumber, address, info, userId];
     const updateUserProfileResponse = await updateUserProfileInfo(connection, params);
