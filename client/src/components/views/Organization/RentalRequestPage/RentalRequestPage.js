@@ -7,22 +7,10 @@ import Sidebar from '../MainPage/SideBar/Sidebar';
 import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardContent, Divider, Grid, Menu, MenuItem, Typography, Box, useMediaQuery, Card } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
-import MainCard from '../MainPage/Customization/Cards/MainCard';
 import SkeletonPopularCard from '../MainPage/Customization/Cards/PopularCard';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
 import Pagination from '@mui/material/Pagination';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-
-const itemData = [
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9A%B0%EC%82%B0.jpg',
-    title: 'UR1024',
-  },
-];
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ theme, open }) => ({
   ...theme.typography.mainContent,
