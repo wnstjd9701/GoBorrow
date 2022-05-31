@@ -23,7 +23,7 @@ export default function LoginPage(props) {
       password: Password,
       type: props.name,
     };
-    if (props.name === '1') {
+    if (props.name === 1) {
       dispatch(loginUser(body)).then(response => {
         if (response.payload.isSuccess) {
           localStorage.setItem('accessToken', response.payload.accessToken);
