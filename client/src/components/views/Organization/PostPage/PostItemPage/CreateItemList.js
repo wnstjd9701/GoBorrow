@@ -3,12 +3,17 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import PlusMinusButton from './PlusMinusButton';
 
-function CreateItemList({ itemName, onChange, onChangeImage, onCreate }) {
+function CreateItemList({ itemName, onChangeQuantity, onChange, onChangeImage, onCreate }) {
   const [imageUrl, setImageUrl] = useState(null);
   const Input = styled('input')({
     display: 'block',
   });
+
+  const getQuantity = Data => {
+    onChangeQuantity(Data);
+  };
 
   useEffect(() => {}, [imageUrl]);
 
@@ -38,6 +43,7 @@ function CreateItemList({ itemName, onChange, onChangeImage, onCreate }) {
           </div>
         </Box>
       )}
+      <PlusMinusButton getQuantity={getQuantity} />
       <div style={{ marginTop: '10px' }}>
         <Button
           variant="contained"

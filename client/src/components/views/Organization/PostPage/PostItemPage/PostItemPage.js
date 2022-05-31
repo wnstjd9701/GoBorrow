@@ -15,10 +15,10 @@ import CreateItemButton from './CreateItemList';
 export default function PostProductPage() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const [Inputs, setInputs] = useState({ itemName: '', image: '' });
+  const [Inputs, setInputs] = useState({ itemName: '', image: '', quantity: '' });
   const [Items, setItems] = useState([]);
   const nextId = useRef(1);
-  const { itemName, image } = Inputs;
+  const { itemName, image, quantity } = Inputs;
 
   const onChange = e => {
     const { name, value } = e.target;
@@ -26,6 +26,15 @@ export default function PostProductPage() {
       ...Inputs,
       [name]: value,
     });
+  };
+
+  const onChangeQuantity = value => {
+    const name = 'quantity';
+    setInputs({
+      ...Inputs,
+      [name]: value,
+    });
+    console.log(Inputs);
   };
 
   const onChangeImage = e => {
@@ -42,12 +51,14 @@ export default function PostProductPage() {
       id: nextId.current,
       itemName,
       image,
+      quantity,
     };
     if (itemName) {
       setItems(Items.concat(item));
       setInputs({
         itemName: '',
         image: '',
+        quantity: 0,
       });
       nextId.current += 1;
     } else {
@@ -96,7 +107,13 @@ export default function PostProductPage() {
                   </Typography>
                   <FormLabel id="demo-radio-buttons-group-label">
                     <h4 style={{ color: 'black', textAlign: 'left' }}>제품 번호 등록</h4>
-                    <CreateItemButton itemName={itemName} onChange={onChange} onChangeImage={onChangeImage} onCreate={onCreate} />
+                    <CreateItemButton
+                      itemName={itemName}
+                      onChangeQuantity={onChangeQuantity}
+                      onChange={onChange}
+                      onChangeImage={onChangeImage}
+                      onCreate={onCreate}
+                    />
                     <ItemList items={Items} onRemove={onRemove} />
                   </FormLabel>
                   <div style={{ textAlign: 'center' }}>
