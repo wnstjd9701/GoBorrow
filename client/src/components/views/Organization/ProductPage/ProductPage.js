@@ -138,12 +138,17 @@ function ProductPage() {
                     overflow: 'visible !important',
                   }}
                   title={<b>{item.title}</b>}
-                  subtitle={<b>재고: {item.quantity}</b>}
+                  subtitle={<span>재고: {item.quantity}</span>}
                   position="below"
                 />
                 <div style={{ textAlign: 'center' }}>
-                  <Button>수정</Button>
-                  <Button color="error">삭제</Button>
+                  <Button size="small">수정</Button>
+                  <Button size="small" color="error">
+                    삭제
+                  </Button>
+                  <Button size="small" color="success">
+                    현황
+                  </Button>
                 </div>
               </ImageListItem>
             ))}
