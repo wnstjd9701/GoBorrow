@@ -10,12 +10,12 @@ const BajajAreaChartCard = () => {
 
   return (
     <>
-      <Card sx={{ bgcolor: 'lightblue' }}>
-        <Grid container sx={{ p: 2, pb: 2, color: '#fff' }}>
+      <Grid sx={{ bgcolor: 'lightblue' }}>
+        <Grid container sx={{ p: 2, color: '#fff' }}>
           <Grid item xs={12}>
             <Grid container alignItems="center" justifyContent="space-between">
               <Grid item>
-                <Typography variant="h5" sx={{ color: 'black', fontWeight: 'bold' }}>
+                <Typography variant="h6" sx={{ color: 'black', fontWeight: 'bold' }}>
                   일일 대여 현황
                 </Typography>
               </Grid>
@@ -28,7 +28,7 @@ const BajajAreaChartCard = () => {
           </Grid>
         </Grid>
         <Chart {...chartData} />
-      </Card>
+      </Grid>
     </>
   );
 };
