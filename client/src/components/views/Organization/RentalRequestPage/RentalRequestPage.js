@@ -7,7 +7,7 @@ import Sidebar from '../MainPage/SideBar/Sidebar';
 import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardContent, Divider, Grid, Menu, MenuItem, Typography, Box, useMediaQuery, Card } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
-import SkeletonPopularCard from '../MainPage/Customization/Cards/PopularCard';
+import { SET_MENU } from '../../../../_actions/action_type';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
 import Pagination from '@mui/material/Pagination';
@@ -83,7 +83,7 @@ function RentalRequestPage() {
   const leftDrawerOpened = useSelector(state => state.customization.opened);
 
   const handleLeftDrawerToggle = () => {
-    dispatch({ type: '@customization/SET_MENU', opened: !leftDrawerOpened });
+    dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   };
 
   const handleSetDetailEl = e => {
@@ -95,14 +95,14 @@ function RentalRequestPage() {
   };
 
   useEffect(() => {
-    dispatch({ type: '@customization/SET_MENU', opened: !matchDownMd });
+    dispatch({ type: SET_MENU, opened: !matchDownMd });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchDownMd]);
 
   return (
     <>
       <>
-        <Header />
+        <Header org="1" />
         <Box sx={{ display: 'flex' }}>
           <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
           <Main theme={theme} open={leftDrawerOpened} sx={{ flexGrow: 1 }}>

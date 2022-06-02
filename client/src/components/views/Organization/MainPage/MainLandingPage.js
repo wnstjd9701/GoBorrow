@@ -1,7 +1,8 @@
 import Header from '../../Public/Header/MainHeader';
 import { useDispatch, useSelector } from 'react-redux';
+import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
-import { Container, AppBar, Box, CssBaseline, Toolbar, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import Sidebar from './SideBar/Sidebar';
 import RecentRequest from '../Data/DashBoard/RecentData';
 import ProductStock from '../Data/DashBoard/ProductStock';
@@ -59,17 +60,17 @@ const MainLayout = () => {
   const leftDrawerOpened = useSelector(state => state.customization.opened);
   const dispatch = useDispatch();
   const handleLeftDrawerToggle = () => {
-    dispatch({ type: '@customization/SET_MENU', opened: !leftDrawerOpened });
+    dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   };
 
   useEffect(() => {
-    dispatch({ type: '@customization/SET_MENU', opened: !matchDownMd });
+    dispatch({ type: SET_MENU, opened: !matchDownMd });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchDownMd]);
 
   return (
     <>
-      <Header />
+      <Header org="1" />
       <Box sx={{ display: 'flex', flexGrow: '2' }}>
         <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
         <Main theme={theme} open={leftDrawerOpened}>
