@@ -46,6 +46,7 @@ const itemData = [
     quantity: '3',
   },
 ];
+
 const handleSide = (state, quantity) => {
   if (state == true) {
     return (
@@ -110,6 +111,7 @@ export default function OrgMainPage() {
             margin: '15px auto',
             gridTemplateColumns: 'repeat(4, 1fr) !important',
             gap: '10px !important',
+            overflowY: 'visible !important',
           }}
         >
           {itemData.map(item => (
