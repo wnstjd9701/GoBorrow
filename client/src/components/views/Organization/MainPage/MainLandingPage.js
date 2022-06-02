@@ -1,4 +1,5 @@
 import Header from '../../Public/Header/MainHeader';
+import Footer from '../../Public/Footer/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
@@ -88,6 +89,7 @@ const MainLayout = () => {
           </Grid>
         </Main>
       </Box>
+      <Footer />
     </>
   );
 };
