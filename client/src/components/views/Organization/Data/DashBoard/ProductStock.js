@@ -19,7 +19,7 @@ const ProductStock = ({ isLoading }) => {
         <MainCard sx={{ border: '1px solid rgba(144, 202, 249, 0.46)', borderRadius: '10px', padding: '5px' }} content={false}>
           <CardContent>
             <Grid container spacing={2}>
-              <Grid item xs={12} sx={{ pt: '16px !important' }}>
+              <Grid item xs={12}>
                 <ProductStockChartCard />
               </Grid>
               <Grid item xs={12}>
