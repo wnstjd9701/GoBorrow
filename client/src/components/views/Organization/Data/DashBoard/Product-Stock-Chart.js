@@ -1,6 +1,6 @@
 const chartData = {
   type: 'area',
-  height: 90,
+  height: 95,
   options: {
     chart: {
       id: 'support-chart',
@@ -13,7 +13,7 @@ const chartData = {
     },
     stroke: {
       curve: 'smooth',
-      width: 1,
+      width: 1.3,
     },
     tooltip: {
       fixed: {
