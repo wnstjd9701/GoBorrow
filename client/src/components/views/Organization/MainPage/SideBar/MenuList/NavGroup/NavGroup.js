@@ -1,20 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import { Divider, List, Typography } from '@mui/material';
-
-// project imports
 import NavItem from '../NavItem/NavItem';
 import NavCollapse from '../NavCollapse/NavCollapse';
 
-// ==============================|| SIDEBAR MENU LIST GROUP ||============================== //
-
 const NavGroup = ({ key, item }) => {
   const theme = useTheme();
-
-  // menu list collapse & items
   const items = item.children?.map(menu => {
     switch (menu.type) {
       case 'collapse': {
@@ -51,8 +43,6 @@ const NavGroup = ({ key, item }) => {
       >
         {items}
       </List>
-
-      {/* group divider */}
       <Divider sx={{ mt: 0.25, mb: 1.25 }} />
     </>
   );
