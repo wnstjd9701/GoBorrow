@@ -36,7 +36,6 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
 
   // set active item state
   const getCollapse = menu => {
-    console.log(menu);
     if (menu.children) {
       menu.children.filter(collapse => {
         if (collapse.type && collapse.type === 'collapse') {
