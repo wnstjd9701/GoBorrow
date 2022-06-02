@@ -15,7 +15,6 @@ const pages = {
       title: 'Page',
       type: 'collapse',
       icon: icons.IconBrandPagekit,
-
       children: [
         {
           id: 'orgpage',
