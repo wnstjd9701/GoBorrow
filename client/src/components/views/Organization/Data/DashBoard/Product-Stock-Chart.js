@@ -7,6 +7,7 @@ const chartData = {
       sparkline: {
         enabled: true,
       },
+      width: '100%',
     },
     dataLabels: {
       enabled: false,

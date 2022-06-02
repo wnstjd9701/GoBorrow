@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // material-ui
@@ -10,22 +11,25 @@ import NavCollapse from '../NavCollapse/NavCollapse';
 
 // ==============================|| SIDEBAR MENU LIST GROUP ||============================== //
 
-const NavGroup = ({ item }) => {
+const NavGroup = ({ key, item }) => {
   const theme = useTheme();
 
   // menu list collapse & items
   const items = item.children?.map(menu => {
     switch (menu.type) {
-      case 'collapse':
+      case 'collapse': {
         return <NavCollapse key={menu.id} menu={menu} level={1} />;
-      case 'item':
+      }
+      case 'item': {
         return <NavItem key={menu.id} item={menu} level={1} />;
-      default:
+      }
+      default: {
         return (
           <Typography key={menu.id} variant="h6" color="error" align="center">
             Menu Items Error
           </Typography>
         );
+      }
     }
   });
 
