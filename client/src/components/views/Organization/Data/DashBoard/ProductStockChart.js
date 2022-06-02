@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import { Card, Grid, Typography } from '@mui/material';
@@ -6,21 +6,16 @@ import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 import chartData from './Product-Stock-Chart';
 
-const BajajAreaChartCard = () => {
-  const theme = useTheme();
-  const customization = useSelector(state => state.customization);
-  const { navType } = customization;
-  const orangeDark = theme.palette.secondary[800];
+function BajajAreaChartCard() {
   useEffect(() => {
     const newSupportChart = {
       ...chartData.options,
-      colors: [orangeDark],
-      tooltip: {
-        theme: 'light',
+      chart: {
+        width: '100%',
       },
     };
-    ApexCharts.exec(`support-chart`, 'updateOptions', newSupportChart);
-  }, [navType, orangeDark]);
+    ApexCharts.exec(`rental-Chart`, 'updateOptions', newSupportChart, true);
+  }, []);
   return (
     <>
       <Card sx={{ bgcolor: 'lightblue' }}>
@@ -44,6 +39,6 @@ const BajajAreaChartCard = () => {
       </Card>
     </>
   );
-};
+}
 
 export default BajajAreaChartCard;
