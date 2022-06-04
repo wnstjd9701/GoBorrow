@@ -109,7 +109,7 @@ function RentalRequestPage() {
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <Grid container alignContent="center" justifyContent="space-between">
+                  <Grid container justifyContent="space-between">
                     <Grid item>
                       <Typography variant="h5">Recent Request</Typography>
                     </Grid>
