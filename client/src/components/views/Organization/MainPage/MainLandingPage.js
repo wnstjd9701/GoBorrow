@@ -43,7 +43,7 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
     marginLeft: 0,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    width: '`calc(100% - 260px)`',
+    width: '100%',
     [theme.breakpoints.down('md')]: {
       marginLeft: '20px',
     },
@@ -57,7 +57,6 @@ const MainLayout = () => {
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('lg'));
   const matchDownSm = useMediaQuery(theme.breakpoints.down('md'));
-  const gridStyle = !matchDownSm ? { minWidth: 300 } : { minWidth: 300, maxWidth: '100% !important', flexBasis: '100% !important' };
   const leftDrawerOpened = useSelector(state => state.customization.opened);
   const dispatch = useDispatch();
   const handleLeftDrawerToggle = () => {
@@ -75,13 +74,13 @@ const MainLayout = () => {
       <Box sx={{ display: 'flex', flexGrow: '2' }}>
         <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
         <Main theme={theme} open={leftDrawerOpened}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Grid sx={{ padding: '20px', backgroundColor: 'rgb(227, 242, 253)' }} container justifyContent="space-between" spacing={0}>
-                <Grid sx={gridStyle} item xs={6.9}>
+              <Grid sx={{ padding: '20px', backgroundColor: 'rgb(227, 242, 253)' }} container>
+                <Grid item xs={12} md={7}>
                   <RecentRequest />
                 </Grid>
-                <Grid sx={gridStyle} item xs={4.8}>
+                <Grid item xs={12} md={5}>
                   <ProductStock />
                 </Grid>
               </Grid>
