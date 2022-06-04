@@ -156,7 +156,7 @@ const PopularCard = ({ isLoading }) => {
                 <Grid container direction="column">
                   <Grid item textAlign="center">
                     <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
+                      <Grid item textAlign="center">
                         <Typography variant="subtitle1" color="inherit">
                           아이패드
                         </Typography>
