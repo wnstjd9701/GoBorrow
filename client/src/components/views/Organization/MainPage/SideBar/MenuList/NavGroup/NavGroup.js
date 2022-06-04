@@ -5,7 +5,7 @@ import { Divider, List, Typography } from '@mui/material';
 import NavItem from '../NavItem/NavItem';
 import NavCollapse from '../NavCollapse/NavCollapse';
 
-const NavGroup = ({ key, item }) => {
+const NavGroup = ({ item }) => {
   const theme = useTheme();
   const items = item.children?.map(menu => {
     switch (menu.type) {
