@@ -53,7 +53,7 @@ function CreateItemList({ itemName, onChangeQuantity, onChange, onChangeImage, o
             setImageUrl(null);
           }}
         >
-          등록
+          추가
         </Button>
       </div>
     </div>
