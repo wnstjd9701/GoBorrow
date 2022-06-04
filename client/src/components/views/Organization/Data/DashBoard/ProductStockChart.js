@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
 import { Card, Grid, Typography } from '@mui/material';
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
@@ -33,6 +31,11 @@ function BajajAreaChartCard() {
                 </Typography>
               </Grid>
             </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="subtitle2" sx={{ color: 'black' }}>
+              today rental: 22
+            </Typography>
           </Grid>
         </Grid>
         <Chart {...chartData} />
