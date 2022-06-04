@@ -20,11 +20,10 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
       duration: theme.transitions.duration.leavingScreen,
     }),
     [theme.breakpoints.up('md')]: {
-      marginLeft: -240,
+      marginLeft: -260,
       width: '100%',
     },
     [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
       width: '100%',
       padding: '16px',
     },
@@ -44,12 +43,6 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     width: '100%',
-    [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
-    },
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: '10px',
-    },
   }),
 }));
 

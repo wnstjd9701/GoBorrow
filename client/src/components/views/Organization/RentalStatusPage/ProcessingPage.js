@@ -22,19 +22,16 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
       duration: theme.transitions.duration.leavingScreen,
     }),
     [theme.breakpoints.up('md')]: {
-      marginLeft: -240,
+      marginLeft: -260,
       width: '100%',
     },
     [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
       width: '100%',
       padding: '16px',
     },
     [theme.breakpoints.down('sm')]: {
-      marginLeft: '10px',
       width: '100%',
       padding: '16px',
-      marginRight: '10px',
     },
   }),
   ...(open && {
@@ -45,20 +42,18 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
     marginLeft: 0,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    width: '`calc(100% - 260px)`',
-    [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
-    },
+    width: '100%',
+
     [theme.breakpoints.down('sm')]: {
-      marginLeft: '10px',
       justifyContent: 'center',
+      placeContent: 'center',
     },
   }),
 }));
 
 const Title = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
-    justifyContent: 'center',
+    justifyContent: 'center !important',
     textAlign: 'center',
   },
 }));
