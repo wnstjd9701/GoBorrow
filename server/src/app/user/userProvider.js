@@ -4,7 +4,7 @@ import { selectUserId, selectOrganizationId, selectUserProfile, selectUserRentLi
 // Read
 
 export async function userIdCheck(userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userIdRow = await selectUserId(connection, userId);
     return userIdRow;
@@ -17,7 +17,7 @@ export async function userIdCheck(userId) {
 }
 
 export async function organizationIdCheck(organizationId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationIdRow = await selectOrganizationId(connection, organizationId);
     return organizationIdRow;
@@ -30,10 +30,9 @@ export async function organizationIdCheck(organizationId) {
 }
 
 export async function retrieveUserProfile(userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userProfileResult = await selectUserProfile(connection, userId);
-    console.log(userProfileResult);
     return {
       isSuccess: true,
       code: 1000,
@@ -49,7 +48,7 @@ export async function retrieveUserProfile(userId) {
 }
 
 export async function getRentListByUserId(userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userRentLists = await selectUserRentList(connection, userId);
     console.log(userRentLists.length);

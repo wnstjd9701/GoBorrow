@@ -13,7 +13,6 @@ class organizationController {
    * [GET] /app/organizations?organizationName=~
    */
   organizationInformation = async function (req, res) {
-    console.log('hi');
     //  const organizationId = req.id;
     const organizationName = req.query.keyword;
     if (organizationName === '') {
