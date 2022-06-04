@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { postPorudctItem } from '../../../../../_actions/org_action';
@@ -69,11 +70,13 @@ function PostProductPage() {
                       <TextField id="notice" onChange={onChange} label="알림 사항" />
                     </div>
                   </FormLabel>
-                  <div style={{ textAlign: 'center' }}>
-                    <Button style={{ textAlign: 'center', margin: '15px auto 0' }} type="submit" variant="outlined">
-                      등록하기
-                    </Button>
-                  </div>
+                  <Link to="/org/post/product/item">
+                    <div style={{ textAlign: 'center' }}>
+                      <Button style={{ textAlign: 'center', margin: '15px auto 0' }} type="submit" variant="outlined">
+                        다음
+                      </Button>
+                    </div>
+                  </Link>
                 </CardContent>
               </Card>
             </FormControl>
