@@ -6,7 +6,24 @@ import Footer from '../../Public/Footer/Footer';
 import Sidebar from '../MainPage/SideBar/Sidebar';
 import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
-import { Avatar, CardContent, Divider, Grid, Menu, MenuItem, Typography, Box, useMediaQuery, Card } from '@mui/material';
+import {
+  Avatar,
+  CardContent,
+  Divider,
+  Grid,
+  Menu,
+  MenuItem,
+  Typography,
+  Box,
+  useMediaQuery,
+  Card,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
+import List from '@mui/material/List';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -103,17 +120,12 @@ function ProductPage() {
   const matchDownSm = useMediaQuery(theme.breakpoints.down('md'));
   const dispatch = useDispatch();
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const leftDrawerOpened = useSelector(state => state.customization.opened);
 
-  const handleClick = e => {
-    setAnchorEl(e.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
@@ -187,9 +199,20 @@ function ProductPage() {
                         <Button size="small" color="error">
                           삭제
                         </Button>
-                        <Button size="small" color="success">
+                        <Button onClick={handleOpen} size="small" color="success">
                           현황
                         </Button>
+                        <Dialog BackdropProps={{ sx: { bgcolor: 'rgba(0,0,0,0.2)' } }} onClose={handleClose} open={open}>
+                          <DialogTitle>대여 사용자</DialogTitle>
+                          <DialogContent>
+                            <List>
+                              <ListItem button>
+                                <ListItemText sx={{ textAlign: 'center', mr: '5px' }} primary={'이성준'} secondary={'010-5530-0651'} />
+                                <ListItemText secondary={'2022-05-23 ~ 2022-05-27'} />
+                              </ListItem>
+                            </List>
+                          </DialogContent>
+                        </Dialog>
                       </div>
                     </ImageListItem>
                   ))}
