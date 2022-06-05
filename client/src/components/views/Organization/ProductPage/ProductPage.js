@@ -207,8 +207,32 @@ function ProductPage() {
                           <DialogContent>
                             <List>
                               <ListItem button>
-                                <ListItemText sx={{ textAlign: 'center', mr: '5px' }} primary={'이성준'} secondary={'010-5530-0651'} />
-                                <ListItemText secondary={'2022-05-23 ~ 2022-05-27'} />
+                                <ListItemText
+                                  sx={{ textAlign: 'center', mr: '5px' }}
+                                  primary={'UR2022'}
+                                  secondary={
+                                    <div>
+                                      이성준
+                                      <br />
+                                      010-5530-0651
+                                      <br />
+                                      2022-05-23 ~ 2022-05-27
+                                    </div>
+                                  }
+                                />
+                                <ListItemText
+                                  sx={{ textAlign: 'center', mr: '5px' }}
+                                  primary={'UR2023'}
+                                  secondary={
+                                    <div>
+                                      최한윤
+                                      <br />
+                                      010-6205-7949
+                                      <br />
+                                      2022-05-24 ~ 2022-05-26
+                                    </div>
+                                  }
+                                />
                               </ListItem>
                             </List>
                           </DialogContent>
