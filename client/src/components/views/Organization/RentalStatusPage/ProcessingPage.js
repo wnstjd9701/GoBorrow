@@ -76,7 +76,7 @@ const DivOverButton = styled('div')(({ theme }) => ({
   textAlign: 'center',
 }));
 
-function RentalRequestPage() {
+function RentalProcessingPage() {
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('lg'));
   const matchDownSm = useMediaQuery(theme.breakpoints.down('md'));
@@ -554,8 +554,8 @@ function RentalRequestPage() {
   );
 }
 
-RentalRequestPage.propTypes = {
+RentalProcessingPage.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-export default RentalRequestPage;
+export default RentalProcessingPage;
