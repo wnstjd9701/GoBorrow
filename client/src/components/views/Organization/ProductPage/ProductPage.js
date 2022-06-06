@@ -6,20 +6,7 @@ import Footer from '../../Public/Footer/Footer';
 import Sidebar from '../MainPage/SideBar/Sidebar';
 import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
-import {
-  Avatar,
-  CardContent,
-  Divider,
-  Grid,
-  Menu,
-  MenuItem,
-  Typography,
-  Box,
-  useMediaQuery,
-  Card,
-  ListItem,
-  ListItemText,
-} from '@mui/material';
+import { CardContent, Grid, Typography, Box, useMediaQuery, ListItem, ListItemText } from '@mui/material';
 import List from '@mui/material/List';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -206,17 +193,19 @@ function ProductPage() {
                           <DialogTitle>대여 사용자</DialogTitle>
                           <DialogContent>
                             <List>
-                              <ListItem button>
+                              <ListItem sx={{ display: 'table-row' }}>
                                 <ListItemText
                                   sx={{ textAlign: 'center', mr: '5px' }}
                                   primary={'UR2022'}
                                   secondary={
                                     <div>
-                                      이성준
+                                      이름: 이성준(32173058)
                                       <br />
-                                      010-5530-0651
+                                      연락처: 010-5530-0651
                                       <br />
-                                      2022-05-23 ~ 2022-05-27
+                                      대여기간: 2022-05-23 ~ 2022-05-27
+                                      <br />
+                                      반납시간: 16:00
                                     </div>
                                   }
                                 />
@@ -225,11 +214,13 @@ function ProductPage() {
                                   primary={'UR2023'}
                                   secondary={
                                     <div>
-                                      최한윤
+                                      이름: 최한윤(32174727)
                                       <br />
-                                      010-6205-7949
+                                      연락처: 010-6205-7949
                                       <br />
-                                      2022-05-24 ~ 2022-05-26
+                                      대여기간: 2022-05-24 ~ 2022-05-26
+                                      <br />
+                                      반납시간: 16:00
                                     </div>
                                   }
                                 />
