@@ -16,6 +16,8 @@ import OrganizationPostProudctItemPage from './components/views/Organization/Pos
 import OrganizationPostProudctPage from './components/views/Organization/PostPage/PostProductPage/PostProductPage';
 import OrganizationRentalRequestPage from './components/views/Organization/RentalRequestPage/RentalRequestPage';
 import OrganizationRentalProcessingPage from './components/views/Organization/RentalStatusPage/ProcessingPage';
+import OrganizationRentalHistoryPage from './components/views/Organization/RentalStatusPage/HistoryPage';
+import OrganizationMyPage from './components/views/Organization/MyPage/MyPage';
 
 class App extends Component {
   render() {
@@ -39,8 +41,10 @@ class App extends Component {
             <Route exact path="/org/products/product-list" element={<OrganizationProductListPage />} />
             <Route exact path="/org/products/rental/request" element={<OrganizationRentalRequestPage />} />
             <Route exact path="/org/products/rental/processing" element={<OrganizationRentalProcessingPage />} />
+            <Route exact path="/org/products/rental/history" element={<OrganizationRentalHistoryPage />} />
             <Route exact path="/org/post/product" element={<OrganizationPostProudctPage />} />
             <Route exact path="/org/post/product/item" element={<OrganizationPostProudctItemPage />} />
+            <Route exact path="/org/my-page" element={<OrganizationMyPage />} />
           </Routes>
         </div>
       </Router>
