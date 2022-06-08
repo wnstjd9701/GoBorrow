@@ -48,7 +48,7 @@ function MainHeader({ org }) {
 
   useEffect(() => {
     async function getProfile() {
-      const profile = await authAxios.get('/app/users/profile');
+      const profile = await authAxios.get('/app/users/profile/test3');
       if (profile.data.isSuccess) {
         setName(profile.data.data.userName);
       }
@@ -111,7 +111,7 @@ function MainHeader({ org }) {
           variant="text"
           onClick={postLogOut}
         >
-          LOGOUT
+          <b>로그아웃</b>
         </Button>
         <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
           <Button
@@ -122,7 +122,7 @@ function MainHeader({ org }) {
             size="medium"
             variant="text"
           >
-            HOME
+            <b>홈</b>
           </Button>
         </Link>
         <span style={{ float: 'right', display: 'inline-flex', lineHeight: '1.75em', padding: '6px 8px' }}>
