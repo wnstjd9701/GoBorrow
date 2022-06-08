@@ -107,6 +107,12 @@ function RentalProcessingPage() {
     setDetailEl(null);
   };
 
+  const handleCheckReturn = e => {
+    const id = e.currentTarget.id;
+    alert('반납처리가 완료되었습니다.');
+    document.getElementsByName(id)[0].style.display = 'none';
+  };
+
   useEffect(() => {
     dispatch({ type: SET_MENU, opened: !matchDownMd });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,7 +130,7 @@ function RentalProcessingPage() {
                 <Grid item xs={12}>
                   <Grid container alignContent="center" justifyContent="space-between">
                     <Grid item>
-                      <Typography variant="h5">Rental Processing Status</Typography>
+                      <Typography variant="h5">진행중인 대여 현황</Typography>
                     </Grid>
                     <Grid item>
                       <MoreHorizOutlinedIcon
@@ -161,7 +167,7 @@ function RentalProcessingPage() {
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                  <Grid container direction="column">
+                  <Grid name="1" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -176,60 +182,10 @@ function RentalProcessingPage() {
                           <Grid container alignItems="center" justifyContent="center">
                             <Grid item textAlign="center">
                               <Typography variant="subtitle1" color="inherit">
-                                32173058 이성준
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-20 ~ 2022-05-21
-                              </Typography>
-                            </Grid>
-                            <Grid item>
-                              <Avatar
-                                variant="rounded"
-                                sx={{
-                                  width: 16,
-                                  height: 16,
-                                  backgroundColor: 'black',
-                                  color: theme.palette.success.light,
-                                  marginLeft: 1.875,
-                                }}
-                              >
-                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                              </Avatar>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
-                          <div>
-                            <DivButton>010-5530-0651</DivButton>
-                            <DivButton>D-2</DivButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
-                              상세 정보
-                            </Button>
-                          </div>
-                        </Title>
-                      </Title>
-                    </Grid>
-                  </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Title container alignItems="center" spacing={4}>
-                        <Grid item textAlign="center" minWidth={140}>
-                          <Typography variant="subtitle1" color="inherit">
-                            우산
-                          </Typography>
-                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            UR1023
-                          </Typography>
-                        </Grid>
-                        <Grid item textAlign="center">
-                          <Grid container alignItems="center" justifyContent="center">
-                            <Grid item textAlign="center">
-                              <Typography variant="subtitle1" color="inherit">
                                 32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-23
+                                2022-06-08 ~ 2022-06-15
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -250,18 +206,20 @@ function RentalProcessingPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <DivButton>010-7208-5025</DivButton>
-                            <DivButton>D-2</DivButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                            <DivButton>D-7</DivButton>
+                            <Button id="1" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="1" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="3" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -279,7 +237,7 @@ function RentalProcessingPage() {
                                 32174727 최한윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-29
+                                2022-06-07 ~ 2022-06-10
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -300,26 +258,28 @@ function RentalProcessingPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <DivButton>010-6205-7949</DivButton>
                             <DivButton>D-2</DivButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                            <Button id="3" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="3" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="2" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
                           <Typography variant="subtitle1" color="inherit">
-                            자전거
+                            우산
                           </Typography>
                           <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            BK7777
+                            UR1023
                           </Typography>
                         </Grid>
                         <Grid item textAlign="center">
@@ -329,7 +289,7 @@ function RentalProcessingPage() {
                                 32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-24 ~ 2022-05-28
+                                2022-06-07 ~ 2022-06-08
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -350,18 +310,20 @@ function RentalProcessingPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <DivButton>010-7208-5025</DivButton>
-                            <DivButton>D-2</DivButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                            <DivButton>D-DAY</DivButton>
+                            <Button id="2" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="2" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="6" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -379,7 +341,59 @@ function RentalProcessingPage() {
                                 32162956 윤준성
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-25
+                                2022-06-02 ~ 2022-06-16
+                              </Typography>
+                            </Grid>
+                            <Grid item>
+                              <Avatar
+                                variant="rounded"
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  backgroundColor: 'black',
+                                  color: theme.palette.success.light,
+                                  marginLeft: 1.875,
+                                }}
+                              >
+                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                              </Avatar>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
+                          <div>
+                            <DivButton>D-8</DivButton>
+                            <Button id="6" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                              상세 정보
+                            </Button>
+                          </div>
+                        </Title>
+                      </Title>
+                    </Grid>
+                    <Divider sx={{ my: 1.5 }} />
+                  </Grid>
+                  <Grid name="5" container direction="column">
+                    <Grid item>
+                      <Title container alignItems="center" spacing={4}>
+                        <Grid item textAlign="center" minWidth={140}>
+                          <Typography variant="subtitle1" color="inherit">
+                            노트북
+                          </Typography>
+                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                            NB1004
+                          </Typography>
+                        </Grid>
+                        <Grid item textAlign="center">
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item textAlign="center">
+                              <Typography variant="subtitle1" color="inherit">
+                                32162956 윤준성
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                2022-05-28 ~ 2022-06-06
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -400,68 +414,20 @@ function RentalProcessingPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <DivOverButton>010-2657-0707</DivOverButton>
                             <DivOverButton>연체+2</DivOverButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                            <Button id="5" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="5" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Title container alignItems="center" spacing={4}>
-                        <Grid item textAlign="center" minWidth={140}>
-                          <Typography variant="subtitle1" color="inherit">
-                            노트북
-                          </Typography>
-                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            NB1004
-                          </Typography>
-                        </Grid>
-                        <Grid item textAlign="center">
-                          <Grid container alignItems="center" justifyContent="center">
-                            <Grid item textAlign="center">
-                              <Typography variant="subtitle1" color="inherit">
-                                32162956 윤준성
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-06-02 ~ 2022-06-04
-                              </Typography>
-                            </Grid>
-                            <Grid item>
-                              <Avatar
-                                variant="rounded"
-                                sx={{
-                                  width: 16,
-                                  height: 16,
-                                  backgroundColor: 'black',
-                                  color: theme.palette.success.light,
-                                  marginLeft: 1.875,
-                                }}
-                              >
-                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                              </Avatar>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
-                          <div>
-                            <DivButton>010-2657-0707</DivButton>
-                            <DivButton>D-2</DivButton>
-                            <Button id="6" onClick={handleSetDetailEl} color="success">
-                              상세 정보
-                            </Button>
-                          </div>
-                        </Title>
-                      </Title>
-                    </Grid>
-                  </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="7" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -479,7 +445,7 @@ function RentalProcessingPage() {
                                 32173058 이성준
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-06-01 ~ 2022-06-23
+                                2022-05-30 ~ 2022-06-04
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -500,8 +466,10 @@ function RentalProcessingPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <DivOverButton>010-5530-0651</DivOverButton>
-                            <DivOverButton>연체+2</DivOverButton>
+                            <DivOverButton>연체+4</DivOverButton>
+                            <Button id="7" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
                             <Button id="7" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
@@ -509,34 +477,90 @@ function RentalProcessingPage() {
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
+                  </Grid>
+                  <Grid name="4" container direction="column">
+                    <Grid item>
+                      <Title container alignItems="center" spacing={4}>
+                        <Grid item textAlign="center" minWidth={140}>
+                          <Typography variant="subtitle1" color="inherit">
+                            자전거
+                          </Typography>
+                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                            BK7777
+                          </Typography>
+                        </Grid>
+                        <Grid item textAlign="center">
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item textAlign="center">
+                              <Typography variant="subtitle1" color="inherit">
+                                32194747 최지윤
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                2022-06-05 ~ 2022-06-12
+                              </Typography>
+                            </Grid>
+                            <Grid item>
+                              <Avatar
+                                variant="rounded"
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  backgroundColor: 'black',
+                                  color: theme.palette.success.light,
+                                  marginLeft: 1.875,
+                                }}
+                              >
+                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                              </Avatar>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
+                          <div>
+                            <DivButton>D-4</DivButton>
+                            <Button id="4" onClick={handleCheckReturn}>
+                              반납 확인
+                            </Button>
+                            <Button id="4" onClick={handleSetDetailEl} color="success">
+                              상세 정보
+                            </Button>
+                          </div>
+                        </Title>
+                      </Title>
+                    </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
                 </Grid>
               </Grid>
             </CardContent>
             <div style={{ margin: '5px' }}>
-              <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
+              <Pagination style={{ justifyContent: 'center' }} count={1} shape="rounded" />
             </div>
           </Main>
           {detailEl ? (
             <Card sx={{ maxWidth: 345, flexShrink: 1.5 }}>
               <CardMedia
                 component="img"
-                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpg"
+                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%ED%95%99%EC%83%9D%EC%A6%9D.jpg"
                 alt="authImage"
               />
               <CardContent>
                 <Typography variant="subtitle2" color="black">
                   <div style={{ margin: '5px' }}>
-                    <b>이름: </b>이성준
+                    <b>이름: </b>최지윤
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>학번: </b>32173058
+                    <b>학번: </b>32194747
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>기간: </b>2022-06-01 ~ 2022-06-23
+                    <b>기간: </b>2022-06-08 ~ 2022-06-15
                   </div>
                   <div style={{ margin: '5px' }}>
                     <b>시간: </b>17:30
+                  </div>
+                  <div style={{ margin: '5px' }}>
+                    <b>연락처: </b>010-5530-0651
                   </div>
                 </Typography>
               </CardContent>
