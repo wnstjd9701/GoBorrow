@@ -39,11 +39,11 @@ export default function SearchResultPage(props) {
             </Link>
             <CardMedia
               component="img"
-              height="140"
+              height="140vmin"
               image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
               alt="green iguana"
             />
-            <CardActions>
+            <CardActions sx={{ placeContent: 'center' }}>
               <Button size="small">Share</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
@@ -73,11 +73,11 @@ export default function SearchResultPage(props) {
             </Link>
             <CardMedia
               component="img"
-              height="140"
-              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
+              height="140vmin"
+              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%8B%A8%EA%B5%AD%EB%8C%80+%EB%A1%9C%EA%B3%A03.jpg"
               alt="green iguana"
             />
-            <CardActions>
+            <CardActions sx={{ placeContent: 'center' }}>
               <Button size="small">Share</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
@@ -88,7 +88,7 @@ export default function SearchResultPage(props) {
             <Link to="3">
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="(주)단국바이크"
+                title="(주)단국대 바이크"
                 subheaderTypographyProps={{
                   color: 'black',
                   fontSize: '0.875rem',
@@ -107,11 +107,11 @@ export default function SearchResultPage(props) {
             </Link>
             <CardMedia
               component="img"
-              height="140"
-              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
+              height="140vmin"
+              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9E%90%EC%A0%84%EA%B1%B0.jpg"
               alt="green iguana"
             />
-            <CardActions>
+            <CardActions sx={{ placeContent: 'center' }}>
               <Button size="small">Share</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
@@ -143,11 +143,11 @@ export default function SearchResultPage(props) {
             </Link>
             <CardMedia
               component="img"
-              height="140"
-              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
+              height="140vmin"
+              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%8B%A8%EA%B5%AD%EB%8C%80%EB%A1%9C%EA%B3%A02.jpeg"
               alt="green iguana"
             />
-            <CardActions>
+            <CardActions sx={{ placeContent: 'center' }}>
               <Button size="small">Share</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
@@ -158,7 +158,7 @@ export default function SearchResultPage(props) {
             <Link to="5">
               <CardHeader
                 titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국서점"
+                title="단국대서점"
                 subheaderTypographyProps={{
                   color: 'black',
                   fontSize: '0.875rem',
@@ -177,45 +177,11 @@ export default function SearchResultPage(props) {
             </Link>
             <CardMedia
               component="img"
-              height="140"
-              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
+              height="140vmin"
+              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%8B%A8%EA%B5%AD%EB%8C%80%EB%A1%9C%EA%B3%A0.png"
               alt="green iguana"
             />
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
-          <Card sx={{ width: '100%', overflow: 'ellipsis' }}>
-            <Link to="6">
-              <CardHeader
-                titleTypographyProps={{ fontSize: '1.15rem' }}
-                title="단국대학교"
-                subheaderTypographyProps={{
-                  color: 'black',
-                  fontSize: '0.875rem',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  width: '200px',
-                }}
-                subheader="경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152경기도 용인시 수지구 죽전로 152"
-                action={
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteBorderIcon />
-                  </IconButton>
-                }
-              />
-            </Link>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/dku.jpg"
-              alt="green iguana"
-            />
-            <CardActions>
+            <CardActions sx={{ placeContent: 'center' }}>
               <Button size="small">Share</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
