@@ -75,13 +75,15 @@ export default function PostProductPage() {
     const body = {
       item: Items,
     };
-    dispatch(postPorudctItem(body)).then(response => {
-      if (response.payload.isSuccess) {
-        navigate('/org');
-      } else {
-        alert(response.payload.message);
-      }
-    });
+    alert('등록이 완료되었습니다.');
+    navigate('/org/products/product-list');
+    // dispatch(postPorudctItem(body)).then(response => {
+    //   if (response.payload.isSuccess) {
+    //     navigate('/org');
+    //   } else {
+    //     alert(response.payload.message);
+    //   }
+    // });
   };
 
   return (

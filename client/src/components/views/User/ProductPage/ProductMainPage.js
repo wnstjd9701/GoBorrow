@@ -60,14 +60,16 @@ export default function ProductMainPage() {
 
   const onSubmitHandler = e => {
     e.preventDefault();
+    alert('예약이 완료되었습니다.');
+    navigate('/');
     const body = {};
-    dispatch().then(response => {
-      if (response.payload.isSuccess) {
-        navigate('/org');
-      } else {
-        alert(response.payload.message);
-      }
-    });
+    // dispatch().then(response => {
+    //   if (response.payload.isSuccess) {
+    //     navigate('/org');
+    //   } else {
+    //     alert(response.payload.message);
+    //   }
+    // });
   };
 
   useEffect(() => {
