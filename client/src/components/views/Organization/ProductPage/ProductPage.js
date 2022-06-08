@@ -6,7 +6,7 @@ import Footer from '../../Public/Footer/Footer';
 import Sidebar from '../MainPage/SideBar/Sidebar';
 import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
-import { CardContent, Grid, Typography, Box, useMediaQuery, ListItem, ListItemText } from '@mui/material';
+import { CardContent, Grid, Typography, Box, useMediaQuery, ListItem, ListItemText, Divider } from '@mui/material';
 import List from '@mui/material/List';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Pagination from '@mui/material/Pagination';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ theme, open }) => ({
   ...theme.typography.mainContent,
@@ -62,11 +63,18 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
 
 const itemData = [
   {
+    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C.jpg',
+    title: '아이패드',
+    state: true,
+    quantity: '2',
+    stock: '2',
+  },
+  {
     img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%9A%B0%EC%82%B0.jpg',
     title: '우산',
     state: true,
     quantity: '20',
-    stock: '15',
+    stock: '18',
   },
   {
     img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%85%B8%ED%8A%B8%EB%B6%81.jpeg',
@@ -81,13 +89,6 @@ const itemData = [
     state: true,
     quantity: '4',
     stock: '2',
-  },
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C.jpg',
-    title: '아이패드',
-    state: true,
-    quantity: '5',
-    stock: '3',
   },
 ];
 
@@ -133,7 +134,7 @@ function ProductPage() {
               <Grid item xs={12}>
                 <Grid container justifyContent="space-between">
                   <Grid item>
-                    <Typography variant="h5">Product List</Typography>
+                    <Typography variant="h5">품목 리스트</Typography>
                   </Grid>
                   <Grid item>
                     <Link to="/org/post/product">
@@ -209,6 +210,7 @@ function ProductPage() {
                                     </div>
                                   }
                                 />
+                                <Divider sx={{ my: 1.5 }} />
                                 <ListItemText
                                   sx={{ textAlign: 'center', mr: '5px' }}
                                   primary={'UR2023'}
@@ -224,8 +226,10 @@ function ProductPage() {
                                     </div>
                                   }
                                 />
+                                <Divider sx={{ my: 1.5 }} />
                               </ListItem>
                             </List>
+                            <Pagination style={{ justifyContent: 'center' }} count={1} shape="rounded" />
                           </DialogContent>
                         </Dialog>
                       </div>

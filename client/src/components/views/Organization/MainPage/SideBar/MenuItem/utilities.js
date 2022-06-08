@@ -9,12 +9,12 @@ const icons = {
 
 const utilities = {
   id: 'products',
-  title: 'Products',
+  title: '품목 현황',
   type: 'group',
   children: [
     {
       id: 'util-typography',
-      title: 'List',
+      title: '리스트',
       type: 'item',
       url: '/products/product-list',
       icon: icons.IconListNumbers,
@@ -22,7 +22,7 @@ const utilities = {
     },
     {
       id: 'util-shadow',
-      title: 'Request',
+      title: '최근 요청',
       type: 'item',
       url: '/products/rental/request',
       icon: icons.IconFoldUp,
@@ -30,20 +30,20 @@ const utilities = {
     },
     {
       id: 'status',
-      title: 'Rental Status',
+      title: '대여 현황',
       type: 'collapse',
       icon: icons.IconBook,
       children: [
         {
           id: 'process',
-          title: 'Processing',
+          title: '진행중인 대여 현황',
           type: 'item',
           url: '/products/rental/processing',
           breadcrumbs: false,
         },
         {
           id: 'history',
-          title: 'History',
+          title: '완료된 대여 현황',
           type: 'item',
           url: '/products/rental/history',
           breadcrumbs: false,

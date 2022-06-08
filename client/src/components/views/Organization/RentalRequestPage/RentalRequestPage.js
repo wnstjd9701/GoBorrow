@@ -80,6 +80,12 @@ function RentalRequestPage() {
     setAnchorEl(null);
   };
 
+  const handleConfirm = e => {
+    const id = e.currentTarget.id;
+    alert('승인되었습니다');
+    document.getElementsByName(id)[0].style.display = 'none';
+  };
+
   const leftDrawerOpened = useSelector(state => state.customization.opened);
 
   const handleLeftDrawerToggle = () => {
@@ -111,7 +117,7 @@ function RentalRequestPage() {
                 <Grid item xs={12}>
                   <Grid container justifyContent="space-between">
                     <Grid item>
-                      <Typography variant="h5">Recent Request</Typography>
+                      <Typography variant="h5">신규 대여 요청</Typography>
                     </Grid>
                     <Grid item>
                       <MoreHorizOutlinedIcon
@@ -148,7 +154,7 @@ function RentalRequestPage() {
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                  <Grid container direction="column">
+                  <Grid name="1" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -163,10 +169,10 @@ function RentalRequestPage() {
                           <Grid container alignItems="center" justifyContent="center">
                             <Grid item textAlign="center">
                               <Typography variant="subtitle1" color="inherit">
-                                32173058 이성준
+                                32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-20 ~ 2022-05-21
+                                2022-06-08 ~ 2022-06-15
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -187,18 +193,72 @@ function RentalRequestPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <Button>승인</Button>
+                            <Button id="1" onClick={handleConfirm}>
+                              승인
+                            </Button>
                             <Button color="error">거절</Button>
-                            <Button id="7" onClick={handleSetDetailEl} color="success">
+                            <Button id="1" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="3" container direction="column">
+                    <Grid item>
+                      <Title container alignItems="center" spacing={4}>
+                        <Grid item textAlign="center" minWidth={140}>
+                          <Typography variant="subtitle1" color="inherit">
+                            아이패드
+                          </Typography>
+                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                            IP4255
+                          </Typography>
+                        </Grid>
+                        <Grid item textAlign="center">
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item textAlign="center">
+                              <Typography variant="subtitle1" color="inherit">
+                                32173058 이성준
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                2022-06-22 ~ 2022-06-29
+                              </Typography>
+                            </Grid>
+                            <Grid item>
+                              <Avatar
+                                variant="rounded"
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  backgroundColor: 'black',
+                                  color: theme.palette.success.light,
+                                  marginLeft: 1.875,
+                                }}
+                              >
+                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                              </Avatar>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
+                          <div>
+                            <Button id="3" onClick={handleConfirm}>
+                              승인
+                            </Button>
+                            <Button color="error">거절</Button>
+                            <Button id="3" onClick={handleSetDetailEl} color="success">
+                              상세 정보
+                            </Button>
+                          </div>
+                        </Title>
+                      </Title>
+                    </Grid>
+                    <Divider sx={{ my: 1.5 }} />
+                  </Grid>
+                  <Grid name="2" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -216,7 +276,7 @@ function RentalRequestPage() {
                                 32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-23
+                                2022-06-12 ~ 2022-06-19
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -237,118 +297,20 @@ function RentalRequestPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <Button>승인</Button>
+                            <Button id="2" onClick={handleConfirm}>
+                              승인
+                            </Button>
                             <Button color="error">거절</Button>
-                            <Button id="7" onClick={handleSetDetailEl} color="success">
+                            <Button id="2" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Title container alignItems="center" spacing={4}>
-                        <Grid item textAlign="center" minWidth={140}>
-                          <Typography variant="subtitle1" color="inherit">
-                            아이패드
-                          </Typography>
-                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            IP4255
-                          </Typography>
-                        </Grid>
-                        <Grid item textAlign="center">
-                          <Grid container alignItems="center" justifyContent="center">
-                            <Grid item textAlign="center">
-                              <Typography variant="subtitle1" color="inherit">
-                                32174727 최한윤
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-29
-                              </Typography>
-                            </Grid>
-                            <Grid item>
-                              <Avatar
-                                variant="rounded"
-                                sx={{
-                                  width: 16,
-                                  height: 16,
-                                  backgroundColor: 'black',
-                                  color: theme.palette.success.light,
-                                  marginLeft: 1.875,
-                                }}
-                              >
-                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                              </Avatar>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
-                          <div>
-                            <Button>승인</Button>
-                            <Button color="error">거절</Button>
-                            <Button id="7" onClick={handleSetDetailEl} color="success">
-                              상세 정보
-                            </Button>
-                          </div>
-                        </Title>
-                      </Title>
-                    </Grid>
-                  </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
-                    <Grid item>
-                      <Title container alignItems="center" spacing={4}>
-                        <Grid item textAlign="center" minWidth={140}>
-                          <Typography variant="subtitle1" color="inherit">
-                            자전거
-                          </Typography>
-                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            BK7777
-                          </Typography>
-                        </Grid>
-                        <Grid item textAlign="center">
-                          <Grid container alignItems="center" justifyContent="center">
-                            <Grid item textAlign="center">
-                              <Typography variant="subtitle1" color="inherit">
-                                32194747 최지윤
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-24 ~ 2022-05-28
-                              </Typography>
-                            </Grid>
-                            <Grid item>
-                              <Avatar
-                                variant="rounded"
-                                sx={{
-                                  width: 16,
-                                  height: 16,
-                                  backgroundColor: 'black',
-                                  color: theme.palette.success.light,
-                                  marginLeft: 1.875,
-                                }}
-                              >
-                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                              </Avatar>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
-                          <div>
-                            <Button>승인</Button>
-                            <Button color="error">거절</Button>
-                            <Button id="7" onClick={handleSetDetailEl} color="success">
-                              상세 정보
-                            </Button>
-                          </div>
-                        </Title>
-                      </Title>
-                    </Grid>
-                  </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="5" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -366,7 +328,7 @@ function RentalRequestPage() {
                                 32162956 윤준성
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-22 ~ 2022-05-25
+                                2022-06-20 ~ 2022-06-23
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -387,34 +349,38 @@ function RentalRequestPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <Button>승인</Button>
+                            <Button id="5" onClick={handleConfirm}>
+                              승인
+                            </Button>
                             <Button color="error">거절</Button>
-                            <Button color="success">상세 정보</Button>
+                            <Button id="5" onClick={handleSetDetailEl} color="success">
+                              상세 정보
+                            </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="4" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
                           <Typography variant="subtitle1" color="inherit">
-                            노트북
+                            자전거
                           </Typography>
                           <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                            NB1004
+                            BK7777
                           </Typography>
                         </Grid>
                         <Grid item textAlign="center">
                           <Grid container alignItems="center" justifyContent="center">
                             <Grid item textAlign="center">
                               <Typography variant="subtitle1" color="inherit">
-                                32162956 윤준성
+                                32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-06-02 ~ 2022-06-04
+                                2022-06-24 ~ 2022-06-28
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -435,18 +401,20 @@ function RentalRequestPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <Button>승인</Button>
+                            <Button id="4" onClick={handleConfirm}>
+                              승인
+                            </Button>
                             <Button color="error">거절</Button>
-                            <Button id="7" onClick={handleSetDetailEl} color="success">
+                            <Button id="4" onClick={handleSetDetailEl} color="success">
                               상세 정보
                             </Button>
                           </div>
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
-                  <Divider sx={{ my: 1.5 }} />
-                  <Grid container direction="column">
+                  <Grid name="7" container direction="column">
                     <Grid item>
                       <Title container alignItems="center" spacing={4}>
                         <Grid item textAlign="center" minWidth={140}>
@@ -485,7 +453,9 @@ function RentalRequestPage() {
                         </Grid>
                         <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
                           <div>
-                            <Button>승인</Button>
+                            <Button id="7" onClick={handleConfirm}>
+                              승인
+                            </Button>
                             <Button color="error">거절</Button>
                             <Button id="7" onClick={handleSetDetailEl} color="success">
                               상세 정보
@@ -494,34 +464,87 @@ function RentalRequestPage() {
                         </Title>
                       </Title>
                     </Grid>
+                    <Divider sx={{ my: 1.5 }} />
+                  </Grid>
+                  <Grid name="6" container direction="column">
+                    <Grid item>
+                      <Title container alignItems="center" spacing={4}>
+                        <Grid item textAlign="center" minWidth={140}>
+                          <Typography variant="subtitle1" color="inherit">
+                            노트북
+                          </Typography>
+                          <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                            NB1004
+                          </Typography>
+                        </Grid>
+                        <Grid item textAlign="center">
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item textAlign="center">
+                              <Typography variant="subtitle1" color="inherit">
+                                32162956 윤준성
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                2022-06-12 ~ 2022-06-14
+                              </Typography>
+                            </Grid>
+                            <Grid item>
+                              <Avatar
+                                variant="rounded"
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  backgroundColor: 'black',
+                                  color: theme.palette.success.light,
+                                  marginLeft: 1.875,
+                                }}
+                              >
+                                <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                              </Avatar>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                        <Title item sx={{ float: 'right', flexGrow: 2, textAlign: 'right' }}>
+                          <div>
+                            <Button id="6" onClick={handleConfirm}>
+                              승인
+                            </Button>
+                            <Button color="error">거절</Button>
+                            <Button id="6" onClick={handleSetDetailEl} color="success">
+                              상세 정보
+                            </Button>
+                          </div>
+                        </Title>
+                      </Title>
+                    </Grid>
+                    <Divider sx={{ my: 1.5 }} />
                   </Grid>
                 </Grid>
               </Grid>
             </CardContent>
             <div style={{ margin: '5px' }}>
-              <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
+              <Pagination style={{ justifyContent: 'center' }} count={1} shape="rounded" />
             </div>
           </Main>
           {detailEl ? (
             <Card sx={{ maxWidth: 300, flexShrink: 1.5 }}>
               <CardMedia
                 component="img"
-                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpg"
+                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%ED%95%99%EC%83%9D%EC%A6%9D.jpg"
                 alt="authImage"
               />
               <CardContent>
                 <Typography variant="subtitle2" color="black">
                   <div style={{ margin: '5px' }}>
-                    <b>이름: </b>이성준
+                    <b>이름: </b>최지윤
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>학번: </b>32173058
+                    <b>학번: </b>32174747
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>기간: </b>2022-06-01 ~ 2022-06-23
+                    <b>기간: </b>2022-06-08 ~ 2022-06-15
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>시간: </b>17:30
+                    <b>대여 시간: </b>17:30
                   </div>
                   <div style={{ margin: '5px' }}>
                     <b>연락처: </b>010-5530-0651

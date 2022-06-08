@@ -4,12 +4,12 @@ const icons = { IconDashboard };
 
 const dashboard = {
   id: 'dashboard',
-  title: 'Dashboard',
+  title: '메인화면',
   type: 'group',
   children: [
     {
       id: 'default',
-      title: 'Dashboard',
+      title: '대시보드',
       type: 'item',
       url: '/',
       icon: icons.IconDashboard,

@@ -6,26 +6,26 @@ const icons = {
 
 const pages = {
   id: 'pages',
-  title: 'Pages',
-  caption: 'Viewing Page',
+  title: '페이지',
+  caption: '보여지는 페이지',
   type: 'group',
   children: [
     {
       id: 'page',
-      title: 'Page',
+      title: '페이지',
       type: 'collapse',
       icon: icons.IconBrandPagekit,
       children: [
         {
           id: 'orgpage',
-          title: 'Organization Page',
+          title: '기관 페이지',
           type: 'item',
           url: '/pages/org',
           target: true,
         },
         {
           id: 'productpage',
-          title: 'Product Page',
+          title: '상품 페이지',
           type: 'item',
           url: '/pages/product',
           target: true,
