@@ -124,7 +124,7 @@ function RentalHistoryPage() {
                 <Grid item xs={12}>
                   <Grid container alignContent="center" justifyContent="space-between">
                     <Grid item>
-                      <Typography variant="h5">Rental Processing Status</Typography>
+                      <Typography variant="h5">완료된 대여 현황</Typography>
                     </Grid>
                     <Grid item>
                       <MoreHorizOutlinedIcon
@@ -176,10 +176,10 @@ function RentalHistoryPage() {
                           <Grid container alignItems="center" justifyContent="center">
                             <Grid item textAlign="center">
                               <Typography variant="subtitle1" color="inherit">
-                                32173058 이성준
+                                32194747 최지윤
                               </Typography>
                               <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                2022-05-20 ~ 2022-05-21
+                                2022-06-08 ~ 2022-06-15
                               </Typography>
                             </Grid>
                             <Grid item>
@@ -507,22 +507,28 @@ function RentalHistoryPage() {
             <Card sx={{ maxWidth: 345, flexShrink: 1.5 }}>
               <CardMedia
                 component="img"
-                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpg"
+                image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%ED%95%99%EC%83%9D%EC%A6%9D.jpg"
                 alt="authImage"
               />
               <CardContent>
                 <Typography variant="subtitle2" color="black">
                   <div style={{ margin: '5px' }}>
-                    <b>이름: </b>이성준
+                    <b>이름: </b>최지윤
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>학번: </b>32173058
+                    <b>학번: </b>32194747
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>기간: </b>2022-06-01 ~ 2022-06-23
+                    <b>기간: </b>2022-06-08 ~ 2022-06-15
                   </div>
                   <div style={{ margin: '5px' }}>
-                    <b>시간: </b>17:30
+                    <b>반납일자: </b>2022-06-15
+                  </div>
+                  <div style={{ margin: '5px' }}>
+                    <b>반납시간: </b>17:30
+                  </div>
+                  <div style={{ margin: '5px' }}>
+                    <b>연락처: </b>010-5530-0651
                   </div>
                 </Typography>
               </CardContent>
