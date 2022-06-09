@@ -78,7 +78,6 @@ class organizationController {
     //const organizationId = req.id;
     console.log(req.id);
     const organizationId = 'testorg2';
-    console.log(1);
     const productReservationResult = await getProductReservationStatus(organizationId);
     return res.send(productReservationResult);
   };
