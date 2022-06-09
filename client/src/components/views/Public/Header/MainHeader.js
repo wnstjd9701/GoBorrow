@@ -48,7 +48,7 @@ function MainHeader({ org }) {
 
   useEffect(() => {
     async function getProfile() {
-      const profile = await authAxios.get('/app/users/profile/test3');
+      const profile = await authAxios.get('/app/users/profile');
       if (profile.data.isSuccess) {
         setName(profile.data.data.userName);
       }
