@@ -9,6 +9,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { Grid } from '@mui/material';
+import Pagination from '@mui/material/Pagination';
 
 export default function SearchResultPage(props) {
   const keyword = props.name;
@@ -187,7 +188,42 @@ export default function SearchResultPage(props) {
             </CardActions>
           </Card>
         </Grid>
+        <Grid style={{ maxWidth: 450, padding: '3px 10px', minWidth: 300, inlineSize: 'max-content' }} item xs={5}>
+          <Card style={{}} sx={{ width: '100%' }}>
+            <Link to="2">
+              <CardHeader
+                titleTypographyProps={{ fontSize: '1.15rem' }}
+                title="기관: 단국대학교"
+                subheaderTypographyProps={{
+                  color: 'black',
+                  fontSize: '0.875rem',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  width: '200px',
+                }}
+                subheader="융합대학 학생회"
+                action={
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
+            <CardMedia
+              component="img"
+              height="140vmin"
+              image="https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EB%8B%A8%EA%B5%AD%EB%8C%80+%EB%A1%9C%EA%B3%A03.jpg"
+              alt="green iguana"
+            />
+            <CardActions sx={{ placeContent: 'center' }}>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </Grid>
       </Grid>
+      <Pagination style={{ justifyContent: 'center' }} count={5} shape="rounded" />
     </>
   );
 }
