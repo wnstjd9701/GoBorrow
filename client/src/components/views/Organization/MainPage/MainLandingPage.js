@@ -1,7 +1,9 @@
 import Header from '../../Public/Header/MainHeader';
+import Footer from '../../Public/Footer/Footer';
 import { useDispatch, useSelector } from 'react-redux';
+import { SET_MENU } from '../../../../_actions/action_type';
 import { styled, useTheme } from '@mui/material/styles';
-import { Container, AppBar, Box, CssBaseline, Toolbar, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import Sidebar from './SideBar/Sidebar';
 import RecentRequest from '../Data/DashBoard/RecentData';
 import ProductStock from '../Data/DashBoard/ProductStock';
@@ -18,11 +20,10 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
       duration: theme.transitions.duration.leavingScreen,
     }),
     [theme.breakpoints.up('md')]: {
-      marginLeft: -240,
+      marginLeft: -260,
       width: '100%',
     },
     [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
       width: '100%',
       padding: '16px',
     },
@@ -41,13 +42,7 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })(({ t
     marginLeft: 0,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    width: '`calc(100% - 260px)`',
-    [theme.breakpoints.down('md')]: {
-      marginLeft: '20px',
-    },
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: '10px',
-    },
+    width: '100%',
   }),
 }));
 
@@ -55,32 +50,30 @@ const MainLayout = () => {
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('lg'));
   const matchDownSm = useMediaQuery(theme.breakpoints.down('md'));
-  const gridStyle = !matchDownSm ? { minWidth: 300 } : { minWidth: 300, maxWidth: '100% !important', flexBasis: '100% !important' };
   const leftDrawerOpened = useSelector(state => state.customization.opened);
   const dispatch = useDispatch();
   const handleLeftDrawerToggle = () => {
-    dispatch({ type: '@customization/SET_MENU', opened: !leftDrawerOpened });
+    dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   };
 
   useEffect(() => {
-    dispatch({ type: '@customization/SET_MENU', opened: !matchDownMd });
+    dispatch({ type: SET_MENU, opened: !matchDownMd });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchDownMd]);
 
   return (
     <>
-      <Header />
+      <Header org="1" />
       <Box sx={{ display: 'flex', flexGrow: '2' }}>
-        <CssBaseline />
         <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
         <Main theme={theme} open={leftDrawerOpened}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Grid sx={{ padding: '20px', backgroundColor: 'rgb(227, 242, 253)' }} container justifyContent="space-between" spacing={0}>
-                <Grid sx={gridStyle} item xs={6.9}>
+              <Grid sx={{ padding: '20px', backgroundColor: 'rgb(227, 242, 253)' }} container>
+                <Grid item xs={12} md={7}>
                   <RecentRequest />
                 </Grid>
-                <Grid sx={gridStyle} item xs={4.8}>
+                <Grid item xs={12} md={5}>
                   <ProductStock />
                 </Grid>
               </Grid>
@@ -88,6 +81,7 @@ const MainLayout = () => {
           </Grid>
         </Main>
       </Box>
+      <Footer />
     </>
   );
 };

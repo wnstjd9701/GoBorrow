@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
@@ -18,13 +19,13 @@ const ProductStock = ({ isLoading }) => {
         <MainCard sx={{ border: '1px solid rgba(144, 202, 249, 0.46)', borderRadius: '10px', padding: '5px' }} content={false}>
           <CardContent>
             <Grid container spacing={2}>
-              <Grid item xs={12} sx={{ pt: '16px !important' }}>
+              <Grid item xs={12}>
                 <ProductStockChartCard />
               </Grid>
               <Grid item xs={12}>
                 <Grid container alignContent="center" justifyContent="space-between">
                   <Grid item>
-                    <Typography variant="h5">Product Stock</Typography>
+                    <Typography variant="h5">품목 재고</Typography>
                   </Grid>
                 </Grid>
               </Grid>

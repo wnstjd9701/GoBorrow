@@ -1,9 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
 import { BrowserView, MobileView } from 'react-device-detect';
 import MenuList from './MenuList/MenuListLandingPage';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
   const theme = useTheme();

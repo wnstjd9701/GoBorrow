@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, Divider, Grid, Typography } from '@mui/material';
@@ -36,7 +36,6 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
 
   // set active item state
   const getCollapse = menu => {
-    console.log(menu);
     if (menu.children) {
       menu.children.filter(collapse => {
         if (collapse.type && collapse.type === 'collapse') {

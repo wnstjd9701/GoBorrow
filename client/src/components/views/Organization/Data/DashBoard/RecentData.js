@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
 import MainCard from '../../MainPage/Customization/Cards/MainCard';
@@ -32,7 +32,7 @@ const PopularCard = ({ isLoading }) => {
               <Grid item xs={12}>
                 <Grid container alignContent="center" justifyContent="space-between">
                   <Grid item>
-                    <Typography variant="h5">Recent Request</Typography>
+                    <Typography variant="h5">최근 요청</Typography>
                   </Grid>
                   <Grid item>
                     <MoreHorizOutlinedIcon
@@ -70,11 +70,57 @@ const PopularCard = ({ isLoading }) => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container direction="column">
-                  <Grid item>
+                  <Grid item textAlign="center">
                     <Grid container alignItems="center" justifyContent="space-between">
                       <Grid item>
                         <Typography variant="subtitle1" color="inherit">
                           우산
+                        </Typography>
+                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                          UR1022
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Grid container alignItems="center" justifyContent="space-between">
+                          <Grid item>
+                            <Typography variant="subtitle1" color="inherit">
+                              32194747 최지윤
+                            </Typography>
+                            <Grid item>
+                              <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                2022-06-08 ~ 2022-06-15
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                          <Grid item>
+                            <Avatar
+                              variant="rounded"
+                              sx={{
+                                width: 16,
+                                height: 16,
+                                backgroundColor: 'black',
+                                color: theme.palette.success.light,
+                                marginLeft: 1.875,
+                              }}
+                            >
+                              <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                            </Avatar>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Divider sx={{ my: 1.5 }} />
+                <Grid container direction="column">
+                  <Grid item textAlign="center">
+                    <Grid container alignItems="center" justifyContent="space-between">
+                      <Grid item textAlign="center">
+                        <Typography variant="subtitle1" color="inherit">
+                          아이패드
+                        </Typography>
+                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                          IP4255
                         </Typography>
                       </Grid>
                       <Grid item>
@@ -83,54 +129,8 @@ const PopularCard = ({ isLoading }) => {
                             <Typography variant="subtitle1" color="inherit">
                               32173058 이성준
                             </Typography>
-                          </Grid>
-                          <Grid item>
-                            <Avatar
-                              variant="rounded"
-                              sx={{
-                                width: 16,
-                                height: 16,
-                                backgroundColor: 'black',
-                                color: theme.palette.success.light,
-                                marginLeft: 1.875,
-                              }}
-                            >
-                              <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                            </Avatar>
-                          </Grid>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          UR1022
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          2022-05-20 ~ 2022-05-21
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-                <Divider sx={{ my: 1.5 }} />
-                <Grid container direction="column">
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle1" color="inherit">
-                          우산
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Grid container alignItems="center" justifyContent="space-between">
-                          <Grid item>
-                            <Typography variant="subtitle1" color="inherit">
-                              32194747 최지윤
+                            <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                              2022-06-22 ~ 2022-06-29
                             </Typography>
                           </Grid>
                           <Grid item>
@@ -151,35 +151,27 @@ const PopularCard = ({ isLoading }) => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item>
+                </Grid>
+                <Divider sx={{ my: 1.5 }} />
+                <Grid container direction="column">
+                  <Grid item textAlign="center">
                     <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
+                      <Grid item textAlign="center">
+                        <Typography variant="subtitle1" color="inherit">
+                          우산
+                        </Typography>
                         <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
                           UR1023
                         </Typography>
                       </Grid>
                       <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          2022-05-22 ~ 2022-05-23
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-                <Divider sx={{ my: 1.5 }} />
-                <Grid container direction="column">
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle1" color="inherit">
-                          아이패드
-                        </Typography>
-                      </Grid>
-                      <Grid item>
                         <Grid container alignItems="center" justifyContent="space-between">
                           <Grid item>
                             <Typography variant="subtitle1" color="inherit">
-                              32174727 최한윤
+                              32174747 최지윤
+                            </Typography>
+                            <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                              2022-06-12 ~ 2022-06-19
                             </Typography>
                           </Grid>
                           <Grid item>
@@ -200,77 +192,17 @@ const PopularCard = ({ isLoading }) => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          IP4255
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          2022-05-22 ~ 2022-05-29
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
                 </Grid>
                 <Divider sx={{ my: 1.5 }} />
                 <Grid container direction="column">
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle1" color="inherit">
-                          자전거
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Grid container alignItems="center" justifyContent="space-between">
-                          <Grid item>
-                            <Typography variant="subtitle1" color="inherit">
-                              32194747 최지윤
-                            </Typography>
-                          </Grid>
-                          <Grid item>
-                            <Avatar
-                              variant="rounded"
-                              sx={{
-                                width: 16,
-                                height: 16,
-                                backgroundColor: 'black',
-                                color: theme.palette.success.light,
-                                marginLeft: 1.875,
-                              }}
-                            >
-                              <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
-                            </Avatar>
-                          </Grid>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  <Grid item>
-                    <Grid container alignItems="center" justifyContent="space-between">
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          BK7777
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          2022-05-24 ~ 2022-05-28
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-                <Divider sx={{ my: 1.5 }} />
-                <Grid container direction="column">
-                  <Grid item>
+                  <Grid item textAlign="center">
                     <Grid container alignItems="center" justifyContent="space-between">
                       <Grid item>
                         <Typography variant="subtitle1" color="inherit">
                           노트북
+                        </Typography>
+                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                          NB1004
                         </Typography>
                       </Grid>
                       <Grid item>
@@ -279,6 +211,9 @@ const PopularCard = ({ isLoading }) => {
                             <Typography variant="subtitle1" color="inherit">
                               32162956 윤준성
                             </Typography>
+                            <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                              2022-06-20 ~ 2022-06-23
+                            </Typography>
                           </Grid>
                           <Grid item>
                             <Avatar
@@ -298,17 +233,44 @@ const PopularCard = ({ isLoading }) => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item>
+                </Grid>
+                <Divider sx={{ my: 1.5 }} />
+                <Grid container direction="column">
+                  <Grid item textAlign="center">
                     <Grid container alignItems="center" justifyContent="space-between">
                       <Grid item>
+                        <Typography variant="subtitle1" color="inherit">
+                          자전거
+                        </Typography>
                         <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          NB1004
+                          BK7777
                         </Typography>
                       </Grid>
                       <Grid item>
-                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                          2022-05-22 ~ 2022-05-25
-                        </Typography>
+                        <Grid container alignItems="center" justifyContent="space-between">
+                          <Grid item>
+                            <Typography variant="subtitle1" color="inherit">
+                              32194747 최지윤
+                            </Typography>
+                            <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                              2022-06-24 ~ 2022-06-28
+                            </Typography>
+                          </Grid>
+                          <Grid item>
+                            <Avatar
+                              variant="rounded"
+                              sx={{
+                                width: 16,
+                                height: 16,
+                                backgroundColor: 'black',
+                                color: theme.palette.success.light,
+                                marginLeft: 1.875,
+                              }}
+                            >
+                              <CheckBoxRoundedIcon fontSize="medium" color="inherit" />
+                            </Avatar>
+                          </Grid>
+                        </Grid>
                       </Grid>
                     </Grid>
                   </Grid>

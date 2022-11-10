@@ -25,7 +25,7 @@ export async function getUserInfo(connection, params) {
 
 export async function getOrganizationUserInfo(connection, params) {
   const getOrganizationInformation = `
-  SELECT   
+  SELECT organizationId FROM Organization WHERE organizationId = ? 
   `;
   const [organizationInfoResult] = await connection.query(getOrganizationInformation, params);
   return organizationInfoResult;

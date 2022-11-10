@@ -2,6 +2,7 @@ import {
   createUserAccount,
   createOrganizationUserAccount,
   getUserInfo,
+  getOrganizationUserInfo,
   updateUserProfileInfo,
   updateUserPassword,
   updateOrganizationPassword,
@@ -25,7 +26,7 @@ dotenv.config('../../../.env');
 // Create, Update, Delete
 
 export async function createUser(userId, password, userName, phoneNumber, address, type, info) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const userIdCheckResult = await userIdCheck(userId);
     if (userIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id가 이미 존재할 경우
@@ -37,7 +38,6 @@ export async function createUser(userId, password, userName, phoneNumber, addres
     connection.release();
     return SIGNUP_SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   }
 }
@@ -53,7 +53,7 @@ export async function createOrganizationUser(
   type,
   info,
 ) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationIdCheckResult = await organizationIdCheck(organizationId);
     if (organizationIdCheckResult.length > 0) return ID_ALREADY_EXISTS; // id 가 이미 존재할 경우
@@ -65,14 +65,14 @@ export async function createOrganizationUser(
 
     return SIGNUP_SUCCESS;
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
 }
 
 export async function userLogin(userId, password, type) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
 
   try {
     const userIdCheckResult = await userIdCheck(userId);
@@ -97,14 +97,14 @@ export async function userLogin(userId, password, type) {
       return PASSWORD_WRONG;
     }
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
 }
 
 export async function organizationUserLogin(organizationId, password, type) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const organizationUserIdCheck = await organizationIdCheck(organizationId);
     if (organizationUserIdCheck.length < 1) return LOGIN_FAILURE;
@@ -127,14 +127,14 @@ export async function organizationUserLogin(organizationId, password, type) {
       return PASSWORD_WRONG;
     }
   } catch (err) {
-    console.log(err);
+    return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
   }
 }
 
 export async function changeUserPassword(userId, newPassword) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
     const params = [hashedPassword, userId];
@@ -142,7 +142,6 @@ export async function changeUserPassword(userId, newPassword) {
     const changePasswordResult = await updateUserPassword(connection, params);
     return SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
@@ -150,7 +149,7 @@ export async function changeUserPassword(userId, newPassword) {
 }
 
 export async function changeOrganizationPassword(organizationId, newPassword) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const hashedPassword = createHash('sha512').update(newPassword).digest('hex');
     const params = [hashedPassword, organizationId];
@@ -158,7 +157,6 @@ export async function changeOrganizationPassword(organizationId, newPassword) {
     const changePasswordResult = updateOrganizationPassword(connection, params);
     return SUCCESS;
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();
@@ -166,12 +164,12 @@ export async function changeOrganizationPassword(organizationId, newPassword) {
 }
 
 export async function updateUserProfile(userName, phoneNumber, address, info, userId) {
-  const connection = await pool.getConnection(async (conn) => conn);
+  const connection = await pool.getConnection(async conn => conn);
   try {
     const params = [userName, phoneNumber, address, info, userId];
     const updateUserProfileResponse = await updateUserProfileInfo(connection, params);
-    console.log(updateUserProfileResponse.affectedRows);
-    console.log(updateUserProfileResponse.changedRows);
+    // console.log(updateUserProfileResponse.affectedRows);
+    // console.log(updateUserProfileResponse.changedRows);
     // changedRows = 0 -> 변경된 내용 없음
     // changedRows = 숫자 -> 변경된 열 수
     return {
@@ -183,7 +181,6 @@ export async function updateUserProfile(userName, phoneNumber, address, info, us
       },
     };
   } catch (err) {
-    console.log(err);
     return SERVER_CONNECT_ERROR;
   } finally {
     connection.release();

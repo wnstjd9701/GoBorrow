@@ -39,13 +39,8 @@ const itemData = [
     state: true,
     quantity: '2',
   },
-  {
-    img: 'https://s3.ap-northeast-2.amazonaws.com/img.castlejun-2.shop/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C.jpg',
-    title: '아이패드',
-    state: true,
-    quantity: '3',
-  },
 ];
+
 const handleSide = (state, quantity) => {
   if (state == true) {
     return (
@@ -110,6 +105,7 @@ export default function OrgMainPage() {
             margin: '15px auto',
             gridTemplateColumns: 'repeat(4, 1fr) !important',
             gap: '10px !important',
+            overflowY: 'visible !important',
           }}
         >
           {itemData.map(item => (

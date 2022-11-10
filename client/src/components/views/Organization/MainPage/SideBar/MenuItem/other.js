@@ -8,7 +8,7 @@ const other = {
   children: [
     {
       id: 'my-page',
-      title: 'My Page',
+      title: '마이 페이지',
       type: 'item',
       url: '/my-page',
       icon: icons.IconBrandChrome,
@@ -16,7 +16,7 @@ const other = {
     },
     {
       id: 'withdrawal',
-      title: 'WithDrawal',
+      title: '회원탈퇴',
       type: 'item',
       url: '/withdrawal',
       icon: icons.IconHelp,

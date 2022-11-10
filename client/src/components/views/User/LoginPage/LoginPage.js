@@ -23,16 +23,27 @@ export default function LoginPage(props) {
       password: Password,
       type: props.name,
     };
-
-    dispatch(loginUser(body)).then(response => {
-      if (response.payload.isSuccess) {
-        localStorage.setItem('accessToken', response.payload.accessToken);
-        localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
-        navigate('/');
-      } else {
-        alert(response.payload.message);
-      }
-    });
+    if (props.name === 1) {
+      dispatch(loginUser(body)).then(response => {
+        if (response.payload.isSuccess) {
+          localStorage.setItem('accessToken', response.payload.accessToken);
+          localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
+          navigate('/');
+        } else {
+          alert(response.payload.message);
+        }
+      });
+    } else {
+      dispatch(loginUser(body)).then(response => {
+        if (response.payload.isSuccess) {
+          localStorage.setItem('accessToken', response.payload.accessToken);
+          localStorage.setItem('expiresAt', moment().add(1, 'hour').format('yyyy-MM-DD HH:mm:ss'));
+          navigate('/org');
+        } else {
+          alert(response.payload.message);
+        }
+      });
+    }
   };
 
   return (
