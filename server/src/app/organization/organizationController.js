@@ -18,7 +18,7 @@ class organizationController {
     return res.send(organizationResult);
   };
   /**
-   *  API No. 6
+   *  API No. 9
    *  API Name : 기관 정보 API
    * [GET] /app/organization/:organizationName
    */
@@ -28,7 +28,7 @@ class organizationController {
     return res.send(organizationInformationResult);
   };
   /**
-   *  API No. 6
+   *  API No. 10
    *  API Name : 물품 대여 API
    * [GET] /app/organization/:organizationId/:productId
    */
